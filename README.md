@@ -2,50 +2,47 @@
 
 ## Travel slower. Collect stories. Keep the journey.
 
-100 Adventure is a modern travel journal that turns road trips into keepsakes.
+100 Adventure is a modern travel journal that transforms road trips into meaningful keepsakes.
 
-Discover routes, capture memories, collect ephemera, and create stories from every adventure.
+Explore curated adventures, capture memories, collect ephemera, and preserve the story of every journey.
 
 ---
 
-## ✨ Current Prototype
+## Prototype Features
 
-Built with:
+- 🗺 Adventure routes
+- 📸 Photo journaling
+- 🎟 Ephemera collection
+- 🏕 Adventure passport
+- 📖 Memory creation
+
+---
+
+## Built With
+
 - HTML
 - CSS
 - JavaScript
 - GitHub Pages
 
-Features:
-- 🗺 Adventure routes
-- 📸 Photo journaling
-- 🎟 Ephemera collection
-- 🏕 Travel passport
-- 📖 Memory creation
-
 ---
 
-## 🚧 In Development
-
-Future features:
-- Interactive maps
-- Spotify playlists
-- Shareable memory cards
-- Mini zine creator
-- Digital + printable journals
-
----
-
-## 🗺 First Adventure
+## First Prototype Adventure
 
 **Alabama Scenic Byway**
 
 Oxford → Talladega → Cheaha State Park
 
-A prototype journey exploring scenic roads, nature, and Americana.
+---
+
+## Future Development
+
+- Interactive maps
+- Spotify playlists
+- Shareable memory cards
+- Mini zine creator
+- Digital and printable journals
 
 ---
 
-## Status
-
-Prototype 0.1 🚧
+**Status:** Prototype 0.1 🚧
