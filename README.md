@@ -1,6 +1,6 @@
-# 100 Adventure 🚗
+# 100 mile Adventure 
 
-## Travel slower. Collect stories. Keep the journey.
+## 
 
 100 Adventure is a modern travel journal that transforms road trips into meaningful keepsakes.
 
