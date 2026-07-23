@@ -1,0 +1,91 @@
+body {
+    margin:0;
+    background:#F8F5EF;
+    color:#3B3028;
+    font-family:Arial, sans-serif;
+    padding-bottom:90px;
+}
+
+
+header {
+    background:#EEE3D1;
+    padding:40px 25px;
+    text-align:center;
+}
+
+
+h1, h2 {
+    font-family:Georgia, serif;
+}
+
+
+.subtitle {
+    color:#6D8796;
+}
+
+
+.card {
+    background:white;
+    margin:20px;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+
+.label {
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:#7D8B74;
+}
+
+
+.button {
+    display:inline-block;
+    background:#5D4633;
+    color:white;
+    padding:12px 25px;
+    border-radius:30px;
+    text-decoration:none;
+}
+
+
+.nav {
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:white;
+    display:flex;
+    justify-content:space-around;
+    padding:15px 5px;
+    box-shadow:0 -3px 15px rgba(0,0,0,.1);
+}
+
+
+.nav a {
+    text-decoration:none;
+    color:#3B3028;
+    font-size:13px;
+    text-align:center;
+}
+
+
+.creation,
+.adventure,
+.feature {
+    background:#EEE3D1;
+    padding:18px;
+    border-radius:15px;
+    margin-top:15px;
+}
+
+
+@media(max-width:600px){
+
+.card {
+    margin:15px;
+}
+
+}
