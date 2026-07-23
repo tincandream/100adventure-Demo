@@ -2,100 +2,13 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>100 Adventure</title>
 
-<style>
-
-body {
-    margin:0;
-    background:#F8F5EF;
-    color:#3B3028;
-    font-family: Arial, sans-serif;
-}
-
-header {
-    padding:40px 25px;
-    text-align:center;
-}
-
-.logo {
-    font-family: Georgia, serif;
-    font-size:42px;
-    letter-spacing:1px;
-}
-
-.tagline {
-    font-size:18px;
-    color:#6D8796;
-    margin-top:10px;
-}
-
-.button {
-    display:inline-block;
-    background:#5D4633;
-    color:white;
-    padding:14px 28px;
-    border-radius:30px;
-    text-decoration:none;
-    margin-top:25px;
-}
-
-.card {
-    background:white;
-    margin:20px;
-    padding:25px;
-    border-radius:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
-
-.card h2 {
-    font-family:Georgia, serif;
-}
-
-.badge {
-    display:inline-block;
-    background:#7D8B74;
-    color:white;
-    padding:6px 12px;
-    border-radius:20px;
-    font-size:12px;
-}
-
-.route {
-    color:#6D8796;
-}
-
-.grid {
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-    margin-top:20px;
-}
-
-.feature {
-    text-align:center;
-    padding:15px;
-    background:#EEE3D1;
-    border-radius:15px;
-}
-
-
-@media(max-width:600px){
-
-.logo {
-    font-size:34px;
-}
-
-.grid {
-    grid-template-columns:1fr;
-}
-
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -105,16 +18,16 @@ header {
 
 <header>
 
-<div class="logo">
+<h1>
 100 Adventure
-</div>
+</h1>
 
-<div class="tagline">
+<p class="subtitle">
 Travel slower. Collect stories. Keep the journey.
-</div>
+</p>
 
 
-<a class="button" href="#">
+<a class="button" href="adventure.html">
 Begin Adventure
 </a>
 
@@ -124,9 +37,9 @@ Begin Adventure
 
 <div class="card">
 
-<span class="badge">
+<div class="label">
 Featured Adventure
-</span>
+</div>
 
 
 <h2>
@@ -145,7 +58,7 @@ historic roads, and hidden Americana.
 </p>
 
 
-<a class="button" href="#">
+<a class="button" href="adventure.html">
 Explore Route
 </a>
 
@@ -154,37 +67,103 @@ Explore Route
 
 
 
+
 <div class="card">
 
-<h2>
+<div class="label">
 My Journey
+</div>
+
+
+<h2>
+Start Collecting Memories
 </h2>
 
 
-<div class="grid">
-
 <div class="feature">
+
+<a href="passport.html" style="text-decoration:none;color:inherit;">
+
 🏕
 <br>
 Passport
+
+</a>
+
 </div>
 
 
+
 <div class="feature">
+
+<a href="memories.html" style="text-decoration:none;color:inherit;">
+
 📸
 <br>
 Memories
+
+</a>
+
 </div>
+
 
 
 <div class="feature">
+
+<a href="create.html" style="text-decoration:none;color:inherit;">
+
 ✂️
 <br>
 Create
+
+</a>
+
 </div>
 
 
+
 </div>
+
+
+
+
+
+<div class="nav">
+
+
+<a href="index.html">
+🏠
+<br>
+Home
+</a>
+
+
+<a href="adventure.html">
+🗺
+<br>
+Explore
+</a>
+
+
+<a href="memories.html">
+📸
+<br>
+Memories
+</a>
+
+
+<a href="passport.html">
+🏕
+<br>
+Passport
+</a>
+
+
+<a href="create.html">
+✂️
+<br>
+Create
+</a>
 
 
 </div>
