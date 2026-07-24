@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alabama Scenic Byway | 100 Adventure</title>
+<title>Adventure | 100 Adventure</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -18,43 +18,48 @@
 
 <header>
 
-<h1>
-Alabama Scenic Byway
-</h1>
+<h1 id="title"></h1>
 
-<p class="subtitle">
-Oxford → Talladega → Cheaha
-</p>
+<p class="subtitle" id="theme"></p>
 
+<p id="details"></p>
 
-<a class="button" href="https://www.google.com/maps" target="_blank">
-Open Route Map
-</a>
+<button class="button" onclick="startAdventure()">
+Start the Journey
+</button>
 
 </header>
 
 
 
 
+
 <div class="card">
 
 <div class="label">
-The Journey
+Overview
 </div>
 
 
 <h2>
-A Mountain Road Adventure
+About This Adventure
 </h2>
 
 
-<p>
-Follow winding roads through Talladega National Forest,
-discover overlooks, historic towns, and hidden roadside treasures.
-</p>
+<p id="description"></p>
+
+
+<h3>
+Best Time
+</h3>
+
+
+<p id="bestTime"></p>
 
 
 </div>
+
+
 
 
 
@@ -63,26 +68,34 @@ discover overlooks, historic towns, and hidden roadside treasures.
 <div class="card">
 
 <div class="label">
-Stops Along The Way
+Journey Stops
 </div>
 
 
-<div class="adventure">
-🌲 Talladega Scenic Byway
-</div>
-
-
-<div class="adventure">
-⛰ Cheaha State Park
-</div>
-
-
-<div class="adventure">
-📍 Bald Rock Overlook
-</div>
+<div id="stops"></div>
 
 
 </div>
+
+
+
+
+
+
+
+<div class="card">
+
+<div class="label">
+Things To Notice
+</div>
+
+
+<div id="notice"></div>
+
+
+</div>
+
+
 
 
 
@@ -95,33 +108,12 @@ Collect
 </div>
 
 
-<h2>
-Adventure Prompts
-</h2>
-
-
-<div class="creation">
-
-📸 Photograph a forgotten roadside sign
-
-</div>
-
-
-<div class="creation">
-
-🎟 Save a receipt, ticket, or brochure
-
-</div>
-
-
-<div class="creation">
-
-🌿 Collect a small piece of nature
-
-</div>
+<div id="ephemera"></div>
 
 
 </div>
+
+
 
 
 
@@ -130,49 +122,25 @@ Adventure Prompts
 <div class="card">
 
 <div class="label">
-Soundtrack
+Playlist
 </div>
 
 
-<h2>
-Road Trip Playlist
-</h2>
+<h2 id="playlistTitle"></h2>
 
 
 <p>
-🎵 Spotify playlist coming soon
+🎵 Spotify
 </p>
 
 
-</div>
-
-
-
-
-
-<div class="card">
-
-<div class="label">
-Remember
-</div>
-
-
-<h2>
-Save This Moment
-</h2>
-
-
-<p>
-Capture the places, stories, and little details that made this adventure special.
-</p>
-
-
-<a class="button" href="memories.html">
-Create Memory
+<a class="button" id="playlistLink">
+Open Playlist
 </a>
 
 
 </div>
+
 
 
 
@@ -181,44 +149,177 @@ Create Memory
 
 <div class="nav">
 
-
 <a href="index.html">
-🏠
-<br>
+🏠<br>
 Home
 </a>
 
-
 <a href="adventure.html">
-🗺
-<br>
+🗺<br>
 Explore
 </a>
 
-
 <a href="memories.html">
-📸
-<br>
+📸<br>
 Memories
 </a>
 
-
 <a href="passport.html">
-🏕
-<br>
+🏕<br>
 Passport
 </a>
 
-
 <a href="create.html">
-✂️
-<br>
+✂️<br>
 Create
 </a>
+
+</div>
+
+
+
+
+
+<script src="adventures.js"></script>
+
+
+<script>
+
+
+document.getElementById("title").innerHTML =
+adventure.title;
+
+
+document.getElementById("theme").innerHTML =
+adventure.theme;
+
+
+document.getElementById("details").innerHTML =
+adventure.distance + " • " + adventure.duration;
+
+
+
+document.getElementById("description").innerHTML =
+adventure.description;
+
+
+document.getElementById("bestTime").innerHTML =
+adventure.bestTime;
+
+
+
+let stopsHTML = "";
+
+
+adventure.stops.forEach(function(stop){
+
+
+stopsHTML += `
+
+<div class="adventure">
+
+<h2>
+${stop.name}
+</h2>
+
+
+<p>
+${stop.type}
+</p>
+
+
+<p>
+${stop.description}
+</p>
+
+
+<p>
+⏱ ${stop.visitTime}
+</p>
+
+
+<button class="button">
+Navigate
+</button>
 
 
 </div>
 
+`;
+
+});
+
+
+document.getElementById("stops").innerHTML =
+stopsHTML;
+
+
+
+
+
+let noticeHTML = "";
+
+
+adventure.noticeIdeas.forEach(function(item){
+
+noticeHTML +=
+`
+<div class="creation">
+👀 ${item}
+</div>
+`;
+
+});
+
+
+document.getElementById("notice").innerHTML =
+noticeHTML;
+
+
+
+
+
+let collectHTML = "";
+
+
+adventure.ephemeraIdeas.forEach(function(item){
+
+collectHTML +=
+`
+<div class="creation">
+🎟 ${item}
+</div>
+`;
+
+});
+
+
+document.getElementById("ephemera").innerHTML =
+collectHTML;
+
+
+
+
+
+document.getElementById("playlistTitle").innerHTML =
+adventure.playlist.title;
+
+
+document.getElementById("playlistLink").href =
+adventure.playlist.link;
+
+
+
+
+
+function startAdventure(){
+
+alert("Adventure Started!");
+
+}
+
+
+</script>
 
 
 </body>
