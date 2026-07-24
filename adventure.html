@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Adventure | 100 Adventure</title>
+<title>100 Adventure</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -24,23 +24,15 @@ class="adventure-cover"
 alt="Adventure Cover">
 
 
-<h1 id="title">
-Loading Adventure...
-</h1>
-
+<h1 id="title"></h1>
 
 <p class="subtitle" id="theme"></p>
-
 
 <p id="details"></p>
 
 
-
-<button class="button"
-onclick="startAdventure()">
-
-Start the Journey
-
+<button class="button" onclick="startAdventure()">
+Start Journey
 </button>
 
 
@@ -50,36 +42,44 @@ Start the Journey
 
 
 
-<div class="card">
+<div class="tabs">
 
-<div class="label">
-Your Journey
-</div>
-
-
-<h2 id="progress">
-0 Stops Visited
-</h2>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-<div class="label">
+<button onclick="showTab('overview')">
 Overview
+</button>
+
+
+<button onclick="showTab('stops')">
+Stops
+</button>
+
+
+<button onclick="showTab('collect')">
+Collect
+</button>
+
+
+<button onclick="showTab('playlist')">
+Playlist
+</button>
+
+
 </div>
 
 
-<h2>
+
+
+
+
+
+<section id="overview" class="tab-content">
+
+
+<div class="card">
+
+<div class="label">
 About This Adventure
-</h2>
+</div>
 
 
 <p id="description"></p>
@@ -96,27 +96,44 @@ Best Time
 </div>
 
 
+</section>
 
 
 
+
+
+
+
+<section id="stops" class="tab-content">
 
 
 <div class="card">
 
 <div class="label">
-Stops Along The Way
+Your Journey
 </div>
 
 
-<div id="stops"></div>
+<h2 id="progress">
+0 Stops Visited
+</h2>
+
+
+<div id="stopsList"></div>
 
 
 </div>
 
 
+</section>
 
 
 
+
+
+
+
+<section id="collect" class="tab-content">
 
 
 <div class="card">
@@ -134,9 +151,6 @@ Things To Notice
 
 
 
-
-
-
 <div class="card">
 
 <div class="label">
@@ -150,9 +164,16 @@ Collect Along The Way
 </div>
 
 
+</section>
 
 
 
+
+
+
+
+
+<section id="playlist" class="tab-content">
 
 
 <div class="card">
@@ -175,6 +196,11 @@ Open Spotify
 
 
 </div>
+
+
+</section>
+
+
 
 
 
@@ -222,6 +248,8 @@ Create
 
 
 
+
+
 <script src="adventures.js"></script>
 
 <script src="app.js"></script>
@@ -249,12 +277,14 @@ adventure.distance +
 adventure.duration;
 
 
+
 document.getElementById("description").innerHTML =
 adventure.description;
 
 
 document.getElementById("bestTime").innerHTML =
 adventure.bestTime;
+
 
 
 
@@ -269,15 +299,11 @@ stopsHTML += `
 
 <div class="adventure">
 
-
 <h2>${stop.name}</h2>
-
 
 <p>${stop.type}</p>
 
-
 <p>${stop.description}</p>
-
 
 <p>⏱ ${stop.visitTime}</p>
 
@@ -294,21 +320,9 @@ target="_blank">
 <button class="button"
 onclick="markVisited(${index})">
 
-✓ Mark Visited
+✓ Visited
 
 </button>
-
-
-<h3>Collect Ideas</h3>
-
-
-<ul>
-
-${stop.collect.map(item =>
-`<li>${item}</li>`
-).join("")}
-
-</ul>
 
 
 </div>
@@ -318,19 +332,19 @@ ${stop.collect.map(item =>
 });
 
 
-document.getElementById("stops").innerHTML =
+document.getElementById("stopsList").innerHTML =
 stopsHTML;
 
 
 
 
-let noticeHTML = "";
+
+let noticeHTML="";
 
 
 adventure.noticeIdeas.forEach(function(item){
 
 noticeHTML +=
-
 `
 <div class="creation">
 👀 ${item}
@@ -346,13 +360,13 @@ noticeHTML;
 
 
 
-let ephemeraHTML = "";
+
+let collectHTML="";
 
 
 adventure.ephemeraIdeas.forEach(function(item){
 
-ephemeraHTML +=
-
+collectHTML +=
 `
 <div class="creation">
 🎟 ${item}
@@ -363,7 +377,9 @@ ephemeraHTML +=
 
 
 document.getElementById("ephemera").innerHTML =
-ephemeraHTML;
+collectHTML;
+
+
 
 
 
@@ -378,12 +394,36 @@ adventure.playlist.link;
 
 
 
-function startAdventure(){
 
-alert("Your adventure has started! 🚗");
+
+
+function showTab(tab){
+
+document.querySelectorAll(".tab-content")
+.forEach(function(section){
+
+section.style.display="none";
+
+});
+
+
+document.getElementById(tab)
+.style.display="block";
+
 
 }
 
+
+
+function startAdventure(){
+
+alert("Adventure Started 🚗");
+
+}
+
+
+
+showTab("overview");
 
 
 updateProgress();
