@@ -12,6 +12,7 @@ const adventure = {
 
     location: "Alabama",
 
+
     description:
     "A scenic journey through Talladega National Forest featuring winding mountain roads, overlooks, roadside discoveries, and hidden gems.",
 
@@ -20,18 +21,28 @@ const adventure = {
     "Spring and fall offer beautiful weather, changing colors, and comfortable exploring.",
 
 
+
     stops: [
 
         {
-            name: "Mountain Brothers General Store",
 
-            type: "Roadside Stop",
+            name:
+            "Mountain Brothers General Store",
+
+            map:
+            "https://www.google.com/maps/search/?api=1&query=Mountain+Brothers+General+Store+Alabama",
+
+            type:
+            "Roadside Stop",
+
 
             description:
             "A classic small-town stop to slow down, explore local treasures, and experience a piece of roadside Americana.",
 
+
             visitTime:
             "20–30 minutes",
+
 
             collect:
             [
@@ -43,16 +54,28 @@ const adventure = {
         },
 
 
-        {
-            name: "Talladega Scenic Byway",
 
-            type: "Scenic Drive",
+        {
+
+            name:
+            "Talladega Scenic Byway",
+
+
+            map:
+            "https://www.google.com/maps/search/?api=1&query=Talladega+Scenic+Byway+Alabama",
+
+
+            type:
+            "Scenic Drive",
+
 
             description:
-            "A beautiful mountain route through Talladega National Forest with winding roads and natural views.",
+            "A beautiful mountain route through Talladega National Forest with winding roads, forest views, and peaceful overlooks.",
+
 
             visitTime:
             "45–60 minutes",
+
 
             collect:
             [
@@ -64,16 +87,28 @@ const adventure = {
         },
 
 
-        {
-            name: "Cheaha State Park",
 
-            type: "Mountain Destination",
+        {
+
+            name:
+            "Cheaha State Park",
+
+
+            map:
+            "https://www.google.com/maps/search/?api=1&query=Cheaha+State+Park+Alabama",
+
+
+            type:
+            "Mountain Destination",
+
 
             description:
-            "Home to Alabama's highest point, offering overlooks, trails, and memorable mountain views.",
+            "Home to Alabama's highest point, offering overlooks, trails, and unforgettable mountain views.",
+
 
             visitTime:
             "1–3 hours",
+
 
             collect:
             [
@@ -87,37 +122,62 @@ const adventure = {
     ],
 
 
+
     noticeIdeas:
+
     [
+
         "Vintage roadside signs",
+
         "Handmade items",
+
         "Historic buildings",
+
         "Interesting local details",
+
         "Beautiful overlooks"
+
     ],
+
 
 
     ephemeraIdeas:
+
     [
+
         "Ticket stubs",
+
         "Receipts",
+
         "Postcards",
+
         "Maps",
+
         "Labels",
+
         "Nature items"
+
     ],
 
 
+
+
     playlist:
+
     {
+
         title:
         "Alabama Scenic Byway Road Trip",
+
 
         platform:
         "Spotify",
 
+
         link:
         "#"
+
     }
+
 
 };
