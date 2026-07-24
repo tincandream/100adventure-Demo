@@ -3,407 +3,1125 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Memory Card | 100 Adventure</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<link rel="stylesheet" href="style.css">
+    <meta
+        name="description"
+        content="Create a personal field note for your 100 Adventure travel edition."
+    >
+
+    <title>Create a Field Note | 100 Adventure</title>
+
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 
-<body>
+<body class="memory-form-page">
 
 
-<header>
+    <main class="memory-form-shell">
 
-<h1>
-Create Memory
-</h1>
 
-<p class="subtitle">
-Save a moment from your adventure
-</p>
+        <!-- HEADER -->
 
-</header>
+        <header class="memory-form-header">
 
+            <div class="memory-form-header__top">
 
+                <a href="index.html" class="edition-wordmark">
+                    100 Adventure
+                </a>
 
+                <span>
+                    Issue No. 001
+                </span>
 
+            </div>
 
-<div class="card">
 
+            <div class="memory-form-header__content">
 
-<div class="label">
-Adventure
-</div>
+                <p class="section-marker">
+                    Add to Your Personal Edition
+                </p>
 
+                <h1>
+                    Create a<br>
+                    Field Note
+                </h1>
 
-<input 
-id="adventure"
-class="input"
-value="Alabama Scenic Byway"
-readonly>
+                <p>
+                    Preserve a moment through a photograph,
+                    observation, keepsake or story.
+                </p>
 
+            </div>
 
-</div>
+        </header>
 
 
 
+        <form
+            class="field-note-form"
+            id="memoryForm"
+        >
 
 
+            <!-- ISSUE INFORMATION -->
 
+            <section class="field-note-section">
 
-<div class="card">
+                <div class="field-note-section__heading">
 
+                    <span>
+                        01
+                    </span>
 
-<div class="label">
-Your Moment
-</div>
+                    <div>
 
+                        <p class="section-marker">
+                            The Journey
+                        </p>
 
-<input 
-id="title"
-class="input"
-placeholder="Give this memory a title...">
+                        <h2>
+                            Place This Memory
+                        </h2>
 
+                    </div>
 
+                </div>
 
-<textarea
-id="note"
-class="textarea"
-placeholder="Write anything you want to remember..."></textarea>
 
+                <div class="field-note-grid">
 
-</div>
+                    <label class="field-note-field">
 
+                        <span>
+                            Adventure
+                        </span>
 
+                        <input
+                            id="adventure"
+                            class="input"
+                            value="Alabama Scenic Byway"
+                            readonly
+                        >
 
+                    </label>
 
 
+                    <label class="field-note-field">
 
+                        <span>
+                            Stop or Location
+                        </span>
 
-<div class="card">
+                        <select
+                            id="stop"
+                            class="input"
+                        >
 
+                            <option value="">
+                                Choose a location
+                            </option>
 
-<div class="label">
-Add Photo
-</div>
+                            <option value="Mountain Brothers General Store">
+                                Mountain Brothers General Store
+                            </option>
 
+                            <option value="Talladega Scenic Byway">
+                                Talladega Scenic Byway
+                            </option>
 
-<input 
-type="file"
-id="photo"
-accept="image/*"
-onchange="previewPhoto()">
+                            <option value="Cheaha State Park">
+                                Cheaha State Park
+                            </option>
 
+                            <option value="Somewhere Along the Way">
+                                Somewhere Along the Way
+                            </option>
 
+                        </select>
 
-<img 
-id="photoPreview"
-class="memory-photo"
-style="display:none;">
+                    </label>
 
 
-</div>
+                    <label class="field-note-field">
 
+                        <span>
+                            Date Collected
+                        </span>
 
+                        <input
+                            type="date"
+                            id="memoryDate"
+                            class="input"
+                        >
 
+                    </label>
 
+                </div>
 
+            </section>
 
 
-<div class="card">
 
+            <!-- MOMENT -->
 
-<div class="label">
-Collected Along The Way
-</div>
+            <section class="field-note-section">
 
+                <div class="field-note-section__heading">
 
+                    <span>
+                        02
+                    </span>
 
-<label>
-<input type="checkbox" value="Receipt">
-Receipt
-</label>
+                    <div>
 
+                        <p class="section-marker">
+                            The Moment
+                        </p>
 
-<br>
+                        <h2>
+                            Record What Mattered
+                        </h2>
 
+                    </div>
 
-<label>
-<input type="checkbox" value="Postcard">
-Postcard
-</label>
+                </div>
 
 
-<br>
+                <label class="field-note-field">
 
+                    <span>
+                        Memory Title
+                    </span>
 
-<label>
-<input type="checkbox" value="Map">
-Map
-</label>
+                    <input
+                        id="title"
+                        class="input"
+                        maxlength="100"
+                        placeholder="The overlook after the rain"
+                        required
+                    >
 
+                </label>
 
-<br>
 
+                <label class="field-note-field">
 
-<label>
-<input type="checkbox" value="Local Item">
-Local Item
-</label>
+                    <span>
+                        Field Note
+                    </span>
 
+                    <textarea
+                        id="note"
+                        class="textarea field-note-textarea"
+                        maxlength="1500"
+                        placeholder="Describe what you noticed, heard, learned or hope to remember..."
+                        required
+                    ></textarea>
 
-<br>
+                </label>
 
+            </section>
 
-<label>
-<input type="checkbox" value="Nature Find">
-Nature Find
-</label>
 
 
-</div>
+            <!-- PHOTOGRAPH -->
 
+            <section class="field-note-section">
 
+                <div class="field-note-section__heading">
 
+                    <span>
+                        03
+                    </span>
 
+                    <div>
 
+                        <p class="section-marker">
+                            The Photograph
+                        </p>
 
+                        <h2>
+                            Add a Visual Record
+                        </h2>
 
-<div class="card">
+                    </div>
 
+                </div>
 
-<button class="button"
-onclick="saveMemory()">
 
-📸 Save Memory
+                <label
+                    class="photo-upload"
+                    for="photo"
+                >
 
-</button>
+                    <input
+                        type="file"
+                        id="photo"
+                        accept="image/*"
+                    >
 
+                    <span class="photo-upload__symbol">
+                        +
+                    </span>
 
-</div>
+                    <strong>
+                        Choose a Photograph
+                    </strong>
 
+                    <small>
+                        Images are resized before being saved
+                        to your browser.
+                    </small>
 
+                </label>
 
 
+                <div
+                    class="photo-preview-frame"
+                    id="photoPreviewFrame"
+                    hidden
+                >
 
+                    <img
+                        id="photoPreview"
+                        alt="Selected memory preview"
+                    >
 
+                    <button
+                        type="button"
+                        id="removePhotoButton"
+                        class="photo-preview-remove"
+                    >
+                        Remove Photograph
+                    </button>
 
+                </div>
 
-<div class="nav">
+            </section>
 
 
-<a href="index.html">
-🏠
-<br>
-Home
-</a>
 
+            <!-- KEEPSAKES -->
 
-<a href="adventure.html">
-🗺
-<br>
-Adventure
-</a>
+            <section class="field-note-section">
 
+                <div class="field-note-section__heading">
 
-<a href="memories.html">
-📸
-<br>
-Memories
-</a>
+                    <span>
+                        04
+                    </span>
 
+                    <div>
 
-<a href="passport.html">
-🏕
-<br>
-Passport
-</a>
+                        <p class="section-marker">
+                            The Small Treasures
+                        </p>
 
+                        <h2>
+                            Collected Along the Way
+                        </h2>
 
-<a href="create.html">
-✂️
-<br>
-Create
-</a>
+                    </div>
 
+                </div>
 
-</div>
 
+                <div class="keepsake-options">
 
+                    <label>
 
+                        <input
+                            type="checkbox"
+                            value="Receipt"
+                        >
 
+                        <span>
+                            Receipt
+                        </span>
 
+                    </label>
 
 
+                    <label>
 
-<script>
+                        <input
+                            type="checkbox"
+                            value="Postcard"
+                        >
 
+                        <span>
+                            Postcard
+                        </span>
 
-let photoData = "";
+                    </label>
 
 
+                    <label>
 
+                        <input
+                            type="checkbox"
+                            value="Map or Brochure"
+                        >
 
+                        <span>
+                            Map or Brochure
+                        </span>
 
-function previewPhoto(){
+                    </label>
 
 
-let file =
-document.getElementById("photo").files[0];
+                    <label>
 
+                        <input
+                            type="checkbox"
+                            value="Local Product"
+                        >
 
-if(file){
+                        <span>
+                            Local Product
+                        </span>
 
+                    </label>
 
-let reader = new FileReader();
 
+                    <label>
 
+                        <input
+                            type="checkbox"
+                            value="Ticket or Sticker"
+                        >
 
-reader.onload = function(e){
+                        <span>
+                            Ticket or Sticker
+                        </span>
 
+                    </label>
 
-photoData = e.target.result;
 
+                    <label>
 
+                        <input
+                            type="checkbox"
+                            value="Written Observation"
+                        >
 
-let preview =
-document.getElementById("photoPreview");
+                        <span>
+                            Written Observation
+                        </span>
 
+                    </label>
 
+                </div>
 
-preview.src = photoData;
+            </section>
 
 
-preview.style.display="block";
 
+            <!-- REFLECTION -->
 
+            <section class="field-note-section field-note-reflection">
 
-}
+                <div class="field-note-section__heading">
 
+                    <span>
+                        05
+                    </span>
 
+                    <div>
 
-reader.readAsDataURL(file);
+                        <p class="section-marker">
+                            Carry It Forward
+                        </p>
 
+                        <h2>
+                            What Did This Place Reveal?
+                        </h2>
 
+                    </div>
 
-}
+                </div>
 
 
+                <blockquote>
+                    “What small treasure felt like evidence
+                    of ingenuity, progress or pride in place?”
+                </blockquote>
 
-}
 
+                <label class="field-note-field">
 
+                    <span>
+                        Your Reflection
+                    </span>
 
+                    <textarea
+                        id="reflection"
+                        class="textarea field-note-textarea"
+                        maxlength="1000"
+                        placeholder="A quiet reflection is enough..."
+                    ></textarea>
 
+                </label>
 
+            </section>
 
 
 
-function saveMemory(){
+            <!-- SAVE -->
 
+            <section class="field-note-save">
 
+                <div>
 
-let collected = [];
+                    <p class="section-marker">
+                        Add This Page
+                    </p>
 
+                    <h2>
+                        Save to My Edition
+                    </h2>
 
+                    <p id="formMessage" aria-live="polite"></p>
 
-document.querySelectorAll(
-"input[type='checkbox']:checked"
-)
+                </div>
 
-.forEach(function(item){
 
+                <button
+                    type="submit"
+                    class="button"
+                    id="saveMemoryButton"
+                >
+                    Save Field Note
+                </button>
 
-collected.push(item.value);
+            </section>
 
 
-});
+        </form>
 
 
 
+        <footer class="passport-colophon">
 
+            <a href="memories.html">
+                ← Return to My Edition
+            </a>
 
+            <span>
+                Issue No. 001 · Alabama
+            </span>
 
+        </footer>
 
-let memory = {
 
+    </main>
 
-adventure:
-document.getElementById("adventure").value,
 
 
-title:
-document.getElementById("title").value,
+    <!-- NAVIGATION -->
 
+    <nav class="nav" aria-label="Main navigation">
 
-note:
-document.getElementById("note").value,
+        <a href="index.html">
 
+            <span aria-hidden="true">
+                ⌂
+            </span>
 
-collected:
-collected,
+            Home
 
+        </a>
 
-photo:
-photoData
 
+        <a href="adventure.html">
 
-};
+            <span aria-hidden="true">
+                ◇
+            </span>
 
+            Explore
 
+        </a>
 
 
+        <a
+            href="memories.html"
+            class="nav__active"
+        >
 
+            <span aria-hidden="true">
+                ◉
+            </span>
 
-let memories =
+            Memories
 
-JSON.parse(localStorage.getItem("memories"))
+        </a>
 
-|| [];
 
+        <a href="passport.html">
 
+            <span aria-hidden="true">
+                ✦
+            </span>
 
+            Passport
 
+        </a>
 
-memories.push(memory);
 
+        <a href="create.html">
 
+            <span aria-hidden="true">
+                ✂
+            </span>
 
+            Create
 
+        </a>
 
-localStorage.setItem(
+    </nav>
 
-"memories",
 
-JSON.stringify(memories)
 
-);
+    <script>
 
+        let photoData = "";
 
+        const memoryForm =
+            document.getElementById("memoryForm");
 
+        const photoInput =
+            document.getElementById("photo");
 
+        const photoPreview =
+            document.getElementById("photoPreview");
 
-alert("Memory saved! 📸");
+        const photoPreviewFrame =
+            document.getElementById("photoPreviewFrame");
 
+        const removePhotoButton =
+            document.getElementById("removePhotoButton");
 
+        const saveMemoryButton =
+            document.getElementById("saveMemoryButton");
 
-window.location.href =
-"memories.html";
+        const formMessage =
+            document.getElementById("formMessage");
 
 
 
-}
+        setDefaultDate();
 
 
 
-</script>
+        function setDefaultDate() {
 
+            const dateInput =
+                document.getElementById("memoryDate");
 
+            const today =
+                new Date();
 
+            const localDate =
+                new Date(
+                    today.getTime() -
+                    today.getTimezoneOffset() *
+                    60000
+                )
+                    .toISOString()
+                    .split("T")[0];
+
+            dateInput.value =
+                localDate;
+
+        }
+
+
+
+        photoInput.addEventListener(
+            "change",
+            handlePhotoSelection
+        );
+
+
+
+        removePhotoButton.addEventListener(
+            "click",
+            removePhoto
+        );
+
+
+
+        memoryForm.addEventListener(
+            "submit",
+            saveMemory
+        );
+
+
+
+        async function handlePhotoSelection(event) {
+
+            const file =
+                event.target.files[0];
+
+            if (!file) {
+
+                return;
+
+            }
+
+
+            if (!file.type.startsWith("image/")) {
+
+                showMessage(
+                    "Please choose a valid image file.",
+                    true
+                );
+
+                photoInput.value =
+                    "";
+
+                return;
+
+            }
+
+
+            try {
+
+                showMessage(
+                    "Preparing photograph..."
+                );
+
+                photoData =
+                    await compressImage(
+                        file,
+                        1400,
+                        0.78
+                    );
+
+                photoPreview.src =
+                    photoData;
+
+                photoPreviewFrame.hidden =
+                    false;
+
+                showMessage("");
+
+            } catch (error) {
+
+                console.error(
+                    "Unable to prepare photograph:",
+                    error
+                );
+
+                showMessage(
+                    "The photograph could not be prepared. Try a different image.",
+                    true
+                );
+
+            }
+
+        }
+
+
+
+        function compressImage(
+            file,
+            maximumDimension,
+            quality
+        ) {
+
+            return new Promise(
+                function (resolve, reject) {
+
+                    const reader =
+                        new FileReader();
+
+
+                    reader.onload =
+                        function (readerEvent) {
+
+                            const image =
+                                new Image();
+
+
+                            image.onload =
+                                function () {
+
+                                    let width =
+                                        image.width;
+
+                                    let height =
+                                        image.height;
+
+
+                                    if (
+                                        width >
+                                        maximumDimension ||
+                                        height >
+                                        maximumDimension
+                                    ) {
+
+                                        const scale =
+                                            Math.min(
+                                                maximumDimension / width,
+                                                maximumDimension / height
+                                            );
+
+                                        width =
+                                            Math.round(
+                                                width * scale
+                                            );
+
+                                        height =
+                                            Math.round(
+                                                height * scale
+                                            );
+
+                                    }
+
+
+                                    const canvas =
+                                        document.createElement(
+                                            "canvas"
+                                        );
+
+                                    canvas.width =
+                                        width;
+
+                                    canvas.height =
+                                        height;
+
+
+                                    const context =
+                                        canvas.getContext(
+                                            "2d"
+                                        );
+
+                                    if (!context) {
+
+                                        reject(
+                                            new Error(
+                                                "Canvas is unavailable."
+                                            )
+                                        );
+
+                                        return;
+
+                                    }
+
+
+                                    context.drawImage(
+                                        image,
+                                        0,
+                                        0,
+                                        width,
+                                        height
+                                    );
+
+
+                                    const compressedData =
+                                        canvas.toDataURL(
+                                            "image/jpeg",
+                                            quality
+                                        );
+
+                                    resolve(
+                                        compressedData
+                                    );
+
+                                };
+
+
+                            image.onerror =
+                                function () {
+
+                                    reject(
+                                        new Error(
+                                            "The image could not be loaded."
+                                        )
+                                    );
+
+                                };
+
+
+                            image.src =
+                                readerEvent.target.result;
+
+                        };
+
+
+                    reader.onerror =
+                        function () {
+
+                            reject(
+                                new Error(
+                                    "The file could not be read."
+                                )
+                            );
+
+                        };
+
+
+                    reader.readAsDataURL(
+                        file
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        function removePhoto() {
+
+            photoData =
+                "";
+
+            photoInput.value =
+                "";
+
+            photoPreview.removeAttribute(
+                "src"
+            );
+
+            photoPreviewFrame.hidden =
+                true;
+
+            showMessage("");
+
+        }
+
+
+
+        function getMemories() {
+
+            try {
+
+                const savedMemories =
+                    localStorage.getItem(
+                        "memories"
+                    );
+
+                const parsedMemories =
+                    savedMemories
+                        ? JSON.parse(
+                            savedMemories
+                        )
+                        : [];
+
+                return Array.isArray(
+                    parsedMemories
+                )
+                    ? parsedMemories
+                    : [];
+
+            } catch (error) {
+
+                console.error(
+                    "Unable to load memories:",
+                    error
+                );
+
+                return [];
+
+            }
+
+        }
+
+
+
+        function saveMemory(event) {
+
+            event.preventDefault();
+
+
+            const title =
+                document
+                    .getElementById("title")
+                    .value
+                    .trim();
+
+            const note =
+                document
+                    .getElementById("note")
+                    .value
+                    .trim();
+
+
+            if (!title || !note) {
+
+                showMessage(
+                    "Please add a title and field note before saving.",
+                    true
+                );
+
+                return;
+
+            }
+
+
+            const collected =
+                Array.from(
+                    document.querySelectorAll(
+                        ".keepsake-options input[type='checkbox']:checked"
+                    )
+                ).map(
+                    function (item) {
+
+                        return item.value;
+
+                    }
+                );
+
+
+            const memory = {
+
+                id:
+                    createMemoryId(),
+
+                issueNumber:
+                    "Issue No. 001",
+
+                theme:
+                    "Connection to the Land",
+
+                adventure:
+                    document
+                        .getElementById("adventure")
+                        .value,
+
+                stop:
+                    document
+                        .getElementById("stop")
+                        .value,
+
+                date:
+                    document
+                        .getElementById("memoryDate")
+                        .value,
+
+                title:
+                    title,
+
+                note:
+                    note,
+
+                reflection:
+                    document
+                        .getElementById("reflection")
+                        .value
+                        .trim(),
+
+                collected:
+                    collected,
+
+                photo:
+                    photoData,
+
+                createdAt:
+                    new Date().toISOString()
+
+            };
+
+
+            const memories =
+                getMemories();
+
+            memories.push(memory);
+
+
+            saveMemoryButton.disabled =
+                true;
+
+            saveMemoryButton.textContent =
+                "Saving Field Note...";
+
+
+            try {
+
+                localStorage.setItem(
+                    "memories",
+                    JSON.stringify(memories)
+                );
+
+                window.location.href =
+                    "memories.html";
+
+            } catch (error) {
+
+                console.error(
+                    "Unable to save memory:",
+                    error
+                );
+
+                saveMemoryButton.disabled =
+                    false;
+
+                saveMemoryButton.textContent =
+                    "Save Field Note";
+
+                showMessage(
+                    "Your browser storage may be full. Try removing the photograph or deleting an older memory.",
+                    true
+                );
+
+            }
+
+        }
+
+
+
+        function createMemoryId() {
+
+            if (
+                window.crypto &&
+                typeof crypto.randomUUID ===
+                "function"
+            ) {
+
+                return crypto.randomUUID();
+
+            }
+
+            return (
+                Date.now().toString(36) +
+                Math.random()
+                    .toString(36)
+                    .slice(2)
+            );
+
+        }
+
+
+
+        function showMessage(
+            message,
+            isError = false
+        ) {
+
+            formMessage.textContent =
+                message;
+
+            formMessage.classList.toggle(
+                "form-message--error",
+                isError
+            );
+
+        }
+
+    </script>
 
 
 </body>
