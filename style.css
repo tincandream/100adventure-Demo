@@ -1,5 +1,7 @@
-html { box-sizing: border-box; font-size: 16px; }
-*, *::before, *::after { box-sizing: inherit; }
+* {
+    box-sizing: border-box;
+}
+
 
 body {
 
@@ -18,39 +20,6 @@ body {
 
 
 /* HEADER */
-.tabs {
-
- display:flex;
-
- gap:8px;
-
- overflow-x:auto;
-
- margin-bottom:20px;
-
-}
-
-
-.tabs button {
-
- border:none;
-
- background:#e8dfcf;
-
- padding:10px 14px;
-
- border-radius:20px;
-
- cursor:pointer;
-
-}
-
-
-.tab-content {
-
- display:none;
-
-}
 
 header {
 
@@ -80,6 +49,13 @@ h2 {
 h3 {
 
     margin-top: 20px;
+
+}
+
+
+p {
+
+    line-height: 1.6;
 
 }
 
@@ -129,22 +105,6 @@ h3 {
 }
 
 
-/* Focus styles for accessibility */
-.button:focus,
-.tabs button:focus {
-  outline: 3px solid rgba(37,99,235,0.3);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
-}
-
-/* Prefer focus-visible for mouse users (added alongside :focus) */
-.button:focus-visible,
-.tabs button:focus-visible {
-  outline: 3px solid rgba(37,99,235,0.3);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
-}
-
 
 /* CARDS */
 
@@ -184,76 +144,145 @@ h3 {
 
 .adventure-cover {
 
-    width: 100%;
+    width:100%;
 
-    max-height: 350px;
+    max-height:350px;
 
-    object-fit: cover;
+    object-fit:cover;
 
-    border-radius: 18px;
+    border-radius:18px;
 
-    margin-bottom: 20px;
-
-    display: block;
+    margin-bottom:20px;
 
 }
 
 
 
-/* STOP CARDS */
+/* ADVENTURE STOP CARDS */
 
 .adventure {
 
-    background: #faf8f2;
+    background:#faf8f2;
 
-    border-radius: 16px;
+    border-radius:16px;
 
-    padding: 18px;
+    padding:18px;
 
-    margin-bottom: 18px;
+    margin-bottom:18px;
 
-    border-left: 5px solid #6b7560;
-
-}
-
-
-
-.adventure p {
-
-    line-height: 1.5;
+    border-left:5px solid #6b7560;
 
 }
 
 
 
-/* COLLECTION ITEMS */
+/* COLLECT ITEMS */
 
 .creation {
 
-    background: #f1eadb;
+    background:#f1eadb;
 
-    padding: 15px;
+    padding:15px;
 
-    border-radius: 12px;
+    border-radius:12px;
 
-    margin-bottom: 10px;
+    margin-bottom:10px;
+
+}
+
+
+
+/* TABS */
+
+.tabs {
+
+    display:flex;
+
+    gap:8px;
+
+    overflow-x:auto;
+
+    margin-bottom:20px;
+
+}
+
+
+.tabs button {
+
+    border:none;
+
+    background:#e8dfcf;
+
+    padding:10px 14px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    white-space:nowrap;
 
 }
 
 
 
-/* LISTS */
+.tab-content {
 
-ul {
-
-    padding-left: 20px;
+    display:none;
 
 }
 
 
-li {
 
-    margin-bottom: 8px;
+/* MEMORY CARD INPUTS */
+
+.input,
+.textarea {
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    border:1px solid #ddd;
+
+    font-size:16px;
+
+    margin-bottom:12px;
+
+    font-family:inherit;
+
+}
+
+
+
+.textarea {
+
+    height:140px;
+
+    resize:vertical;
+
+}
+
+
+
+/* FILE UPLOAD */
+
+input[type="file"] {
+
+    margin-top:10px;
+
+}
+
+
+
+/* CHECKBOX AREA */
+
+label {
+
+    line-height:2;
+
+    font-size:16px;
 
 }
 
@@ -263,27 +292,27 @@ li {
 
 .passport-stamp {
 
-    width: 160px;
+    width:160px;
 
-    height: 160px;
+    height:160px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    border: 3px dashed #6b7560;
+    border:3px dashed #6b7560;
 
-    display: flex;
+    display:flex;
 
-    justify-content: center;
+    justify-content:center;
 
-    align-items: center;
+    align-items:center;
 
-    text-align: center;
+    text-align:center;
 
-    margin: 25px auto;
+    margin:25px auto;
 
-    color: #6b7560;
+    color:#6b7560;
 
-    font-weight: bold;
+    font-weight:bold;
 
 }
 
@@ -293,23 +322,23 @@ li {
 
 .nav {
 
-    position: sticky;
+    position:sticky;
 
-    bottom: 0;
+    bottom:0;
 
-    background: white;
+    background:white;
 
-    display: flex;
+    display:flex;
 
-    justify-content: space-around;
+    justify-content:space-around;
 
-    padding: 12px 5px;
+    padding:12px 5px;
 
-    margin-top: 30px;
+    margin-top:30px;
 
-    border-radius: 18px;
+    border-radius:18px;
 
-    box-shadow: 0 -3px 12px rgba(0,0,0,.08);
+    box-shadow:0 -3px 12px rgba(0,0,0,.08);
 
 }
 
@@ -317,98 +346,51 @@ li {
 
 .nav a {
 
-    text-decoration: none;
+    text-decoration:none;
 
-    color: #555;
+    color:#555;
 
-    text-align: center;
+    text-align:center;
 
-    font-size: 13px;
+    font-size:13px;
 
 }
 
 
 
-/* MOBILE */
+/* MOBILE OPTIMIZATION */
 
 @media (max-width:600px){
 
 
     body {
 
-        padding: 15px;
+        padding:15px;
 
     }
 
 
     h1 {
 
-        font-size: 26px;
+        font-size:26px;
 
     }
 
 
     .card {
 
-        padding: 18px;
+        padding:18px;
 
     }
 
 
     .button {
 
-        width: 100%;
+        width:100%;
 
-        text-align: center;
+        text-align:center;
 
     }
 
 
-}
- .input,
- .textarea {
-
- width:100%;
-
- padding:12px;
-
- border-radius:12px;
-
- border:1px solid #ddd;
-
- font-size:16px;
-
- margin-bottom:12px;
-
- font-family:inherit;
-
- }
-
-
- .textarea {
-
- height:140px;
-
- resize:vertical;
-
- }
-
-/* Respect reduced-motion preference */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.001ms !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Fallback for browsers without position:sticky */
-@supports not (position: sticky) {
-  .nav {
-    position: fixed;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    z-index: 9999;
-  }
 }
