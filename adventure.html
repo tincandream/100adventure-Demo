@@ -18,16 +18,26 @@
 
 <header>
 
+
+<img id="coverImage"
+class="adventure-cover"
+alt="Adventure Cover">
+
+
 <h1 id="title">
 Loading Adventure...
 </h1>
 
+
 <p class="subtitle" id="theme"></p>
+
 
 <p id="details"></p>
 
 
-<button class="button" onclick="startAdventure()">
+
+<button class="button"
+onclick="startAdventure()">
 
 Start the Journey
 
@@ -35,6 +45,7 @@ Start the Journey
 
 
 </header>
+
 
 
 
@@ -52,6 +63,7 @@ Your Journey
 
 
 </div>
+
 
 
 
@@ -88,6 +100,7 @@ Best Time
 
 
 
+
 <div class="card">
 
 <div class="label">
@@ -99,6 +112,7 @@ Stops Along The Way
 
 
 </div>
+
 
 
 
@@ -122,6 +136,7 @@ Things To Notice
 
 
 
+
 <div class="card">
 
 <div class="label">
@@ -139,6 +154,7 @@ Collect Along The Way
 
 
 
+
 <div class="card">
 
 <div class="label">
@@ -149,7 +165,9 @@ Soundtrack
 <h2 id="playlistTitle"></h2>
 
 
-<a class="button" id="playlistLink" target="_blank">
+<a class="button"
+id="playlistLink"
+target="_blank">
 
 Open Spotify
 
@@ -168,36 +186,31 @@ Open Spotify
 
 
 <a href="index.html">
-🏠
-<br>
+🏠<br>
 Home
 </a>
 
 
 <a href="adventure.html">
-🗺
-<br>
+🗺<br>
 Adventure
 </a>
 
 
 <a href="memories.html">
-📸
-<br>
+📸<br>
 Journal
 </a>
 
 
 <a href="passport.html">
-🏕
-<br>
+🏕<br>
 Passport
 </a>
 
 
 <a href="create.html">
-✂️
-<br>
+✂️<br>
 Create
 </a>
 
@@ -218,17 +231,16 @@ Create
 <script>
 
 
-// Load Adventure Information
+document.getElementById("coverImage").src =
+adventure.cover;
 
 
 document.getElementById("title").innerHTML =
 adventure.title;
 
 
-
 document.getElementById("theme").innerHTML =
 adventure.theme;
-
 
 
 document.getElementById("details").innerHTML =
@@ -237,10 +249,8 @@ adventure.distance +
 adventure.duration;
 
 
-
 document.getElementById("description").innerHTML =
 adventure.description;
-
 
 
 document.getElementById("bestTime").innerHTML =
@@ -249,49 +259,36 @@ adventure.bestTime;
 
 
 
-
-// Stops
-
-
 let stopsHTML = "";
 
 
-adventure.stops.forEach(function(stop, index){
+adventure.stops.forEach(function(stop,index){
 
 
 stopsHTML += `
 
-
 <div class="adventure">
 
 
-<h2>
-${stop.name}
-</h2>
+<h2>${stop.name}</h2>
 
 
-<p>
-${stop.type}
-</p>
+<p>${stop.type}</p>
 
 
-<p>
-${stop.description}
-</p>
+<p>${stop.description}</p>
 
 
-<p>
-⏱ ${stop.visitTime}
-</p>
+<p>⏱ ${stop.visitTime}</p>
 
 
-
-<button class="button">
+<a class="button"
+href="${stop.map}"
+target="_blank">
 
 📍 Navigate
 
-</button>
-
+</a>
 
 
 <button class="button"
@@ -302,9 +299,7 @@ onclick="markVisited(${index})">
 </button>
 
 
-<h3>
-Collect Ideas
-</h3>
+<h3>Collect Ideas</h3>
 
 
 <ul>
@@ -316,15 +311,11 @@ ${stop.collect.map(item =>
 </ul>
 
 
-
 </div>
-
 
 `;
 
-
 });
-
 
 
 document.getElementById("stops").innerHTML =
@@ -333,26 +324,18 @@ stopsHTML;
 
 
 
-
-// Notice Ideas
-
-
 let noticeHTML = "";
 
 
 adventure.noticeIdeas.forEach(function(item){
 
+noticeHTML +=
 
-noticeHTML += `
-
+`
 <div class="creation">
-
 👀 ${item}
-
 </div>
-
 `;
-
 
 });
 
@@ -363,26 +346,18 @@ noticeHTML;
 
 
 
-
-// Ephemera
-
-
 let ephemeraHTML = "";
 
 
 adventure.ephemeraIdeas.forEach(function(item){
 
+ephemeraHTML +=
 
-ephemeraHTML += `
-
+`
 <div class="creation">
-
 🎟 ${item}
-
 </div>
-
 `;
-
 
 });
 
@@ -391,11 +366,6 @@ document.getElementById("ephemera").innerHTML =
 ephemeraHTML;
 
 
-
-
-
-
-// Playlist
 
 
 document.getElementById("playlistTitle").innerHTML =
@@ -408,12 +378,9 @@ adventure.playlist.link;
 
 
 
-
 function startAdventure(){
 
 alert("Your adventure has started! 🚗");
-
-updateProgress();
 
 }
 
@@ -423,7 +390,6 @@ updateProgress();
 
 
 </script>
-
 
 
 </body>
