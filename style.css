@@ -17,27 +17,33 @@
 
 :root {
 
-    --cotton-cream: #f8f3e9;
-    --antique-paper: #efe3cf;
-    --linen: #d9cbb6;
-    --paper-white: #fffdf8;
+    --cotton-cream: #f7f7f2;
+    --antique-paper: #e5edf0;
+    --linen: #c7d4d9;
+    --paper-white: #fffefb;
 
-    --printers-black: #292724;
-    --walnut: #5f5044;
-    --muted-ink: #7e7369;
+    --printers-black: #2d3340;
+    --walnut: #665f62;
+    --muted-ink: #7d777b;
 
-    --forest: #526b52;
-    --forest-dark: #34483a;
+    --forest: #9eaf32;
+    --forest-dark: #303746;
 
-    --heritage-blue: #617f91;
-    --dusty-sky: #b8cad3;
+    --heritage-blue: #4f7c8d;
+    --dusty-sky: #c7dbe1;
 
-    --goldenrod: #c39438;
-    --goldenrod-dark: #896724;
+    --goldenrod: #a9bb35;
+    --goldenrod-dark: #77851f;
 
-    --barn-red: #9e4d43;
-    --vintage-coral: #c87361;
-    --soft-sage: #a8b39a;
+    --barn-red: #c95468;
+    --vintage-coral: #df6a7f;
+    --soft-sage: #d8e27a;
+
+    --lipstick-pink: #df5f79;
+    --trailer-lime: #a9bb35;
+    --lake-blue: #4f7c8d;
+    --mist-blue: #dce7e9;
+    --rosy-red: #c95468;
 
     --border: rgba(41, 39, 36, 0.16);
     --soft-border: rgba(41, 39, 36, 0.1);
@@ -79,7 +85,7 @@ body {
     background:
         radial-gradient(
             circle at top left,
-            rgba(195, 148, 56, 0.07),
+            rgba(169, 187, 53, 0.10),
             transparent 34%
         ),
         var(--cotton-cream);
@@ -275,13 +281,13 @@ strong {
     background:
         linear-gradient(
             90deg,
-            rgba(27, 35, 29, 0.86) 0%,
-            rgba(27, 35, 29, 0.62) 42%,
-            rgba(27, 35, 29, 0.08) 78%
+            rgba(38, 44, 57, 0.88) 0%,
+            rgba(38, 44, 57, 0.64) 42%,
+            rgba(38, 44, 57, 0.10) 78%
         ),
         linear-gradient(
             0deg,
-            rgba(27, 35, 29, 0.68) 0%,
+            rgba(38, 44, 57, 0.70) 0%,
             transparent 50%
         );
 }
@@ -320,7 +326,7 @@ strong {
 
     text-transform: uppercase;
 
-    color: #f0dcaa;
+    color: #dce66f;
 }
 
 .issue-number {
@@ -564,7 +570,7 @@ strong {
 }
 
 .theme-panel .section-marker {
-    color: #e5c778;
+    color: #dce66f;
 }
 
 .issue-question {
@@ -800,7 +806,7 @@ strong {
 
     padding: clamp(38px, 6vw, 66px);
 
-    background: #e5d7c1;
+    background: #dce7e9;
 
     border-radius: var(--radius-large);
 }
@@ -1045,11 +1051,11 @@ a.issue-card:hover {
 
     background: var(--goldenrod);
 
-    color: #231f19;
+    color: #2d3340;
 }
 
 .button--gold:hover {
-    background: #d5aa51;
+    background: #bdca4c;
 }
 
 .button--outline {
@@ -1264,7 +1270,7 @@ textarea:focus,
 
     border-color: var(--heritage-blue);
 
-    box-shadow: 0 0 0 3px rgba(97, 127, 145, 0.16);
+    box-shadow: 0 0 0 3px rgba(79, 124, 141, 0.18);
 }
 
 textarea,
@@ -1525,9 +1531,9 @@ textarea:focus-visible {
         background:
             linear-gradient(
                 0deg,
-                rgba(27, 35, 29, 0.92) 0%,
-                rgba(27, 35, 29, 0.58) 65%,
-                rgba(27, 35, 29, 0.2) 100%
+                rgba(38, 44, 57, 0.93) 0%,
+                rgba(38, 44, 57, 0.62) 65%,
+                rgba(38, 44, 57, 0.22) 100%
             );
     }
 
@@ -1791,7 +1797,7 @@ textarea:focus-visible {
 .edition-header__content .section-marker,
 .memory-form-header__content .section-marker {
 
-    color: #efd48d;
+    color: #dce66f;
 
 }
 
@@ -2765,7 +2771,7 @@ textarea:focus-visible {
 
 .field-note-save .section-marker {
 
-    color: #efd48d;
+    color: #dce66f;
 
 }
 
@@ -2946,4 +2952,206 @@ textarea:focus-visible {
 
     }
 
+}
+
+
+/* =========================================================
+   100 ADVENTURE — GLAMPING EDITION V2
+   Energetic editorial accents
+   ========================================================= */
+
+::selection {
+    background: var(--soft-sage);
+    color: var(--printers-black);
+}
+
+body {
+    background:
+        radial-gradient(circle at 8% 0%, rgba(223, 95, 121, 0.10), transparent 26%),
+        radial-gradient(circle at 96% 6%, rgba(169, 187, 53, 0.12), transparent 24%),
+        var(--cotton-cream);
+}
+
+.wordmark,
+.edition-wordmark {
+    text-decoration-color: var(--trailer-lime);
+}
+
+.publication-header {
+    border-bottom-width: 2px;
+    border-bottom-color: var(--trailer-lime);
+}
+
+.section-marker,
+.label,
+.journey-label {
+    color: var(--lipstick-pink);
+}
+
+.issue-number {
+    background: var(--lipstick-pink);
+    border-color: var(--lipstick-pink);
+    color: var(--paper-white);
+}
+
+.button,
+.edition-create-button {
+    background: var(--lipstick-pink);
+    box-shadow: 0 7px 0 rgba(48, 55, 70, 0.14);
+}
+
+.button:hover,
+.edition-create-button:hover {
+    background: var(--rosy-red);
+}
+
+.button--gold {
+    background: var(--trailer-lime);
+    color: var(--printers-black);
+}
+
+.button--gold:hover {
+    background: #bdca4c;
+}
+
+.button--outline {
+    color: var(--forest-dark);
+    border-color: var(--forest-dark);
+    box-shadow: none;
+}
+
+.text-link,
+.journey-icon {
+    color: var(--lake-blue);
+    border-color: var(--lake-blue);
+}
+
+.drop-cap::first-letter,
+.contents-number,
+.edition-memory__number,
+.edition-count strong,
+.field-note-section__heading > span {
+    color: var(--lipstick-pink);
+}
+
+.theme-panel,
+.issue-card--alabama,
+.memory-form-header {
+    background: var(--forest-dark);
+}
+
+.theme-panel .section-marker,
+.edition-header__content .section-marker,
+.memory-form-header__content .section-marker,
+.field-note-save .section-marker {
+    color: var(--soft-sage);
+}
+
+.theme-panel__number {
+    color: rgba(216, 226, 122, 0.25);
+}
+
+.cover-footer,
+.journey-card,
+.creation,
+.edition-memory__metadata span,
+.photo-upload,
+.photo-preview-frame,
+.field-note-form .input,
+.field-note-form .textarea,
+.keepsake-options span {
+    background: var(--mist-blue);
+}
+
+.contents-card {
+    background: rgba(255, 254, 251, 0.82);
+}
+
+.contents-card:hover,
+.journey-card:hover {
+    border-color: rgba(223, 95, 121, 0.36);
+}
+
+.library-section,
+.field-note-reflection,
+.edition-empty-state {
+    background: #edf2dc;
+}
+
+.issue-card--tennessee {
+    background: var(--lipstick-pink);
+}
+
+.issue-card--ozarks,
+.edition-header,
+.field-note-save {
+    background: var(--lake-blue);
+}
+
+.adventure {
+    border-left-color: var(--trailer-lime);
+}
+
+.tabs button.active,
+.tabs button:hover {
+    background: var(--lipstick-pink);
+}
+
+.passport-stamp {
+    color: var(--lipstick-pink);
+    border-color: var(--lipstick-pink);
+}
+
+.nav {
+    border-top: 3px solid var(--trailer-lime);
+}
+
+.nav a:hover,
+.nav a.nav__active {
+    background: var(--forest-dark);
+    color: var(--paper-white);
+}
+
+.nav a.nav__active span {
+    color: var(--soft-sage);
+}
+
+input:focus,
+textarea:focus,
+.input:focus,
+.textarea:focus {
+    border-color: var(--lipstick-pink);
+    box-shadow: 0 0 0 3px rgba(223, 95, 121, 0.16);
+}
+
+.photo-upload__symbol {
+    background: var(--lipstick-pink);
+}
+
+.keepsake-options input:checked + span {
+    background: var(--trailer-lime);
+    border-color: var(--trailer-lime);
+    color: var(--printers-black);
+    font-weight: 700;
+}
+
+.edition-memory__reflection {
+    color: var(--lake-blue);
+    border-left-color: var(--trailer-lime);
+}
+
+.edition-memory__keepsake-list span {
+    border-color: rgba(223, 95, 121, 0.35);
+}
+
+.edition-memory__delete:hover {
+    color: var(--lipstick-pink);
+}
+
+@media (hover: hover) {
+    .issue-card:hover,
+    .edition-memory:hover,
+    .field-note-section:hover {
+        border-color: rgba(169, 187, 53, 0.45);
+    }
 }
