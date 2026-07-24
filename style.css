@@ -19,7 +19,39 @@ body {
 
 
 
-/* HEADER */
+/* HEADER */.tabs {
+
+display:flex;
+
+gap:8px;
+
+overflow-x:auto;
+
+margin-bottom:20px;
+
+}
+
+
+.tabs button {
+
+border:none;
+
+background:#e8dfcf;
+
+padding:10px 14px;
+
+border-radius:20px;
+
+cursor:pointer;
+
+}
+
+
+.tab-content {
+
+display:none;
+
+}
 
 header {
 
