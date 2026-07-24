@@ -1,397 +1,318 @@
-<!DOCTYPE html>
-<html lang="en">
+* {
+    box-sizing: border-box;
+}
 
-<head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+body {
 
-<title>Adventure | 100 Adventure</title>
+    margin: 0;
 
-<link rel="stylesheet" href="style.css">
+    padding: 20px;
 
-</head>
+    font-family: Arial, sans-serif;
 
+    background: #f6f1e8;
 
-<body>
-
-
-<header>
-
-
-<img id="coverImage"
-class="adventure-cover"
-alt="Adventure Cover">
-
-
-<h1 id="title">
-Loading Adventure...
-</h1>
-
-
-<p class="subtitle" id="theme"></p>
-
-
-<p id="details"></p>
-
-
-
-<button class="button"
-onclick="startAdventure()">
-
-Start the Journey
-
-</button>
-
-
-</header>
-
-
-
-
-
-<div class="card">
-
-<div class="label">
-Your Journey
-</div>
-
-
-<h2 id="progress">
-0 Stops Visited
-</h2>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-<div class="label">
-Overview
-</div>
-
-
-<h2>
-About This Adventure
-</h2>
-
-
-<p id="description"></p>
-
-
-<h3>
-Best Time
-</h3>
-
-
-<p id="bestTime"></p>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-<div class="label">
-Stops Along The Way
-</div>
-
-
-<div id="stops"></div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-<div class="label">
-Things To Notice
-</div>
-
-
-<div id="notice"></div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-<div class="label">
-Collect Along The Way
-</div>
-
-
-<div id="ephemera"></div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-<div class="label">
-Soundtrack
-</div>
-
-
-<h2 id="playlistTitle"></h2>
-
-
-<a class="button"
-id="playlistLink"
-target="_blank">
-
-Open Spotify
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="nav">
-
-
-<a href="index.html">
-🏠<br>
-Home
-</a>
-
-
-<a href="adventure.html">
-🗺<br>
-Adventure
-</a>
-
-
-<a href="memories.html">
-📸<br>
-Journal
-</a>
-
-
-<a href="passport.html">
-🏕<br>
-Passport
-</a>
-
-
-<a href="create.html">
-✂️<br>
-Create
-</a>
-
-
-</div>
-
-
-
-
-
-
-<script src="adventures.js"></script>
-
-<script src="app.js"></script>
-
-
-
-<script>
-
-
-document.getElementById("coverImage").src =
-adventure.cover;
-
-
-document.getElementById("title").innerHTML =
-adventure.title;
-
-
-document.getElementById("theme").innerHTML =
-adventure.theme;
-
-
-document.getElementById("details").innerHTML =
-adventure.distance +
-" • " +
-adventure.duration;
-
-
-document.getElementById("description").innerHTML =
-adventure.description;
-
-
-document.getElementById("bestTime").innerHTML =
-adventure.bestTime;
-
-
-
-
-let stopsHTML = "";
-
-
-adventure.stops.forEach(function(stop,index){
-
-
-stopsHTML += `
-
-<div class="adventure">
-
-
-<h2>${stop.name}</h2>
-
-
-<p>${stop.type}</p>
-
-
-<p>${stop.description}</p>
-
-
-<p>⏱ ${stop.visitTime}</p>
-
-
-<a class="button"
-href="${stop.map}"
-target="_blank">
-
-📍 Navigate
-
-</a>
-
-
-<button class="button"
-onclick="markVisited(${index})">
-
-✓ Mark Visited
-
-</button>
-
-
-<h3>Collect Ideas</h3>
-
-
-<ul>
-
-${stop.collect.map(item =>
-`<li>${item}</li>`
-).join("")}
-
-</ul>
-
-
-</div>
-
-`;
-
-});
-
-
-document.getElementById("stops").innerHTML =
-stopsHTML;
-
-
-
-
-let noticeHTML = "";
-
-
-adventure.noticeIdeas.forEach(function(item){
-
-noticeHTML +=
-
-`
-<div class="creation">
-👀 ${item}
-</div>
-`;
-
-});
-
-
-document.getElementById("notice").innerHTML =
-noticeHTML;
-
-
-
-
-let ephemeraHTML = "";
-
-
-adventure.ephemeraIdeas.forEach(function(item){
-
-ephemeraHTML +=
-
-`
-<div class="creation">
-🎟 ${item}
-</div>
-`;
-
-});
-
-
-document.getElementById("ephemera").innerHTML =
-ephemeraHTML;
-
-
-
-
-document.getElementById("playlistTitle").innerHTML =
-adventure.playlist.title;
-
-
-document.getElementById("playlistLink").href =
-adventure.playlist.link;
-
-
-
-
-function startAdventure(){
-
-alert("Your adventure has started! 🚗");
+    color: #333;
 
 }
 
 
 
-updateProgress();
+/* HEADER */
+
+header {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+}
 
 
-</script>
+h1 {
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+
+}
 
 
-</body>
+h2 {
 
-</html>
+    margin-top: 10px;
+
+}
+
+
+h3 {
+
+    margin-top: 20px;
+
+}
+
+
+
+.subtitle {
+
+    font-size: 18px;
+
+    color: #6b7560;
+
+}
+
+
+
+/* BUTTONS */
+
+.button {
+
+    display: inline-block;
+
+    background: #6b7560;
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 25px;
+
+    text-decoration: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    margin: 8px 5px;
+
+    font-size: 15px;
+
+}
+
+
+.button:hover {
+
+    opacity: .85;
+
+}
+
+
+
+/* CARDS */
+
+.card {
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+
+}
+
+
+
+.label {
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 12px;
+
+    color: #888;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+/* ADVENTURE COVER */
+
+.adventure-cover {
+
+    width: 100%;
+
+    max-height: 350px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+/* STOP CARDS */
+
+.adventure {
+
+    background: #faf8f2;
+
+    border-radius: 16px;
+
+    padding: 18px;
+
+    margin-bottom: 18px;
+
+    border-left: 5px solid #6b7560;
+
+}
+
+
+
+.adventure p {
+
+    line-height: 1.5;
+
+}
+
+
+
+/* COLLECTION ITEMS */
+
+.creation {
+
+    background: #f1eadb;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+/* LISTS */
+
+ul {
+
+    padding-left: 20px;
+
+}
+
+
+li {
+
+    margin-bottom: 8px;
+
+}
+
+
+
+/* PASSPORT STAMP */
+
+.passport-stamp {
+
+    width: 160px;
+
+    height: 160px;
+
+    border-radius: 50%;
+
+    border: 3px dashed #6b7560;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    margin: 25px auto;
+
+    color: #6b7560;
+
+    font-weight: bold;
+
+}
+
+
+
+/* NAVIGATION */
+
+.nav {
+
+    position: sticky;
+
+    bottom: 0;
+
+    background: white;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    padding: 12px 5px;
+
+    margin-top: 30px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 -3px 12px rgba(0,0,0,.08);
+
+}
+
+
+
+.nav a {
+
+    text-decoration: none;
+
+    color: #555;
+
+    text-align: center;
+
+    font-size: 13px;
+
+}
+
+
+
+/* MOBILE */
+
+@media (max-width:600px){
+
+
+    body {
+
+        padding: 15px;
+
+    }
+
+
+    h1 {
+
+        font-size: 26px;
+
+    }
+
+
+    .card {
+
+        padding: 18px;
+
+    }
+
+
+    .button {
+
+        width: 100%;
+
+        text-align: center;
+
+    }
+
+
+}
