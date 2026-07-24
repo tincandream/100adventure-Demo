@@ -1,91 +1,397 @@
-body {
-    margin:0;
-    background:#F8F5EF;
-    color:#3B3028;
-    font-family:Arial, sans-serif;
-    padding-bottom:90px;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Adventure | 100 Adventure</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+
+<img id="coverImage"
+class="adventure-cover"
+alt="Adventure Cover">
+
+
+<h1 id="title">
+Loading Adventure...
+</h1>
+
+
+<p class="subtitle" id="theme"></p>
+
+
+<p id="details"></p>
+
+
+
+<button class="button"
+onclick="startAdventure()">
+
+Start the Journey
+
+</button>
+
+
+</header>
+
+
+
+
+
+<div class="card">
+
+<div class="label">
+Your Journey
+</div>
+
+
+<h2 id="progress">
+0 Stops Visited
+</h2>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<div class="label">
+Overview
+</div>
+
+
+<h2>
+About This Adventure
+</h2>
+
+
+<p id="description"></p>
+
+
+<h3>
+Best Time
+</h3>
+
+
+<p id="bestTime"></p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<div class="label">
+Stops Along The Way
+</div>
+
+
+<div id="stops"></div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<div class="label">
+Things To Notice
+</div>
+
+
+<div id="notice"></div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<div class="label">
+Collect Along The Way
+</div>
+
+
+<div id="ephemera"></div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<div class="label">
+Soundtrack
+</div>
+
+
+<h2 id="playlistTitle"></h2>
+
+
+<a class="button"
+id="playlistLink"
+target="_blank">
+
+Open Spotify
+
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="nav">
+
+
+<a href="index.html">
+🏠<br>
+Home
+</a>
+
+
+<a href="adventure.html">
+🗺<br>
+Adventure
+</a>
+
+
+<a href="memories.html">
+📸<br>
+Journal
+</a>
+
+
+<a href="passport.html">
+🏕<br>
+Passport
+</a>
+
+
+<a href="create.html">
+✂️<br>
+Create
+</a>
+
+
+</div>
+
+
+
+
+
+
+<script src="adventures.js"></script>
+
+<script src="app.js"></script>
+
+
+
+<script>
+
+
+document.getElementById("coverImage").src =
+adventure.cover;
+
+
+document.getElementById("title").innerHTML =
+adventure.title;
+
+
+document.getElementById("theme").innerHTML =
+adventure.theme;
+
+
+document.getElementById("details").innerHTML =
+adventure.distance +
+" • " +
+adventure.duration;
+
+
+document.getElementById("description").innerHTML =
+adventure.description;
+
+
+document.getElementById("bestTime").innerHTML =
+adventure.bestTime;
+
+
+
+
+let stopsHTML = "";
+
+
+adventure.stops.forEach(function(stop,index){
+
+
+stopsHTML += `
+
+<div class="adventure">
+
+
+<h2>${stop.name}</h2>
+
+
+<p>${stop.type}</p>
+
+
+<p>${stop.description}</p>
+
+
+<p>⏱ ${stop.visitTime}</p>
+
+
+<a class="button"
+href="${stop.map}"
+target="_blank">
+
+📍 Navigate
+
+</a>
+
+
+<button class="button"
+onclick="markVisited(${index})">
+
+✓ Mark Visited
+
+</button>
+
+
+<h3>Collect Ideas</h3>
+
+
+<ul>
+
+${stop.collect.map(item =>
+`<li>${item}</li>`
+).join("")}
+
+</ul>
+
+
+</div>
+
+`;
+
+});
+
+
+document.getElementById("stops").innerHTML =
+stopsHTML;
+
+
+
+
+let noticeHTML = "";
+
+
+adventure.noticeIdeas.forEach(function(item){
+
+noticeHTML +=
+
+`
+<div class="creation">
+👀 ${item}
+</div>
+`;
+
+});
+
+
+document.getElementById("notice").innerHTML =
+noticeHTML;
+
+
+
+
+let ephemeraHTML = "";
+
+
+adventure.ephemeraIdeas.forEach(function(item){
+
+ephemeraHTML +=
+
+`
+<div class="creation">
+🎟 ${item}
+</div>
+`;
+
+});
+
+
+document.getElementById("ephemera").innerHTML =
+ephemeraHTML;
+
+
+
+
+document.getElementById("playlistTitle").innerHTML =
+adventure.playlist.title;
+
+
+document.getElementById("playlistLink").href =
+adventure.playlist.link;
+
+
+
+
+function startAdventure(){
+
+alert("Your adventure has started! 🚗");
+
 }
 
 
-header {
-    background:#EEE3D1;
-    padding:40px 25px;
-    text-align:center;
-}
+
+updateProgress();
 
 
-h1, h2 {
-    font-family:Georgia, serif;
-}
+</script>
 
 
-.subtitle {
-    color:#6D8796;
-}
+</body>
 
-
-.card {
-    background:white;
-    margin:20px;
-    padding:25px;
-    border-radius:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
-
-
-.label {
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:#7D8B74;
-}
-
-
-.button {
-    display:inline-block;
-    background:#5D4633;
-    color:white;
-    padding:12px 25px;
-    border-radius:30px;
-    text-decoration:none;
-}
-
-
-.nav {
-    position:fixed;
-    bottom:0;
-    left:0;
-    right:0;
-    background:white;
-    display:flex;
-    justify-content:space-around;
-    padding:15px 5px;
-    box-shadow:0 -3px 15px rgba(0,0,0,.1);
-}
-
-
-.nav a {
-    text-decoration:none;
-    color:#3B3028;
-    font-size:13px;
-    text-align:center;
-}
-
-
-.creation,
-.adventure,
-.feature {
-    background:#EEE3D1;
-    padding:18px;
-    border-radius:15px;
-    margin-top:15px;
-}
-
-
-@media(max-width:600px){
-
-.card {
-    margin:15px;
-}
-
-}
+</html>
