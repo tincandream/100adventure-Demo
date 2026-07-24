@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Memories | 100 Adventure</title>
+<title>Memories | 100 Adventure</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -22,127 +22,63 @@
 My Memories
 </h1>
 
+
 <p class="subtitle">
-Collect moments from every mile.
+Your adventure scrapbook
 </p>
+
 
 </header>
 
 
 
 
-<div class="card">
-
-<div class="label">
-Travel Journal
-</div>
-
-
-<h2>
-Your Adventure Story
-</h2>
-
-
-<p>
-Save the photos, thoughts, and small discoveries that made your trip special.
-</p>
-
-
-</div>
-
-
-
-
 
 <div class="card">
 
+
 <div class="label">
-Captured Moments
+Saved Moments
 </div>
+
+
+<div id="memoryList">
 
 
 <div class="creation">
 
-📸 Add Favorite Photo
+No memories saved yet.
+
+<br><br>
+
+Start your adventure and capture moments along the way.
 
 </div>
 
 
-<div class="creation">
+</div>
 
-📍 Location
 
 </div>
 
 
-<div class="creation">
-
-✍️ Personal Note
-
-</div>
 
 
-<div class="creation">
-
-🎟 Collected Ephemera
-
-</div>
 
 
-<a class="button" href="create.html">
-Create Keepsake
+<div class="card">
+
+
+<a class="button"
+href="memory-card.html">
+
+📸 Create New Memory
+
 </a>
 
 
 </div>
 
-
-
-
-
-
-
-<div class="card">
-
-<div class="label">
-Saved Memory
-</div>
-
-
-<h2>
-Cheaha Mountain Overlook
-</h2>
-
-
-<div class="creation">
-
-📷 Mountain View Photo
-
-</div>
-
-
-<p>
-"Arrived just as the clouds opened over the valley."
-</p>
-
-
-<p>
-Collected:
-</p>
-
-
-<ul>
-
-<li>Park brochure</li>
-
-<li>Coffee receipt</li>
-
-<li>Trail map</li>
-
-</ul>
-
-
-</div>
 
 
 
@@ -151,31 +87,112 @@ Collected:
 
 <div class="nav">
 
+
 <a href="index.html">
-🏠<br>Home
+🏠
+<br>
+Home
 </a>
 
 
 <a href="adventure.html">
-🗺<br>Explore
+🗺
+<br>
+Adventure
 </a>
 
 
 <a href="memories.html">
-📸<br>Memories
+📸
+<br>
+Memories
 </a>
 
 
 <a href="passport.html">
-🏕<br>Passport
+🏕
+<br>
+Passport
 </a>
 
 
 <a href="create.html">
-✂️<br>Create
+✂️
+<br>
+Create
 </a>
 
+
 </div>
+
+
+
+
+<script>
+
+
+let memories = 
+JSON.parse(localStorage.getItem("memories"))
+|| [];
+
+
+
+let memoryList =
+document.getElementById("memoryList");
+
+
+
+if(memories.length > 0){
+
+
+memoryList.innerHTML = "";
+
+
+
+memories.forEach(function(memory){
+
+
+
+memoryList.innerHTML += `
+
+
+<div class="creation">
+
+
+<h2>
+${memory.title}
+</h2>
+
+
+<p>
+${memory.note}
+</p>
+
+
+<p>
+📍 ${memory.adventure}
+</p>
+
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+
+}
+
+
+
+</script>
+
+
+
 
 
 </body>
