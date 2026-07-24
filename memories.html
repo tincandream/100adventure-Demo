@@ -34,6 +34,8 @@ Your adventure scrapbook
 
 
 
+
+
 <div class="card">
 
 
@@ -42,24 +44,11 @@ Saved Moments
 </div>
 
 
-<div id="memoryList">
-
-
-<div class="creation">
-
-No memories saved yet.
-
-<br><br>
-
-Start your adventure and capture moments along the way.
-
-</div>
+<div id="memoryList"></div>
 
 
 </div>
 
-
-</div>
 
 
 
@@ -128,11 +117,16 @@ Create
 
 
 
+
+
+
 <script>
 
 
-let memories = 
+let memories =
+
 JSON.parse(localStorage.getItem("memories"))
+
 || [];
 
 
@@ -142,7 +136,33 @@ document.getElementById("memoryList");
 
 
 
-if(memories.length > 0){
+
+
+if(memories.length === 0){
+
+
+memoryList.innerHTML = `
+
+
+<div class="creation">
+
+No memories saved yet.
+
+<br><br>
+
+Start exploring and capture your first adventure.
+
+</div>
+
+
+`;
+
+
+
+}
+
+else {
+
 
 
 memoryList.innerHTML = "";
@@ -153,10 +173,53 @@ memories.forEach(function(memory){
 
 
 
+let collectedText = "";
+
+
+
+memory.collected.forEach(function(item){
+
+
+collectedText +=
+
+`
+<span>
+🎟 ${item}
+</span>
+<br>
+`;
+
+
+
+});
+
+
+
+
+
+
 memoryList.innerHTML += `
 
 
-<div class="creation">
+<div class="memory-card">
+
+
+
+${memory.photo ?
+
+
+`<img 
+class="memory-image"
+src="${memory.photo}">
+`
+
+:
+
+""
+
+}
+
+
 
 
 <h2>
@@ -164,14 +227,26 @@ ${memory.title}
 </h2>
 
 
+
+<p class="subtitle">
+${memory.adventure}
+</p>
+
+
+
+
 <p>
 ${memory.note}
 </p>
 
 
-<p>
-📍 ${memory.adventure}
-</p>
+
+
+<div class="creation">
+
+${collectedText}
+
+</div>
 
 
 
@@ -179,6 +254,7 @@ ${memory.note}
 
 
 `;
+
 
 
 });
@@ -190,6 +266,7 @@ ${memory.note}
 
 
 </script>
+
 
 
 
