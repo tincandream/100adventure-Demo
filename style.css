@@ -19,37 +19,38 @@ body {
 
 
 
-/* HEADER */.tabs {
+/* HEADER */
+.tabs {
 
-display:flex;
+ display:flex;
 
-gap:8px;
+ gap:8px;
 
-overflow-x:auto;
+ overflow-x:auto;
 
-margin-bottom:20px;
+ margin-bottom:20px;
 
 }
 
 
 .tabs button {
 
-border:none;
+ border:none;
 
-background:#e8dfcf;
+ background:#e8dfcf;
 
-padding:10px 14px;
+ padding:10px 14px;
 
-border-radius:20px;
+ border-radius:20px;
 
-cursor:pointer;
+ cursor:pointer;
 
 }
 
 
 .tab-content {
 
-display:none;
+ display:none;
 
 }
 
@@ -130,6 +131,14 @@ h3 {
 }
 
 
+/* Focus styles for accessibility */
+.button:focus,
+.tabs button:focus {
+  outline: 3px solid rgba(37,99,235,0.3);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+}
+
 
 /* CARDS */
 
@@ -178,6 +187,8 @@ h3 {
     border-radius: 18px;
 
     margin-bottom: 20px;
+
+    display: block;
 
 }
 
