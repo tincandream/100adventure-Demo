@@ -6,11 +6,17 @@ const adventure = {
 
     theme: "Mountain Roads & Hidden Gems",
 
-    distance: "43 miles",
+    cover:
+    "images/alabama-cover.jpg",
 
-    duration: "2 hr 15 min",
+    distance:
+    "43 miles",
 
-    location: "Alabama",
+    duration:
+    "2 hr 15 min",
+
+    location:
+    "Alabama",
 
 
     description:
@@ -54,7 +60,6 @@ const adventure = {
         },
 
 
-
         {
 
             name:
@@ -85,7 +90,6 @@ const adventure = {
             ]
 
         },
-
 
 
         {
@@ -126,17 +130,11 @@ const adventure = {
     noticeIdeas:
 
     [
-
         "Vintage roadside signs",
-
         "Handmade items",
-
         "Historic buildings",
-
         "Interesting local details",
-
         "Beautiful overlooks"
-
     ],
 
 
@@ -144,39 +142,27 @@ const adventure = {
     ephemeraIdeas:
 
     [
-
         "Ticket stubs",
-
         "Receipts",
-
         "Postcards",
-
         "Maps",
-
         "Labels",
-
         "Nature items"
-
     ],
-
 
 
 
     playlist:
 
     {
-
         title:
         "Alabama Scenic Byway Road Trip",
-
 
         platform:
         "Spotify",
 
-
         link:
         "#"
-
     }
 
 
