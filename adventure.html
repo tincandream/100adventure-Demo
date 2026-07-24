@@ -151,6 +151,7 @@ Things To Notice
 
 
 
+
 <div class="card">
 
 <div class="label">
@@ -159,6 +160,17 @@ Collect Along The Way
 
 
 <div id="ephemera"></div>
+
+
+<br>
+
+
+<a class="button"
+href="memory-card.html">
+
+📸 Create Memory
+
+</a>
 
 
 </div>
@@ -212,31 +224,36 @@ Open Spotify
 
 
 <a href="index.html">
-🏠<br>
+🏠
+<br>
 Home
 </a>
 
 
 <a href="adventure.html">
-🗺<br>
+🗺
+<br>
 Adventure
 </a>
 
 
 <a href="memories.html">
-📸<br>
-Journal
+📸
+<br>
+Memories
 </a>
 
 
 <a href="passport.html">
-🏕<br>
+🏕
+<br>
 Passport
 </a>
 
 
 <a href="create.html">
-✂️<br>
+✂️
+<br>
 Create
 </a>
 
@@ -289,23 +306,41 @@ adventure.bestTime;
 
 
 
+
 let stopsHTML = "";
+
 
 
 adventure.stops.forEach(function(stop,index){
 
 
+
 stopsHTML += `
+
 
 <div class="adventure">
 
-<h2>${stop.name}</h2>
 
-<p>${stop.type}</p>
+<h2>
+${stop.name}
+</h2>
 
-<p>${stop.description}</p>
 
-<p>⏱ ${stop.visitTime}</p>
+<p>
+${stop.type}
+</p>
+
+
+<p>
+${stop.description}
+</p>
+
+
+<p>
+⏱ ${stop.visitTime}
+</p>
+
+
 
 
 <a class="button"
@@ -317,6 +352,8 @@ target="_blank">
 </a>
 
 
+
+
 <button class="button"
 onclick="markVisited(${index})">
 
@@ -325,11 +362,42 @@ onclick="markVisited(${index})">
 </button>
 
 
+
+
+<a class="button"
+href="memory-card.html">
+
+📸 Save Moment
+
+</a>
+
+
+
+<h3>
+Collect Ideas
+</h3>
+
+
+
+<ul>
+
+${stop.collect.map(item =>
+`<li>${item}</li>`
+).join("")}
+
+</ul>
+
+
+
 </div>
+
 
 `;
 
+
+
 });
+
 
 
 document.getElementById("stopsList").innerHTML =
@@ -339,19 +407,31 @@ stopsHTML;
 
 
 
-let noticeHTML="";
+
+
+
+let noticeHTML = "";
+
 
 
 adventure.noticeIdeas.forEach(function(item){
 
+
 noticeHTML +=
+
 `
+
 <div class="creation">
+
 👀 ${item}
+
 </div>
+
 `;
 
+
 });
+
 
 
 document.getElementById("notice").innerHTML =
@@ -361,19 +441,31 @@ noticeHTML;
 
 
 
-let collectHTML="";
+
+
+
+let collectHTML = "";
+
 
 
 adventure.ephemeraIdeas.forEach(function(item){
 
+
 collectHTML +=
+
 `
+
 <div class="creation">
+
 🎟 ${item}
+
 </div>
+
 `;
 
+
 });
+
 
 
 document.getElementById("ephemera").innerHTML =
@@ -384,8 +476,11 @@ collectHTML;
 
 
 
+
+
 document.getElementById("playlistTitle").innerHTML =
 adventure.playlist.title;
+
 
 
 document.getElementById("playlistLink").href =
@@ -397,7 +492,9 @@ adventure.playlist.link;
 
 
 
+
 function showTab(tab){
+
 
 document.querySelectorAll(".tab-content")
 .forEach(function(section){
@@ -415,11 +512,19 @@ document.getElementById(tab)
 
 
 
+
+
+
 function startAdventure(){
+
 
 alert("Adventure Started 🚗");
 
+
 }
+
+
+
 
 
 
@@ -427,6 +532,7 @@ showTab("overview");
 
 
 updateProgress();
+
 
 
 </script>
