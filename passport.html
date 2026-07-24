@@ -3,139 +3,1031 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Passport | 100 Adventure</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<link rel="stylesheet" href="style.css">
+    <meta
+        name="description"
+        content="A personal field journal of journeys, stories, stamps and questions collected through 100 Adventure."
+    >
+
+    <title>
+        Traveler's Field Journal | 100 Adventure
+    </title>
+
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
-<body>
 
-<header>
-
-<h1>100 Adventure Passport</h1>
-
-<p class="subtitle">
-Collect your journeys.
-</p>
-
-</header>
+<body class="passport-page">
 
 
-<div class="card">
-
-<div class="label">
-Adventure Progress
-</div>
-
-<h2>My Passport</h2>
-
-<div class="passport-stamp">
-
-<img src="images/cheaha-stamp.png"
-     alt="Cheaha Adventure Stamp"
-     class="stamp-image">
-
-</div>
-
-<h2>1 / 100 Adventures</h2>
-
-<p>
-Every completed adventure earns a unique passport stamp.
-</p>
-
-</div>
+    <main class="passport-shell">
 
 
+        <!-- PASSPORT HEADER -->
 
-<div class="card">
+        <header class="passport-header">
 
-<div class="label">
-Completed Adventure
-</div>
+            <div class="passport-header__top">
 
-<div class="adventure">
+                <a class="passport-wordmark" href="index.html">
+                    100 Adventure
+                </a>
 
-<h2>✓ Alabama Scenic Byway</h2>
+                <span>
+                    Traveler Record
+                </span>
 
-<p>
-Oxford → Talladega → Cheaha State Park
-</p>
-
-<p>
-🏔 Cheaha State Park Stamp Earned
-</p>
-
-<p>
-Completed: July 2026
-</p>
-
-</div>
-
-</div>
+            </div>
 
 
+            <div class="passport-title-block">
 
-<div class="card">
+                <p class="section-marker">
+                    Issued to Those Who Travel with Curiosity
+                </p>
 
-<div class="label">
-Coming Soon
-</div>
+                <h1>
+                    Traveler's<br>
+                    Field Journal
+                </h1>
 
-<div class="adventure">
+                <p>
+                    A record of places explored, stories collected
+                    and questions carried home.
+                </p>
 
-<h2>🔒 Dolly's Tennessee</h2>
+            </div>
 
-<p>Future Passport Stamp</p>
 
-</div>
+            <div class="passport-identification">
 
-<div class="adventure">
+                <div>
 
-<h2>🔒 New England Coast</h2>
+                    <span class="passport-field-label">
+                        Publication
+                    </span>
 
-<p>Future Passport Stamp</p>
+                    <strong>
+                        100 Adventure
+                    </strong>
 
-</div>
+                </div>
 
-<div class="adventure">
 
-<h2>🔒 Route 66</h2>
+                <div>
 
-<p>Future Passport Stamp</p>
+                    <span class="passport-field-label">
+                        Current Issue
+                    </span>
 
-</div>
+                    <strong>
+                        Issue No. 001
+                    </strong>
 
-</div>
+                </div>
+
+
+                <div>
+
+                    <span class="passport-field-label">
+                        Traveling Philosophy
+                    </span>
+
+                    <strong>
+                        Collect Stories. Treasure Places.
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </header>
 
 
 
-<div class="nav">
+        <!-- CURRENT JOURNEY -->
 
-<a href="index.html">
-🏠<br>Home
-</a>
+        <section class="passport-current">
 
-<a href="adventure.html">
-🗺<br>Explore
-</a>
+            <div class="passport-section-heading">
 
-<a href="memories.html">
-📸<br>Memories
-</a>
+                <div>
 
-<a href="passport.html">
-🏕<br>Passport
-</a>
+                    <p class="section-marker">
+                        Current Journey
+                    </p>
 
-<a href="create.html">
-✂️<br>Create
-</a>
+                    <h2>
+                        Alabama Scenic Byway
+                    </h2>
 
-</div>
+                    <p>
+                        Connection to the Land
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="journey-status"
+                    id="journeyStatus"
+                >
+                    Not Yet Started
+                </span>
+
+            </div>
+
+
+            <div class="passport-current__grid">
+
+                <div class="current-issue-number">
+
+                    <span>
+                        Issue
+                    </span>
+
+                    <strong>
+                        001
+                    </strong>
+
+                </div>
+
+
+                <div class="current-journey-details">
+
+                    <p class="passport-route">
+                        Oxford → Talladega Scenic Byway → Cheaha State Park
+                    </p>
+
+
+                    <div class="passport-progress">
+
+                        <div class="passport-progress__heading">
+
+                            <span>
+                                Journey Progress
+                            </span>
+
+                            <strong id="passportProgressText">
+                                0 of 3 Stops Explored
+                            </strong>
+
+                        </div>
+
+
+                        <div class="passport-progress__track">
+
+                            <div
+                                class="passport-progress__bar"
+                                id="passportProgressBar"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        class="button"
+                        href="adventure.html"
+                        id="continueJourneyLink"
+                    >
+                        Begin This Journey
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- OFFICIAL STAMP -->
+
+        <section class="stamp-section">
+
+            <div class="stamp-section__copy">
+
+                <p class="section-marker">
+                    Official Journey Stamp
+                </p>
+
+                <h2 id="stampHeading">
+                    Complete the Journey
+                </h2>
+
+                <p id="stampDescription">
+                    Visit each stop in Issue No. 001 to earn the
+                    Alabama Scenic Byway stamp.
+                </p>
+
+
+                <div class="stamp-completion-record">
+
+                    <span class="passport-field-label">
+                        Completion Date
+                    </span>
+
+                    <strong id="completionDate">
+                        Awaiting Journey
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="official-stamp official-stamp--locked"
+                id="officialStamp"
+            >
+
+                <img
+                    src="images/cheaha-stamp.png"
+                    alt="Alabama Scenic Byway passport stamp"
+                    class="official-stamp__image"
+                >
+
+                <div
+                    class="official-stamp__lock"
+                    id="stampLock"
+                    aria-hidden="true"
+                >
+                    <span>
+                        001
+                    </span>
+
+                    <strong>
+                        Stamp Awaiting
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- OBSERVATION EARNED -->
+
+        <section class="observation-section">
+
+            <div class="observation-number">
+                01
+            </div>
+
+
+            <div>
+
+                <p class="section-marker">
+                    Observation from the Road
+                </p>
+
+                <h2 id="observationTitle">
+                    A thought still unfolding.
+                </h2>
+
+                <p id="observationText">
+                    Complete the Alabama journey to reveal the
+                    observation carried forward from this Issue.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- QUESTIONS -->
+
+        <section class="passport-reflection">
+
+            <div class="passport-section-heading">
+
+                <div>
+
+                    <p class="section-marker">
+                        The Question You're Exploring
+                    </p>
+
+                    <h2>
+                        Connection to the Land
+                    </h2>
+
+                </div>
+
+                <span>
+                    Issue 001
+                </span>
+
+            </div>
+
+
+            <blockquote>
+                “What does this place reveal about the country
+                we are still becoming?”
+            </blockquote>
+
+
+            <div class="reflection-prompts">
+
+                <article>
+
+                    <span>
+                        01
+                    </span>
+
+                    <p>
+                        Where did you see people caring for something
+                        they hope will outlast them?
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <span>
+                        02
+                    </span>
+
+                    <p>
+                        What small treasure felt like evidence of
+                        ingenuity, progress or pride in place?
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <span>
+                        03
+                    </span>
+
+                    <p>
+                        What here should be carried into America's
+                        next chapter?
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- COLLECTED ISSUES -->
+
+        <section class="collected-issues">
+
+            <div class="passport-section-heading">
+
+                <div>
+
+                    <p class="section-marker">
+                        Collected Issues
+                    </p>
+
+                    <h2>
+                        Journeys in Your Journal
+                    </h2>
+
+                </div>
+
+
+                <p id="issuesSummary">
+                    0 of 100 Issues Completed
+                </p>
+
+            </div>
+
+
+            <div class="passport-issue-list">
+
+
+                <article class="passport-issue-entry">
+
+                    <div class="passport-issue-entry__number">
+                        001
+                    </div>
+
+
+                    <div class="passport-issue-entry__content">
+
+                        <p class="section-marker">
+                            Connection to the Land
+                        </p>
+
+                        <h3>
+                            Alabama Scenic Byway
+                        </h3>
+
+                        <p>
+                            Forest roads, mountain views and
+                            roadside stories.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="passport-issue-entry__status"
+                        id="alabamaIssueStatus"
+                    >
+                        In Progress
+                    </div>
+
+                </article>
+
+
+
+                <article class="passport-issue-entry passport-issue-entry--future">
+
+                    <div class="passport-issue-entry__number">
+                        002
+                    </div>
+
+
+                    <div class="passport-issue-entry__content">
+
+                        <p class="section-marker">
+                            The Pursuit of Happiness
+                        </p>
+
+                        <h3>
+                            Inspired by Dolly's Tennessee
+                        </h3>
+
+                        <p>
+                            Music, mountain hospitality and
+                            the joy of a life made with care.
+                        </p>
+
+                    </div>
+
+
+                    <div class="passport-issue-entry__status">
+                        Coming Soon
+                    </div>
+
+                </article>
+
+
+
+                <article class="passport-issue-entry passport-issue-entry--future">
+
+                    <div class="passport-issue-entry__number">
+                        003
+                    </div>
+
+
+                    <div class="passport-issue-entry__content">
+
+                        <p class="section-marker">
+                            What Deserves to Be Remembered?
+                        </p>
+
+                        <h3>
+                            The Ozark Highlands
+                        </h3>
+
+                        <p>
+                            Living traditions, quiet waters
+                            and stories held by the hills.
+                        </p>
+
+                    </div>
+
+
+                    <div class="passport-issue-entry__status">
+                        Coming Soon
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FIELD RECORD -->
+
+        <section class="field-record">
+
+            <div>
+
+                <p class="section-marker">
+                    Field Record
+                </p>
+
+                <h2>
+                    Your Traveling Archive
+                </h2>
+
+            </div>
+
+
+            <div class="field-record__grid">
+
+                <article>
+
+                    <strong id="completedIssueCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Issues Completed
+                    </span>
+
+                </article>
+
+
+                <article>
+
+                    <strong id="exploredStopCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Stops Explored
+                    </span>
+
+                </article>
+
+
+                <article>
+
+                    <strong>
+                        1
+                    </strong>
+
+                    <span>
+                        Questions Carried
+                    </span>
+
+                </article>
+
+
+                <article>
+
+                    <strong id="earnedStampCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Stamps Earned
+                    </span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CLOSING -->
+
+        <section class="passport-closing">
+
+            <p class="section-marker">
+                Carry It Forward
+            </p>
+
+            <h2>
+                A country is shaped by what its people choose
+                to notice, build and preserve.
+            </h2>
+
+            <p>
+                Travel with curiosity. Honor the work behind
+                everyday places. Carry their stories into the future.
+            </p>
+
+        </section>
+
+
+
+        <footer class="passport-colophon">
+
+            <a href="index.html">
+                100 Adventure
+            </a>
+
+            <span>
+                Traveler's Field Journal · Issue No. 001
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- BOTTOM NAVIGATION -->
+
+    <nav class="nav" aria-label="Main navigation">
+
+        <a href="index.html">
+
+            <span aria-hidden="true">
+                ⌂
+            </span>
+
+            Home
+
+        </a>
+
+
+        <a href="adventure.html">
+
+            <span aria-hidden="true">
+                ◇
+            </span>
+
+            Explore
+
+        </a>
+
+
+        <a href="memories.html">
+
+            <span aria-hidden="true">
+                ◉
+            </span>
+
+            Memories
+
+        </a>
+
+
+        <a
+            class="nav__active"
+            href="passport.html"
+        >
+
+            <span aria-hidden="true">
+                ✦
+            </span>
+
+            Passport
+
+        </a>
+
+
+        <a href="create.html">
+
+            <span aria-hidden="true">
+                ✂
+            </span>
+
+            Create
+
+        </a>
+
+    </nav>
+
+
+
+    <script>
+
+        const adventureId =
+            "alabama-scenic-byway";
+
+        const totalStops =
+            3;
+
+        const visitedStorageKey =
+            `visitedStops-${adventureId}`;
+
+        const startedStorageKey =
+            `journeyStarted-${adventureId}`;
+
+        const completionStorageKey =
+            `completionDate-${adventureId}`;
+
+
+
+        function loadPassportProgress() {
+
+            let visitedStops = [];
+
+
+            try {
+
+                const savedProgress =
+                    localStorage.getItem(
+                        visitedStorageKey
+                    );
+
+                if (savedProgress) {
+
+                    const parsedProgress =
+                        JSON.parse(savedProgress);
+
+                    if (Array.isArray(parsedProgress)) {
+
+                        visitedStops =
+                            parsedProgress.filter(
+                                function (stopIndex) {
+
+                                    return (
+                                        Number.isInteger(stopIndex) &&
+                                        stopIndex >= 0 &&
+                                        stopIndex < totalStops
+                                    );
+
+                                }
+                            );
+
+                    }
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Unable to read passport progress:",
+                    error
+                );
+
+            }
+
+
+            const visitedCount =
+                new Set(visitedStops).size;
+
+            const journeyStarted =
+                localStorage.getItem(
+                    startedStorageKey
+                ) === "true" ||
+                visitedCount > 0;
+
+            const journeyComplete =
+                visitedCount === totalStops;
+
+
+            if (
+                journeyComplete &&
+                !localStorage.getItem(
+                    completionStorageKey
+                )
+            ) {
+
+                const completionDate =
+                    new Date().toLocaleDateString(
+                        "en-US",
+                        {
+                            month: "long",
+                            year: "numeric"
+                        }
+                    );
+
+                localStorage.setItem(
+                    completionStorageKey,
+                    completionDate
+                );
+
+            }
+
+
+            updatePassportDisplay({
+                visitedCount,
+                journeyStarted,
+                journeyComplete
+            });
+
+        }
+
+
+
+        function updatePassportDisplay(progress) {
+
+            const percentage =
+                (
+                    progress.visitedCount /
+                    totalStops
+                ) * 100;
+
+
+            setText(
+                "passportProgressText",
+                `${progress.visitedCount} of ${totalStops} Stops Explored`
+            );
+
+
+            setText(
+                "exploredStopCount",
+                progress.visitedCount
+            );
+
+
+            document
+                .getElementById(
+                    "passportProgressBar"
+                )
+                .style.width =
+                `${percentage}%`;
+
+
+            const journeyStatus =
+                document.getElementById(
+                    "journeyStatus"
+                );
+
+            const continueLink =
+                document.getElementById(
+                    "continueJourneyLink"
+                );
+
+
+            if (progress.journeyComplete) {
+
+                journeyStatus.textContent =
+                    "Journey Complete";
+
+                journeyStatus.classList.add(
+                    "journey-status--complete"
+                );
+
+                continueLink.textContent =
+                    "Revisit This Issue";
+
+            } else if (progress.journeyStarted) {
+
+                journeyStatus.textContent =
+                    "Journey in Progress";
+
+                continueLink.textContent =
+                    "Continue This Journey";
+
+            } else {
+
+                journeyStatus.textContent =
+                    "Not Yet Started";
+
+                continueLink.textContent =
+                    "Begin This Journey";
+
+            }
+
+
+            updateStamp(
+                progress.journeyComplete
+            );
+
+        }
+
+
+
+        function updateStamp(isComplete) {
+
+            const stamp =
+                document.getElementById(
+                    "officialStamp"
+                );
+
+            const stampLock =
+                document.getElementById(
+                    "stampLock"
+                );
+
+
+            if (isComplete) {
+
+                stamp.classList.remove(
+                    "official-stamp--locked"
+                );
+
+                stamp.classList.add(
+                    "official-stamp--earned"
+                );
+
+                stampLock.style.display =
+                    "none";
+
+
+                setText(
+                    "stampHeading",
+                    "Alabama Scenic Byway"
+                );
+
+                setText(
+                    "stampDescription",
+                    "You completed Issue No. 001 and earned its official journey stamp."
+                );
+
+                setText(
+                    "completionDate",
+                    localStorage.getItem(
+                        completionStorageKey
+                    ) || "Journey Complete"
+                );
+
+                setText(
+                    "observationTitle",
+                    "You noticed the land before the destination."
+                );
+
+                setText(
+                    "observationText",
+                    "This Issue reflects a traveler who pauses to understand how landscape, work and memory shape a place."
+                );
+
+                setText(
+                    "alabamaIssueStatus",
+                    "Stamp Earned"
+                );
+
+                setText(
+                    "issuesSummary",
+                    "1 of 100 Issues Completed"
+                );
+
+                setText(
+                    "completedIssueCount",
+                    "1"
+                );
+
+                setText(
+                    "earnedStampCount",
+                    "1"
+                );
+
+            } else {
+
+                setText(
+                    "completionDate",
+                    "Awaiting Journey"
+                );
+
+                setText(
+                    "alabamaIssueStatus",
+                    "In Progress"
+                );
+
+                setText(
+                    "issuesSummary",
+                    "0 of 100 Issues Completed"
+                );
+
+                setText(
+                    "completedIssueCount",
+                    "0"
+                );
+
+                setText(
+                    "earnedStampCount",
+                    "0"
+                );
+
+            }
+
+        }
+
+
+
+        function setText(elementId, value) {
+
+            const element =
+                document.getElementById(
+                    elementId
+                );
+
+            if (element) {
+
+                element.textContent =
+                    value;
+
+            }
+
+        }
+
+
+
+        loadPassportProgress();
+
+
+        window.addEventListener(
+            "storage",
+            loadPassportProgress
+        );
+
+    </script>
+
 
 </body>
 
