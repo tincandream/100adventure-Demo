@@ -1,7 +1,5 @@
-* {
-    box-sizing: border-box;
-}
-
+html { box-sizing: border-box; font-size: 16px; }
+*, *::before, *::after { box-sizing: inherit; }
 
 body {
 
@@ -134,6 +132,14 @@ h3 {
 /* Focus styles for accessibility */
 .button:focus,
 .tabs button:focus {
+  outline: 3px solid rgba(37,99,235,0.3);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+}
+
+/* Prefer focus-visible for mouse users (added alongside :focus) */
+.button:focus-visible,
+.tabs button:focus-visible {
   outline: 3px solid rgba(37,99,235,0.3);
   outline-offset: 2px;
   box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
@@ -359,30 +365,50 @@ li {
 
 
 }
-.input,
-.textarea {
+ .input,
+ .textarea {
 
-width:100%;
+ width:100%;
 
-padding:12px;
+ padding:12px;
 
-border-radius:12px;
+ border-radius:12px;
 
-border:1px solid #ddd;
+ border:1px solid #ddd;
 
-font-size:16px;
+ font-size:16px;
 
-margin-bottom:12px;
+ margin-bottom:12px;
 
-font-family:inherit;
+ font-family:inherit;
 
+ }
+
+
+ .textarea {
+
+ height:140px;
+
+ resize:vertical;
+
+ }
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-
-.textarea {
-
-height:140px;
-
-resize:vertical;
-
+/* Fallback for browsers without position:sticky */
+@supports not (position: sticky) {
+  .nav {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 9999;
+  }
 }
