@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Explore a growing collection of curated 100-mile adventures."
+    >
+
+    <title>
+        Explore | 100 Adventure
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="explore-page">
+
+    <main class="explore-shell">
+
+        <!-- EXPLORE HEADER -->
+
+        <header class="explore-header">
+
+            <div class="explore-header__top">
+
+                <a class="explore-wordmark" href="index.html">
+                    100 Adventure
+                </a>
+
+                <span>
+                    Curated 100-Mile Journeys
+                </span>
+
+            </div>
+
+
+            <div class="explore-header__content">
+
+                <p class="section-marker">
+                    The Adventure Library
+                </p>
+
+                <h1>
+                    Find Your Next Adventure
+                </h1>
+
+                <p class="explore-introduction">
+                    A growing collection of cute, thoughtfully curated
+                    100-mile journeys. Every adventure has its own character,
+                    so the route details, recommendations, keepsakes and
+                    experiences may vary from one trip to the next.
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- SEARCH -->
+
+        <section class="explore-controls">
+
+            <label class="explore-search">
+
+                <span class="explore-search__label">
+                    Search the Collection
+                </span>
+
+                <input
+                    id="adventureSearch"
+                    type="search"
+                    placeholder="Search by adventure, place or detail..."
+                    autocomplete="off"
+                >
+
+            </label>
+
+            <p
+                id="adventureCount"
+                class="explore-count"
+                aria-live="polite"
+            ></p>
+
+        </section>
+
+
+        <!-- FEATURED ADVENTURE -->
+
+        <section
+            id="featuredSection"
+            class="featured-adventure"
+            hidden
+        >
+
+            <div class="explore-section-heading">
+
+                <div>
+
+                    <p class="section-marker">
+                        Featured Adventure
+                    </p>
+
+                    <h2>
+                        Begin with a favorite.
+                    </h2>
+
+                </div>
+
+                <p>
+                    A handpicked journey from the growing
+                    100 Adventure collection.
+                </p>
+
+            </div>
+
+
+            <div id="featuredAdventure"></div>
+
+        </section>
+
+
+        <!-- ADVENTURE COLLECTION -->
+
+        <section class="explore-library">
+
+            <div class="explore-section-heading">
+
+                <div>
+
+                    <p class="section-marker">
+                        The Collection
+                    </p>
+
+                    <h2>
+                        Every journey tells a different story.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Open an available adventure or discover
+                    what is coming next.
+                </p>
+
+            </div>
+
+
+            <div
+                id="adventureGrid"
+                class="explore-grid"
+                aria-live="polite"
+            ></div>
+
+
+            <div
+                id="emptyState"
+                class="explore-empty"
+                hidden
+            >
+
+                <p class="section-marker">
+                    No Matches
+                </p>
+
+                <h2>
+                    That adventure is not in the collection yet.
+                </h2>
+
+                <p>
+                    Try another title, place or detail.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="explore-colophon">
+
+            <strong>
+                100 Adventure
+            </strong>
+
+            <p>
+                Thoughtful travel, local discoveries and collectible
+                memories for the open road.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- MAIN NAVIGATION -->
+
+    <nav class="nav" aria-label="Main navigation">
+
+        <a href="index.html">
+
+            <span aria-hidden="true">
+                ⌂
+            </span>
+
+            Home
+
+        </a>
+
+
+        <a
+            class="nav__active"
+            href="explore.html"
+        >
+
+            <span aria-hidden="true">
+                ◇
+            </span>
+
+            Explore
+
+        </a>
+
+
+        <a href="memories.html">
+
+            <span aria-hidden="true">
+                ◉
+            </span>
+
+            Memories
+
+        </a>
+
+
+        <a href="passport.html">
+
+            <span aria-hidden="true">
+                ✦
+            </span>
+
+            Passport
+
+        </a>
+
+
+        <a href="create.html">
+
+            <span aria-hidden="true">
+                ✂
+            </span>
+
+            Create
+
+        </a>
+
+    </nav>
+
+
+    <script src="adventures.js"></script>
+    <script src="explore.js"></script>
+
+</body>
+
+</html>
