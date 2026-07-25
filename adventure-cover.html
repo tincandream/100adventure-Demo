@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Begin an official adventure with 100 Adventure."
+    >
+
+    <title>
+        Adventure Cover | 100 Adventure
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="adventure-cover-page">
+
+
+    <main class="adventure-cover-shell">
+
+
+        <!-- ADVENTURE COVER -->
+
+        <section class="adventure-cover">
+
+            <div class="adventure-cover__image">
+
+                <img
+                    id="coverImage"
+                    class="adventure-cover__photo"
+                    alt="Adventure cover image"
+                >
+
+                <div class="adventure-cover__overlay"></div>
+
+                <div class="adventure-cover__content">
+
+                    <p class="cover-kicker">
+                        Official Adventure
+                    </p>
+
+                    <div class="issue-number">
+                        Issue No. <span id="issueNum">001</span>
+                    </div>
+
+                    <h1 id="coverTitle">
+                        Adventure Title
+                    </h1>
+
+                    <p class="cover-subtitle" id="coverSubtitle">
+                        Adventure description goes here.
+                    </p>
+
+                    <button
+                        class="button button--gold"
+                        id="beginAdventureButton"
+                        type="button"
+                    >
+                        Begin Adventure
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="cover-footer">
+
+                <span id="footerDistance">Distance</span>
+
+                <span id="footerRoute">Route</span>
+
+                <span id="footerTheme">Theme</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ADVENTURE DETAILS SECTION -->
+
+        <section class="adventure-details-panel">
+
+            <div class="details-grid">
+
+                <article>
+
+                    <span class="detail-label">Distance</span>
+
+                    <h3 id="detailDistance">—</h3>
+
+                </article>
+
+                <article>
+
+                    <span class="detail-label">Duration</span>
+
+                    <h3 id="detailDuration">—</h3>
+
+                </article>
+
+                <article>
+
+                    <span class="detail-label">Best Season</span>
+
+                    <h3 id="detailSeason">—</h3>
+
+                </article>
+
+                <article>
+
+                    <span class="detail-label">Theme</span>
+
+                    <h3 id="detailTheme">—</h3>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ADVENTURE INTRO -->
+
+        <section class="adventure-intro-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-marker">
+                        Before You Go
+                    </p>
+
+                    <h2>
+                        Prepare for This Journey
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="intro-copy">
+
+                <p id="adventureDescription">
+                    Adventure preparation notes.
+                </p>
+
+            </div>
+
+
+            <button
+                class="button button--gold"
+                id="startButton"
+                type="button"
+            >
+                Begin This Adventure
+            </button>
+
+        </section>
+
+
+        <!-- DOWNLOADS & OFFLINE -->
+
+        <section class="offline-section">
+
+            <p class="section-marker">
+                Prepare for Offline
+            </p>
+
+            <h2>
+                Download for Offline Access
+            </h2>
+
+            <p>
+                Save this adventure to explore without internet.
+                Downloads include maps, itinerary, photos, and more.
+            </p>
+
+            <button
+                class="button button--outline"
+                id="downloadOfflineButton"
+                type="button"
+            >
+                Download for Offline
+            </button>
+
+        </section>
+
+
+        <footer class="adventure-cover-footer">
+
+            <a href="index.html">
+                ← Back to Home
+            </a>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="nav" aria-label="Main navigation">
+
+        <a href="index.html">
+
+            <span aria-hidden="true">⌂</span>
+            Home
+
+        </a>
+
+        <a href="adventures.html">
+
+            <span aria-hidden="true">◇</span>
+            Explore
+
+        </a>
+
+        <a href="my-collection.html">
+
+            <span aria-hidden="true">◉</span>
+            My Collection
+
+        </a>
+
+        <a href="passport.html">
+
+            <span aria-hidden="true">✦</span>
+            Passport
+
+        </a>
+
+        <a href="community.html">
+
+            <span aria-hidden="true">👥</span>
+            Community
+
+        </a>
+
+    </nav>
+
+
+    <script src="adventures.js"></script>
+
+    <script>
+
+        let currentAdventure = null;
+
+        function getAdventureFromUrl() {
+
+            const params = new URLSearchParams(window.location.search);
+            const adventureId = params.get('id');
+
+            if (
+                typeof adventures === 'undefined' ||
+                !Array.isArray(adventures)
+            ) {
+
+                console.error(
+                    'The adventures data could not be loaded.'
+                );
+
+                return null;
+
+            }
+
+            return adventures.find(
+                adventure => adventure.id === adventureId
+            ) || null;
+
+        }
+
+        function showAdventureNotFound() {
+
+            document.getElementById('coverTitle').textContent =
+                'Adventure Not Found';
+
+            document.getElementById('coverSubtitle').textContent =
+                'This adventure may have moved or is no longer available.';
+
+            document.getElementById(
+                'adventureDescription'
+            ).textContent =
+                'Return to Explore to choose another official adventure.';
+
+            document.getElementById(
+                'beginAdventureButton'
+            ).disabled = true;
+
+            document.getElementById(
+                'startButton'
+            ).disabled = true;
+
+        }
+
+        function loadCoverData() {
+
+            currentAdventure = getAdventureFromUrl();
+
+            if (!currentAdventure) {
+
+                showAdventureNotFound();
+                return;
+
+            }
+
+            const coverImage =
+                document.getElementById('coverImage');
+
+            coverImage.src =
+                currentAdventure.cover ||
+                'images/adventure-placeholder.jpg';
+
+            coverImage.alt =
+                `${currentAdventure.title} adventure cover`;
+
+            coverImage.addEventListener('error', () => {
+
+                coverImage.src =
+                    'images/adventure-placeholder.jpg';
+
+            });
+
+            document.getElementById('issueNum').textContent =
+                currentAdventure.issueNumber || '001';
+
+            document.getElementById('coverTitle').textContent =
+                currentAdventure.title;
+
+            document.getElementById('coverSubtitle').textContent =
+                currentAdventure.description || '';
+
+            document.getElementById('footerDistance').textContent =
+                currentAdventure.distance || 'Distance unavailable';
+
+            document.getElementById('footerRoute').textContent =
+                `${currentAdventure.routeStart || 'Start'} → ${
+                    currentAdventure.routeEnd || 'Finish'
+                }`;
+
+            document.getElementById('footerTheme').textContent =
+                currentAdventure.theme || 'Road Trip';
+
+            document.getElementById('detailDistance').textContent =
+                currentAdventure.distance || '—';
+
+            document.getElementById('detailDuration').textContent =
+                currentAdventure.duration || '—';
+
+            document.getElementById('detailSeason').textContent =
+                currentAdventure.bestSeason || 'Year-round';
+
+            document.getElementById('detailTheme').textContent =
+                currentAdventure.theme || '—';
+
+            document.getElementById(
+                'adventureDescription'
+            ).textContent =
+                currentAdventure.preparationNotes ||
+                currentAdventure.description ||
+                '';
+
+        }
+
+        function beginAdventure() {
+
+            if (!currentAdventure) {
+
+                return;
+
+            }
+
+            window.location.href =
+                `${currentAdventure.overviewPage}?id=${
+                    encodeURIComponent(currentAdventure.id)
+                }`;
+
+        }
+
+        function downloadAdventure() {
+
+            if (!currentAdventure) {
+
+                return;
+
+            }
+
+            const downloaded =
+                JSON.parse(
+                    localStorage.getItem('downloadedAdventures')
+                ) || [];
+
+            const alreadyDownloaded = downloaded.some(
+                item => item.id === currentAdventure.id
+            );
+
+            if (!alreadyDownloaded) {
+
+                downloaded.push(currentAdventure);
+
+                localStorage.setItem(
+                    'downloadedAdventures',
+                    JSON.stringify(downloaded)
+                );
+
+            }
+
+            const button = document.getElementById(
+                'downloadOfflineButton'
+            );
+
+            button.textContent = 'Saved for Offline';
+            button.disabled = true;
+
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            loadCoverData();
+
+            document
+                .getElementById('beginAdventureButton')
+                .addEventListener('click', beginAdventure);
+
+            document
+                .getElementById('startButton')
+                .addEventListener('click', beginAdventure);
+
+            document
+                .getElementById('downloadOfflineButton')
+                .addEventListener('click', downloadAdventure);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
