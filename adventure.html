@@ -12,11 +12,11 @@
 
     <meta
         name="description"
-        content="Explore Issue No. 001 of 100 Adventure: Alabama Scenic Byway."
+        content="Explore an official adventure with 100 Adventure."
     >
 
     <title>
-        Alabama Scenic Byway | 100 Adventure
+        Adventure | 100 Adventure
     </title>
 
     <link rel="stylesheet" href="style.css">
@@ -24,72 +24,66 @@
 </head>
 
 
-<body class="issue-page">
+<body class="adventure-detail-page">
 
 
-    <main class="issue-shell">
+    <main class="adventure-detail-shell">
 
 
-        <!-- ISSUE MASTHEAD -->
+        <!-- ADVENTURE MASTHEAD -->
 
-        <header class="issue-masthead">
+        <header class="adventure-masthead">
 
-            <div class="issue-masthead__top">
+            <div class="adventure-masthead__top">
 
-                <a class="issue-wordmark" href="index.html">
+                <a class="adventure-wordmark" href="index.html">
                     100 Adventure
                 </a>
 
                 <span>
-                    Issue No. 001
+                    Issue No. <span id="mastHeadIssue">001</span>
                 </span>
 
             </div>
 
 
-            <div class="issue-hero">
+            <div class="adventure-hero">
 
                 <img
-                    id="coverImage"
-                    class="issue-hero__image"
-                    alt="Alabama mountain scenery"
+                    id="heroImage"
+                    class="adventure-hero__image"
+                    alt="Adventure hero image"
                 >
 
+                <div class="adventure-hero__overlay"></div>
 
-                <div class="issue-hero__overlay"></div>
+                <div class="adventure-hero__content">
 
-
-                <div class="issue-hero__content">
-
-                    <p class="cover-kicker">
-                        A Journey Through Alabama
+                    <p class="cover-kicker" id="heroCover">
+                        A Journey Through
                     </p>
 
-                    <p class="issue-theme" id="theme"></p>
+                    <p class="adventure-theme" id="heroTheme">
+                        Theme
+                    </p>
 
-                    <h1 id="title"></h1>
+                    <h1 id="heroTitle">
+                        Adventure Title
+                    </h1>
 
-                    <p class="issue-details" id="details"></p>
-
-
-                    <button
-                        class="button button--gold"
-                        id="startJourneyButton"
-                        type="button"
-                        onclick="startAdventure()"
-                    >
-                        Begin This Journey
-                    </button>
+                    <p class="adventure-details" id="heroDetails">
+                        Overview and introduction.
+                    </p>
 
                 </div>
 
             </div>
 
 
-            <div class="issue-route-strip">
+            <div class="adventure-route-strip">
 
                 <span id="routeStart">
-                    Oxford
+                    Start
                 </span>
 
                 <span aria-hidden="true">
@@ -97,7 +91,7 @@
                 </span>
 
                 <span id="routeEnd">
-                    Cheaha State Park
+                    End
                 </span>
 
             </div>
@@ -106,135 +100,88 @@
 
 
 
-        <!-- EDITOR'S LETTER -->
+        <!-- READING NAVIGATION - CORRECT TAB ORDER -->
 
-        <section class="issue-introduction">
-
-            <div>
-
-                <p class="section-marker">
-                    From the Editor
-                </p>
-
-                <h2>
-                    Take the road slowly.
-                </h2>
-
-            </div>
-
-
-            <div class="issue-introduction__copy">
-
-                <p class="drop-cap" id="description"></p>
-
-                <p>
-                    This Issue is not simply a list of destinations.
-                    It is an invitation to notice the roads, people,
-                    landscapes and small details that make a journey
-                    worth remembering.
-                </p>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ISSUE INFORMATION -->
-
-        <section class="issue-facts">
-
-            <article>
-
-                <span class="issue-fact__number">
-                    01
-                </span>
-
-                <p class="section-marker">
-                    Distance
-                </p>
-
-                <h3 id="distanceFact"></h3>
-
-            </article>
-
-
-            <article>
-
-                <span class="issue-fact__number">
-                    02
-                </span>
-
-                <p class="section-marker">
-                    Travel Time
-                </p>
-
-                <h3 id="durationFact"></h3>
-
-            </article>
-
-
-            <article>
-
-                <span class="issue-fact__number">
-                    03
-                </span>
-
-                <p class="section-marker">
-                    Best Season
-                </p>
-
-                <h3 id="seasonFact">
-                    Spring & Fall
-                </h3>
-
-            </article>
-
-        </section>
-
-
-
-        <!-- READING NAVIGATION -->
-
-        <nav class="issue-tabs" aria-label="Issue sections">
+        <nav class="adventure-tabs" aria-label="Adventure sections">
 
             <button
-                class="issue-tab active"
+                class="adventure-tab active"
                 type="button"
                 data-tab="overview"
-                onclick="showTab('overview', this)"
             >
                 Overview
             </button>
 
 
             <button
-                class="issue-tab"
+                class="adventure-tab"
                 type="button"
-                data-tab="stops"
-                onclick="showTab('stops', this)"
-            >
-                The Route
-            </button>
-
-
-            <button
-                class="issue-tab"
-                type="button"
-                data-tab="collect"
-                onclick="showTab('collect', this)"
-            >
-                Things to Treasure
-            </button>
-
-
-            <button
-                class="issue-tab"
-                type="button"
-                data-tab="playlist"
-                onclick="showTab('playlist', this)"
+                data-tab="soundtrack"
             >
                 Soundtrack
+            </button>
+
+
+            <button
+                class="adventure-tab"
+                type="button"
+                data-tab="map"
+            >
+                Map
+            </button>
+
+
+            <button
+                class="adventure-tab"
+                type="button"
+                data-tab="itinerary"
+            >
+                Itinerary
+            </button>
+
+
+            <button
+                class="adventure-tab"
+                type="button"
+                data-tab="guide"
+            >
+                Guide
+            </button>
+
+
+            <button
+                class="adventure-tab"
+                type="button"
+                data-tab="gallery"
+            >
+                Gallery
+            </button>
+
+
+            <button
+                class="adventure-tab"
+                type="button"
+                data-tab="soundscapes"
+            >
+                Soundscapes
+            </button>
+
+
+            <button
+                class="adventure-tab"
+                type="button"
+                data-tab="keepsakes"
+            >
+                Keepsakes
+            </button>
+
+
+            <button
+                class="adventure-tab"
+                type="button"
+                data-tab="journal"
+            >
+                Journal
             </button>
 
         </nav>
@@ -245,7 +192,7 @@
 
         <section
             id="overview"
-            class="tab-content issue-chapter"
+            class="tab-content adventure-chapter"
         >
 
             <div class="chapter-heading">
@@ -255,96 +202,17 @@
                 </p>
 
                 <h2>
-                    Before You Go
+                    Overview
                 </h2>
 
-                <p>
-                    A few thoughtful details can help make the journey
-                    calmer, slower and more memorable.
-                </p>
-
             </div>
 
 
-            <div class="overview-grid">
+            <div class="overview-content" id="overviewContent">
 
-                <article class="issue-paper-card">
-
-                    <p class="section-marker">
-                        Best Time
-                    </p>
-
-                    <h3>
-                        When to Travel
-                    </h3>
-
-                    <p id="bestTime"></p>
-
-                </article>
-
-
-                <article class="issue-paper-card">
-
-                    <p class="section-marker">
-                        Travel Mindset
-                    </p>
-
-                    <h3>
-                        Leave Room to Wander
-                    </h3>
-
-                    <p>
-                        Allow time for overlooks, roadside discoveries,
-                        local conversations and places that were not
-                        originally on your list.
-                    </p>
-
-                </article>
-
-
-                <article class="issue-paper-card">
-
-                    <p class="section-marker">
-                        The Question
-                    </p>
-
-                    <h3>
-                        What Grounds You?
-                    </h3>
-
-                    <p>
-                        Notice where you feel most connected to the
-                        landscape. Write down what you see, hear and feel.
-                    </p>
-
-                </article>
-
-            </div>
-
-
-            <aside class="issue-quote">
-
-                <p class="section-marker">
-                    Keep in Mind
+                <p id="overviewText">
+                    Discover what makes this adventure special.
                 </p>
-
-                <blockquote>
-                    “The best part of the road may be the place
-                    you had not planned to stop.”
-                </blockquote>
-
-            </aside>
-
-
-            <div class="chapter-action">
-
-                <button
-                    class="button"
-                    type="button"
-                    onclick="openRouteTab()"
-                >
-                    Continue to the Route
-                </button>
 
             </div>
 
@@ -352,182 +220,19 @@
 
 
 
-        <!-- STOPS -->
+        <!-- SOUNDTRACK -->
 
         <section
-            id="stops"
-            class="tab-content issue-chapter"
-        >
-
-            <div class="route-heading">
-
-                <div>
-
-                    <p class="section-marker">
-                        Chapter Two
-                    </p>
-
-                    <h2>
-                        The Route
-                    </h2>
-
-                    <p>
-                        Follow the journey one thoughtfully chosen
-                        stop at a time.
-                    </p>
-
-                </div>
-
-
-                <div class="route-progress-card">
-
-                    <p class="section-marker">
-                        Journey Progress
-                    </p>
-
-                    <h3 id="progress">
-                        0 / 3 Stops Visited
-                    </h3>
-
-                    <div
-                        class="progress-track"
-                        aria-hidden="true"
-                    >
-
-                        <div
-                            class="progress-bar"
-                            id="progressBar"
-                        ></div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="stopsList"
-                class="issue-stops-list"
-            ></div>
-
-        </section>
-
-
-
-        <!-- COLLECT -->
-
-        <section
-            id="collect"
-            class="tab-content issue-chapter"
-        >
-
-            <div class="chapter-heading">
-
-                <p class="section-marker">
-                    Chapter Three
-                </p>
-
-                <h2>
-                    Things to Treasure
-                </h2>
-
-                <p>
-                    Some pieces of a journey are collected in your hands.
-                    Others are collected through attention.
-                </p>
-
-            </div>
-
-
-            <div class="treasure-layout">
-
-
-                <article class="treasure-section">
-
-                    <p class="section-marker">
-                        Look More Closely
-                    </p>
-
-                    <h3>
-                        Things to Notice
-                    </h3>
-
-                    <div
-                        id="notice"
-                        class="treasure-list"
-                    ></div>
-
-                </article>
-
-
-                <article class="treasure-section">
-
-                    <p class="section-marker">
-                        Your Traveling Archive
-                    </p>
-
-                    <h3>
-                        Ephemera to Keep
-                    </h3>
-
-                    <div
-                        id="ephemera"
-                        class="treasure-list"
-                    ></div>
-
-                </article>
-
-            </div>
-
-
-            <aside class="memory-invitation">
-
-                <div>
-
-                    <p class="section-marker">
-                        Add to Your Edition
-                    </p>
-
-                    <h2>
-                        Save a Moment
-                    </h2>
-
-                    <p>
-                        Pair a photograph with a note, observation or
-                        memory from the road.
-                    </p>
-
-                </div>
-
-
-                <a
-                    class="button button--gold"
-                    href="memory-card.html"
-                >
-                    Create a Memory
-                </a>
-
-            </aside>
-
-        </section>
-
-
-
-        <!-- PLAYLIST -->
-
-        <section
-            id="playlist"
-            class="tab-content issue-chapter"
+            id="soundtrack"
+            class="tab-content adventure-chapter"
+            style="display: none;"
         >
 
             <div class="playlist-feature">
 
                 <div class="playlist-disc" aria-hidden="true">
 
-                    <span>
-                        100
-                    </span>
+                    <span>100</span>
 
                 </div>
 
@@ -535,21 +240,24 @@
                 <div class="playlist-copy">
 
                     <p class="section-marker">
-                        Chapter Four
+                        Roadside Soundtrack
                     </p>
 
                     <h2>
-                        Roadside Soundtrack
+                        Music for the Journey
                     </h2>
 
                     <p>
-                        Music chosen for long forest roads, distant
-                        mountain views and the quiet stretch before sunset.
+                        Curated music for long forest roads and quiet overlooks.
                     </p>
 
-                    <h3 id="playlistTitle"></h3>
+                    <h3 id="playlistTitle">
+                        Playlist Title
+                    </h3>
 
-                    <p id="playlistPlatform"></p>
+                    <p id="playlistPlatform">
+                        Spotify
+                    </p>
 
 
                     <a
@@ -557,6 +265,7 @@
                         id="playlistLink"
                         target="_blank"
                         rel="noopener noreferrer"
+                        href=""
                     >
                         Open Playlist
                     </a>
@@ -569,9 +278,337 @@
 
 
 
-        <!-- ISSUE CLOSING -->
+        <!-- MAP -->
 
-        <section class="issue-closing">
+        <section
+            id="map"
+            class="tab-content adventure-chapter"
+            style="display: none;"
+        >
+
+            <div class="chapter-heading">
+
+                <p class="section-marker">
+                    Navigate
+                </p>
+
+                <h2>
+                    Route Map
+                </h2>
+
+            </div>
+
+
+            <div class="map-container" id="mapContainer">
+
+                <p>
+                    Interactive map coming soon. View route details in the Itinerary tab.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ITINERARY -->
+
+        <section
+            id="itinerary"
+            class="tab-content adventure-chapter"
+            style="display: none;"
+        >
+
+            <div class="chapter-heading">
+
+                <p class="section-marker">
+                    Chapter Two
+                </p>
+
+                <h2>
+                    The Itinerary
+                </h2>
+
+                <p>
+                    Follow the journey one day at a time.
+                </p>
+
+            </div>
+
+
+            <div class="itinerary-days" id="itineraryDays">
+
+                <!-- Dynamically populated with day structures -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- GUIDE -->
+
+        <section
+            id="guide"
+            class="tab-content adventure-chapter"
+            style="display: none;"
+        >
+
+            <div class="chapter-heading">
+
+                <p class="section-marker">
+                    Practical Guide
+                </p>
+
+                <h2>
+                    What to Know
+                </h2>
+
+            </div>
+
+
+            <div class="guide-content" id="guideContent">
+
+                <article>
+
+                    <p class="section-marker">
+                        Best Time to Visit
+                    </p>
+
+                    <p id="bestTimeGuide">
+                        Guide content here.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- GALLERY (Editorial) -->
+
+        <section
+            id="gallery"
+            class="tab-content adventure-chapter"
+            style="display: none;"
+        >
+
+            <div class="chapter-heading">
+
+                <p class="section-marker">
+                    Visual Collection
+                </p>
+
+                <h2>
+                    Gallery
+                </h2>
+
+                <p>
+                    Curated photography and inspiration from this adventure.
+                </p>
+
+            </div>
+
+
+            <div class="editorial-gallery" id="editorialGallery">
+
+                <!-- Destination photography, maps, historical images -->
+
+            </div>
+
+
+            <aside class="memory-invitation">
+
+                <div>
+
+                    <p class="section-marker">
+                        Add Your Memories
+                    </p>
+
+                    <h2>
+                        Share a Photo
+                    </h2>
+
+                    <p>
+                        Upload your favorite photo from this adventure.
+                        Your Memory Cards will appear here.
+                    </p>
+
+                </div>
+
+
+                <a
+                    class="button button--gold"
+                    href="memory-card.html"
+                >
+                    Add a Memory Card
+                </a>
+
+            </aside>
+
+        </section>
+
+
+
+        <!-- SOUNDSCAPES -->
+
+        <section
+            id="soundscapes"
+            class="tab-content adventure-chapter"
+            style="display: none;"
+        >
+
+            <div class="chapter-heading">
+
+                <p class="section-marker">
+                    Ambient Collection
+                </p>
+
+                <h2>
+                    Soundscapes
+                </h2>
+
+                <p>
+                    The atmosphere and sounds of this place.
+                </p>
+
+            </div>
+
+
+            <div class="soundscapes-list" id="soundscapesList">
+
+                <p>
+                    Soundscapes from this adventure will appear here.
+                </p>
+
+            </div>
+
+
+            <a class="button" href="soundscapes.html">
+                Explore All Sounds
+            </a>
+
+        </section>
+
+
+
+        <!-- KEEPSAKES -->
+
+        <section
+            id="keepsakes"
+            class="tab-content adventure-chapter"
+            style="display: none;"
+        >
+
+            <div class="chapter-heading">
+
+                <p class="section-marker">
+                    Things to Treasure
+                </p>
+
+                <h2>
+                    Keepsakes
+                </h2>
+
+                <p>
+                    Suggestions for collecting small treasures from your journey.
+                </p>
+
+            </div>
+
+
+            <div class="keepsakes-collection" id="keepsakesCollection">
+
+                <article class="keepsake-section">
+
+                    <p class="section-marker">
+                        Things to Notice
+                    </p>
+
+                    <h3>
+                        Look More Closely
+                    </h3>
+
+                    <ul id="noticeList">
+
+                        <!-- Populated from adventure data -->
+
+                    </ul>
+
+                </article>
+
+
+                <article class="keepsake-section">
+
+                    <p class="section-marker">
+                        Your Traveling Archive
+                    </p>
+
+                    <h3>
+                        Ephemera to Collect
+                    </h3>
+
+                    <ul id="ephemeraList">
+
+                        <!-- Populated from adventure data -->
+
+                    </ul>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- JOURNAL -->
+
+        <section
+            id="journal"
+            class="tab-content adventure-chapter"
+            style="display: none;"
+        >
+
+            <div class="chapter-heading">
+
+                <p class="section-marker">
+                    Reflection
+                </p>
+
+                <h2>
+                    Your Journal
+                </h2>
+
+                <p>
+                    Write and reflect on your journey.
+                </p>
+
+            </div>
+
+
+            <div class="journal-prompts" id="journalPrompts">
+
+                <p>
+                    Reflection prompts coming soon.
+                </p>
+
+            </div>
+
+
+            <a class="button" href="memory-card.html">
+                Create a Journal Entry
+            </a>
+
+        </section>
+
+
+
+        <!-- ADVENTURE CLOSING -->
+
+        <section class="adventure-closing">
 
             <p class="section-marker">
                 Carry It Forward
@@ -583,15 +620,14 @@
 
             <p>
                 Travel thoughtfully. Support local places.
-                Save the details. Leave the road a little better
-                than you found it.
+                Save the details. Leave the road a little better than you found it.
             </p>
 
 
-            <div class="issue-closing__actions">
+            <div class="adventure-closing__actions">
 
-                <a class="button" href="memories.html">
-                    View My Memories
+                <a class="button" href="my-collection.html">
+                    View My Collection
                 </a>
 
                 <a
@@ -607,14 +643,14 @@
 
 
 
-        <footer class="issue-colophon">
+        <footer class="adventure-colophon">
 
             <a href="index.html">
                 100 Adventure
             </a>
 
-            <span>
-                Issue No. 001 · Alabama Scenic Byway
+            <span id="colophonText">
+                Issue No. 001
             </span>
 
         </footer>
@@ -653,13 +689,13 @@
         </a>
 
 
-        <a href="memories.html">
+        <a href="my-collection.html">
 
             <span aria-hidden="true">
                 ◉
             </span>
 
-            Memories
+            My Collection
 
         </a>
 
@@ -675,13 +711,13 @@
         </a>
 
 
-        <a href="create.html">
+        <a href="community.html">
 
             <span aria-hidden="true">
-                ✂
+                👥
             </span>
 
-            Create
+            Community
 
         </a>
 
@@ -691,16 +727,231 @@
 
     <script src="adventures.js"></script>
 
-    <script src="app.js"></script>
-
-
     <script>
 
-        renderAdventure();
+        let currentAdventure = null;
 
-        showTab("overview");
+        function getAdventureFromUrl() {
 
-        updateProgress();
+            const params = new URLSearchParams(window.location.search);
+            const adventureId = params.get('id');
+
+            if (
+                typeof adventures === 'undefined' ||
+                !Array.isArray(adventures)
+            ) {
+
+                console.error(
+                    'The adventures data could not be loaded.'
+                );
+
+                return null;
+
+            }
+
+            return adventures.find(
+                adventure => adventure.id === adventureId
+            ) || null;
+
+        }
+
+        function showAdventureNotFound() {
+
+            document.getElementById('heroTitle').textContent =
+                'Adventure Not Found';
+
+            document.getElementById('heroDetails').textContent =
+                'This adventure may have moved or is no longer available. Return to Explore to choose another official adventure.';
+
+        }
+
+        function loadAdventureData() {
+
+            currentAdventure = getAdventureFromUrl();
+
+            if (!currentAdventure) {
+
+                showAdventureNotFound();
+                return;
+
+            }
+
+            const heroImage = document.getElementById('heroImage');
+
+            heroImage.src =
+                currentAdventure.cover ||
+                'images/adventure-placeholder.jpg';
+
+            heroImage.alt =
+                `${currentAdventure.title} adventure cover`;
+
+            heroImage.addEventListener('error', () => {
+
+                heroImage.src =
+                    'images/adventure-placeholder.jpg';
+
+            });
+
+            document.getElementById('mastHeadIssue').textContent =
+                currentAdventure.issueNumber || '001';
+
+            document.getElementById('heroCover').textContent =
+                `A Journey Through ${currentAdventure.location || 'America'}`;
+
+            document.getElementById('heroTheme').textContent =
+                currentAdventure.theme || 'Adventure';
+
+            document.getElementById('heroTitle').textContent =
+                currentAdventure.title || 'Adventure';
+
+            document.getElementById('heroDetails').textContent =
+                currentAdventure.description || '';
+
+            document.getElementById('routeStart').textContent =
+                currentAdventure.routeStart || 'Start';
+
+            document.getElementById('routeEnd').textContent =
+                currentAdventure.routeEnd || 'End';
+
+            document.getElementById('colophonText').textContent =
+                `Issue No. ${currentAdventure.issueNumber || '001'} · ${currentAdventure.title || 'Adventure'}`;
+
+            document.getElementById('overviewText').textContent =
+                currentAdventure.bestSeason || '';
+
+            document.getElementById('playlistTitle').textContent =
+                currentAdventure.playlist?.title || 'Playlist';
+
+            if (currentAdventure.playlist?.link) {
+
+                document.getElementById('playlistLink').href =
+                    currentAdventure.playlist.link;
+
+                document.getElementById('playlistLink').style.display =
+                    'inline-block';
+
+            } else {
+
+                document.getElementById('playlistLink').style.display =
+                    'none';
+
+            }
+
+            document.getElementById('bestTimeGuide').textContent =
+                currentAdventure.preparationNotes || 'Guide content coming soon.';
+
+            // Populate keepsakes
+            const noticeList = document.getElementById('noticeList');
+            currentAdventure.noticeIdeas?.forEach(idea => {
+
+                const li = document.createElement('li');
+                li.textContent = idea;
+                noticeList.appendChild(li);
+
+            });
+
+            const ephemeraList = document.getElementById('ephemeraList');
+            currentAdventure.ephemeraIdeas?.forEach(idea => {
+
+                const li = document.createElement('li');
+                li.textContent = idea;
+                ephemeraList.appendChild(li);
+
+            });
+
+            // Render itinerary
+            renderItinerary();
+
+        }
+
+        function renderItinerary() {
+
+            const container = document.getElementById('itineraryDays');
+
+            currentAdventure.stops?.forEach((stop, index) => {
+
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'itinerary-day';
+
+                dayDiv.innerHTML = `
+                    <div class="day-header">
+                        <h3>Day ${index + 1}</h3>
+                        <p class="day-title">${stop.chapter || ''}</p>
+                    </div>
+                    <div class="day-content">
+                        <article class="day-section">
+                            <p class="section-marker">Stops</p>
+                            <h4>${stop.name || ''}</h4>
+                            <p>${stop.description || ''}</p>
+                            <p class="detail">Visit Time: ${stop.visitTime || 'Varies'}</p>
+                            <a href="${stop.map || '#'}" target="_blank">View on Map →</a>
+                        </article>
+                        <article class="day-section">
+                            <p class="section-marker">Food</p>
+                            <p>Local dining recommendations coming soon.</p>
+                        </article>
+                        <article class="day-section">
+                            <p class="section-marker">Stay</p>
+                            <p>Accommodation options coming soon.</p>
+                        </article>
+                    </div>
+                `;
+
+                container.appendChild(dayDiv);
+
+            });
+
+        }
+
+        function setupTabButtons() {
+
+            const buttons = document.querySelectorAll('.adventure-tab');
+            buttons.forEach(button => {
+
+                button.addEventListener('click', function() {
+
+                    const tabName = this.getAttribute('data-tab');
+                    showTab(tabName);
+
+                });
+
+            });
+
+        }
+
+        function showTab(tabName) {
+
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.style.display = 'none');
+
+            const buttons = document.querySelectorAll('.adventure-tab');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            const activeTab = document.getElementById(tabName);
+            if (activeTab) {
+
+                activeTab.style.display = 'block';
+
+            }
+
+            const activeButton = document.querySelector(
+                `.adventure-tab[data-tab="${tabName}"]`
+            );
+            if (activeButton) {
+
+                activeButton.classList.add('active');
+
+            }
+
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            setupTabButtons();
+            loadAdventureData();
+            showTab('overview');
+
+        });
 
     </script>
 
