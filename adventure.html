@@ -23,9 +23,12 @@
 
 </head>
 
+
 <body class="issue-page region-southeast">
 
+
     <main class="issue-shell">
+
 
         <!-- ISSUE MASTHEAD -->
 
@@ -70,7 +73,7 @@
 
 
                     <button
-                        class="button button--gold"
+                        class="button button--region"
                         id="startJourneyButton"
                         type="button"
                         onclick="startAdventure()"
@@ -182,7 +185,7 @@
                 </p>
 
                 <h3 id="seasonFact">
-                    Spring & Fall
+                    Spring &amp; Fall
                 </h3>
 
             </article>
@@ -499,7 +502,7 @@
 
 
                 <a
-                    class="button button--gold"
+                    class="button button--region"
                     href="memory-card.html"
                 >
                     Create a Memory
@@ -636,7 +639,10 @@
         </a>
 
 
-    <a href="explore.html">
+        <a
+            class="nav__active"
+            href="explore.html"
+        >
 
             <span aria-hidden="true">
                 ◇
@@ -689,17 +695,48 @@
 
 
     <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const run = (label, fn) => {
-      try { fn(); }
-      catch (err) { console.error(`[100 Adventure] ${label} failed:`, err); }
-    };
+        document.addEventListener("DOMContentLoaded", function () {
 
-    run("renderAdventure", () => renderAdventure());
-    run("showTab", () => showTab("overview", document.querySelector('.issue-tab[data-tab="overview"]')));
-    run("updateProgress", () => updateProgress());
-  });
-</script>
+            const run = (label, fn) => {
+
+                try {
+                    fn();
+                }
+
+                catch (err) {
+                    console.error(
+                        `[100 Adventure] ${label} failed:`,
+                        err
+                    );
+                }
+
+            };
+
+
+            run(
+                "renderAdventure",
+                () => renderAdventure()
+            );
+
+
+            run(
+                "showTab",
+                () => showTab(
+                    "overview",
+                    document.querySelector(
+                        '.issue-tab[data-tab="overview"]'
+                    )
+                )
+            );
+
+
+            run(
+                "updateProgress",
+                () => updateProgress()
+            );
+
+        });
+    </script>
 
 
 </body>
