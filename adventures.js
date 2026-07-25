@@ -126,22 +126,17 @@ const adventures = [
             "Written notes about natural objects rather than removing them"
         ],
 
-        playlist: {
-            title: "Alabama Scenic Byway Road Trip",
-            platform: "Spotify",
-            link: ""
+        spotify: {
+            title: "Alabama Scenic Byway",
+
+            description:
+                "A soundtrack for winding mountain roads, pine forests, roadside diners and quiet overlooks.",
+
+            playlistUrl:
+                "https://open.spotify.com/playlist/7jdE0u3ILDd9Q63btoO3nb",
+
+            embedUrl:
+                "https://open.spotify.com/embed/playlist/7jdE0u3ILDd9Q63btoO3nb"
         }
     }
 ];
-
-spotify: {
-    title: "Alabama Scenic Byway",
-    description:
-        "A soundtrack for winding mountain roads, pine forests, roadside diners, and quiet overlooks.",
-
-    playlistUrl:
-        "https://open.spotify.com/playlist/7jdE0u3ILDd9Q63btoO3nb",
-
-    embedUrl:
-        "https://open.spotify.com/embed/playlist/7jdE0u3ILDd9Q63btoO3nb"
-}
