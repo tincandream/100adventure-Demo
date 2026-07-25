@@ -3155,3 +3155,852 @@ textarea:focus,
         border-color: rgba(169, 187, 53, 0.45);
     }
 }
+
+/* =========================================================
+   SOUNDSCAPES
+   ========================================================= */
+
+.soundscapes-page {
+
+    min-height: 100vh;
+
+    padding: 24px;
+
+    background:
+        linear-gradient(
+            rgba(255, 254, 251, 0.94),
+            rgba(255, 254, 251, 0.94)
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 31px,
+            rgba(79, 124, 141, 0.055) 32px
+        );
+}
+
+
+.soundscapes-shell {
+
+    width: min(100%, var(--page-width));
+
+    margin: 0 auto;
+
+    padding-bottom: 130px;
+}
+
+
+.soundscapes-header {
+
+    padding: 28px 0 64px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.soundscapes-header .wordmark {
+
+    display: inline-block;
+
+    margin-bottom: 56px;
+}
+
+
+.soundscapes-header h1 {
+
+    max-width: 760px;
+
+    margin: 8px 0 18px;
+
+    font-family: var(--serif-display);
+
+    font-size: clamp(4.5rem, 12vw, 9rem);
+
+    font-weight: 400;
+
+    line-height: 0.86;
+
+    letter-spacing: -0.055em;
+}
+
+
+.soundscapes-intro {
+
+    max-width: 620px;
+
+    margin: 0;
+
+    color: var(--walnut);
+
+    font-family: var(--serif-text);
+
+    font-size: clamp(
+        1.05rem,
+        2.2vw,
+        1.35rem
+    );
+
+    line-height: 1.65;
+}
+
+
+.soundscape-studio,
+.soundscape-form-section,
+.sound-library {
+
+    margin: 78px 0;
+}
+
+
+.soundscape-studio__heading,
+.soundscape-form-heading {
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 28px;
+}
+
+
+.soundscape-studio__heading h2,
+.soundscape-form-heading h2,
+.sound-library h2 {
+
+    margin: 6px 0 0;
+
+    font-family: var(--serif-display);
+
+    font-size: clamp(
+        2.5rem,
+        6vw,
+        4.7rem
+    );
+
+    font-weight: 400;
+
+    line-height: 0.98;
+}
+
+
+.recorder-support {
+
+    max-width: 350px;
+
+    margin: 0;
+
+    color: var(--muted-ink);
+
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+
+    text-align: right;
+}
+
+
+/* RECORDER PANEL */
+
+.recorder-panel {
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(45, 51, 64, 0.18);
+
+    border-radius: var(--radius-large);
+
+    background: var(--forest-dark);
+
+    color: var(--paper-white);
+
+    box-shadow: var(--shadow-medium);
+}
+
+
+.recorder-display {
+
+    display: grid;
+
+    grid-template-columns:
+        auto
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap: 14px;
+
+    min-height: 160px;
+
+    padding: 38px 42px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.14);
+}
+
+
+.recording-dot {
+
+    width: 14px;
+    height: 14px;
+
+    border:
+        2px solid
+        var(--paper-white);
+
+    border-radius: 50%;
+}
+
+
+.recording-dot.is-recording {
+
+    border-color: var(--lipstick-pink);
+
+    background: var(--lipstick-pink);
+
+    animation:
+        recording-pulse
+        1.2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes recording-pulse {
+
+    50% {
+
+        transform: scale(1.38);
+
+        opacity: 0.55;
+    }
+
+}
+
+
+#recordingStatus {
+
+    font-family: var(--serif-text);
+
+    font-size: clamp(
+        1.2rem,
+        3vw,
+        1.9rem
+    );
+}
+
+
+#recordingTime {
+
+    font-family: var(--sans);
+
+    font-size: clamp(
+        2.3rem,
+        7vw,
+        5.5rem
+    );
+
+    font-weight: 500;
+
+    letter-spacing: -0.06em;
+}
+
+
+.recorder-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    padding: 24px 42px;
+}
+
+
+.sound-button {
+
+    min-height: 48px;
+
+    padding: 0 22px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.38);
+
+    border-radius: 999px;
+
+    background: transparent;
+
+    color: var(--paper-white);
+
+    font:
+        600
+        0.78rem/1
+        var(--sans);
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+
+.sound-button:hover:not(:disabled) {
+
+    background:
+        rgba(255, 255, 255, 0.1);
+}
+
+
+.sound-button--record {
+
+    border-color: var(--lipstick-pink);
+
+    background: var(--lipstick-pink);
+}
+
+
+.sound-button--quiet {
+
+    margin-left: auto;
+
+    border-color: transparent;
+
+    color:
+        rgba(255, 255, 255, 0.7);
+}
+
+
+.sound-button:disabled {
+
+    cursor: not-allowed;
+
+    opacity: 0.4;
+}
+
+
+.recording-preview {
+
+    padding: 24px 42px 34px;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+}
+
+
+.recording-preview .section-marker {
+
+    color: var(--soft-sage);
+}
+
+
+.recording-preview audio,
+.sound-card audio {
+
+    width: 100%;
+
+    margin-top: 12px;
+}
+
+
+/* RECORDING FORM */
+
+.soundscape-form-section {
+
+    padding: 44px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: var(--radius-large);
+
+    background: var(--mist-blue);
+}
+
+
+.import-audio {
+
+    position: relative;
+
+    flex: 0 0 auto;
+}
+
+
+.import-audio input {
+
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+}
+
+
+.import-audio span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 46px;
+
+    padding: 0 20px;
+
+    border:
+        1px solid
+        var(--forest-dark);
+
+    border-radius: 999px;
+
+    color: var(--forest-dark);
+
+    font:
+        700
+        0.72rem/1
+        var(--sans);
+
+    letter-spacing: 0.07em;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+
+.import-audio span:hover,
+.import-audio input:focus-visible + span {
+
+    background: var(--forest-dark);
+
+    color: var(--paper-white);
+}
+
+
+.soundscape-form {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 22px;
+
+    margin-top: 36px;
+}
+
+
+.form-field {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.form-field--wide {
+
+    grid-column: 1 / -1;
+}
+
+
+.form-field label {
+
+    color: var(--forest-dark);
+
+    font:
+        700
+        0.72rem/1
+        var(--sans);
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    padding: 13px 15px;
+
+    border:
+        1px solid
+        rgba(45, 51, 64, 0.2);
+
+    border-radius: var(--radius-small);
+
+    background:
+        rgba(255, 254, 251, 0.92);
+
+    color: var(--printers-black);
+
+    font:
+        1rem/1.45
+        var(--sans);
+}
+
+
+.form-field textarea {
+
+    min-height: 126px;
+
+    resize: vertical;
+}
+
+
+.form-actions {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    padding-top: 10px;
+}
+
+
+.form-message {
+
+    margin: 0;
+
+    color: var(--lake-blue);
+
+    font:
+        600
+        0.86rem/1.5
+        var(--sans);
+}
+
+
+.form-actions .button {
+
+    margin: 0;
+}
+
+
+.form-actions .button:disabled {
+
+    cursor: not-allowed;
+
+    opacity: 0.45;
+}
+
+
+/* EMPTY LIBRARY */
+
+.sound-library-empty {
+
+    margin-top: 28px;
+
+    padding: 64px 28px;
+
+    border:
+        1px dashed
+        rgba(45, 51, 64, 0.25);
+
+    border-radius: var(--radius-large);
+
+    text-align: center;
+}
+
+
+.sound-library-empty > span {
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: var(--lake-blue);
+
+    font-size: 2rem;
+}
+
+
+.sound-library-empty h3 {
+
+    max-width: 620px;
+
+    margin: 0 auto 10px;
+
+    font-family: var(--serif-display);
+
+    font-size: clamp(
+        1.8rem,
+        4vw,
+        3rem
+    );
+
+    font-weight: 400;
+}
+
+
+.sound-library-empty p {
+
+    margin: 0;
+
+    color: var(--muted-ink);
+}
+
+
+/* SOUND CARDS */
+
+.sound-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 22px;
+
+    margin-top: 28px;
+}
+
+
+.sound-card {
+
+    padding: 26px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: var(--radius-medium);
+
+    background: var(--paper-white);
+
+    box-shadow: var(--shadow-small);
+}
+
+
+.sound-card__topline {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+}
+
+
+.sound-card h3 {
+
+    margin: 20px 0 7px;
+
+    font-family: var(--serif-display);
+
+    font-size: clamp(
+        1.7rem,
+        4vw,
+        2.65rem
+    );
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+.sound-card__place {
+
+    margin: 0 0 20px;
+
+    color: var(--muted-ink);
+
+    font-size: 0.84rem;
+}
+
+
+.sound-card__delete {
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--muted-ink);
+
+    font:
+        700
+        0.68rem/1
+        var(--sans);
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+
+.sound-card__delete:hover {
+
+    color: var(--lipstick-pink);
+}
+
+
+.sound-card__details,
+.sound-card__tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 18px;
+}
+
+
+.sound-card__details span,
+.sound-card__tags span {
+
+    padding: 6px 9px;
+
+    border:
+        1px solid
+        rgba(79, 124, 141, 0.24);
+
+    border-radius: 999px;
+
+    color: var(--lake-blue);
+
+    font:
+        600
+        0.68rem/1
+        var(--sans);
+}
+
+
+.sound-card__note {
+
+    margin: 20px 0 0;
+
+    padding-left: 16px;
+
+    border-left:
+        3px solid
+        var(--trailer-lime);
+
+    color: var(--walnut);
+
+    font-family: var(--serif-text);
+
+    font-style: italic;
+
+    line-height: 1.65;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+
+    .soundscapes-page {
+
+        padding: 16px;
+    }
+
+
+    .soundscapes-header {
+
+        padding-top: 18px;
+    }
+
+
+    .soundscapes-header .wordmark {
+
+        margin-bottom: 42px;
+    }
+
+
+    .soundscape-studio__heading,
+    .soundscape-form-heading,
+    .form-actions {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .recorder-support {
+
+        text-align: left;
+    }
+
+
+    .recorder-display {
+
+        grid-template-columns:
+            auto
+            1fr;
+
+        padding: 30px 24px;
+    }
+
+
+    #recordingTime {
+
+        grid-column: 1 / -1;
+    }
+
+
+    .recorder-actions,
+    .recording-preview {
+
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+
+    .soundscape-form-section {
+
+        padding: 28px 20px;
+    }
+
+
+    .soundscape-form,
+    .sound-list {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .form-field--wide {
+
+        grid-column: auto;
+    }
+
+
+    .form-actions .button {
+
+        width: 100%;
+    }
+
+}
