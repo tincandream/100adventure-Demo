@@ -60,6 +60,29 @@
     --radius-large: 26px;
 
     --page-width: 1180px;
+/* =========================================================
+   REGIONAL PAGE THEMES
+   ========================================================= */
+
+.region-southeast {
+    --region-accent: var(--region-southeast);
+}
+
+.region-southwest {
+    --region-accent: var(--region-southwest);
+}
+
+.region-midwest {
+    --region-accent: var(--region-midwest);
+}
+
+.region-northeast {
+    --region-accent: var(--region-northeast);
+}
+
+.region-west {
+    --region-accent: var(--region-west);
+}
 }
 
 
