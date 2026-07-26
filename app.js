@@ -1,19 +1,10 @@
 "use strict";
 
-/*
-==================================================
-100 ADVENTURE
-Main Adventure Page JavaScript
-==================================================
-*/
-
 let currentAdventure = null;
 
-/*
-==================================================
-ADVENTURE SELECTION
-==================================================
-*/
+/* ==================================================
+   ADVENTURE SELECTION
+================================================== */
 
 function getAdventureIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
@@ -27,7 +18,7 @@ function getCurrentAdventure() {
         !Array.isArray(adventures)
     ) {
         console.error(
-            "[100 Adventure] adventures.js did not load or does not contain an adventures array."
+            "[100 Adventure] adventures.js did not load correctly."
         );
 
         return null;
@@ -38,21 +29,21 @@ function getCurrentAdventure() {
     return (
         adventures.find(
             adventure => adventure.id === adventureId
-        ) || null
+        ) ||
+        adventures[0] ||
+        null
     );
 }
 
-/*
-==================================================
-SAFE DOM HELPERS
-==================================================
-*/
+/* ==================================================
+   DOM HELPERS
+================================================== */
 
 function getElement(id) {
     return document.getElementById(id);
 }
 
-function setText(id, value, fallback = "—") {
+function setText(id, value, fallback = "") {
     const element = getElement(id);
 
     if (!element) {
@@ -65,16 +56,6 @@ function setText(id, value, fallback = "—") {
         value !== ""
             ? value
             : fallback;
-}
-
-function setAttribute(id, attribute, value) {
-    const element = getElement(id);
-
-    if (!element || value === undefined || value === null) {
-        return;
-    }
-
-    element.setAttribute(attribute, value);
 }
 
 function setImage(id, source, altText) {
@@ -96,7 +77,7 @@ function setImage(id, source, altText) {
 
     image.addEventListener(
         "error",
-        function handleImageError() {
+        function () {
             image.hidden = true;
 
             console.warn(
@@ -116,288 +97,266 @@ function escapeHtml(value) {
         .replaceAll("'", "&#039;");
 }
 
-/*
-==================================================
-ERROR STATE
-==================================================
-*/
-
-function showAdventureNotFound() {
-    setText("adventureTitle", "Adventure Not Found");
-    setText("coverTitle", "Adventure Not Found");
-
-    setText(
-        "adventureDescription",
-        "This adventure could not be loaded. Return to Explore and choose another journey."
-    );
-
-    const containers = [
-        "stopsContainer",
-        "itineraryContainer",
-        "guideContainer"
-    ];
-
-    containers.forEach(id => {
-        const container = getElement(id);
-
-        if (container) {
-            container.innerHTML = `
-                <div class="empty-state">
-                    <h2>Adventure unavailable</h2>
-                    <p>
-                        The adventure ID may be missing or incorrect.
-                    </p>
-                    <a class="button button--gold" href="adventures.html">
-                        Return to Explore
-                    </a>
-                </div>
-            `;
-        }
-    });
-}
-
-/*
-==================================================
-MAIN ADVENTURE RENDER
-==================================================
-*/
+/* ==================================================
+   MAIN RENDER
+================================================== */
 
 function renderAdventure() {
     currentAdventure = getCurrentAdventure();
 
     if (!currentAdventure) {
         showAdventureNotFound();
-
-        console.error(
-            `[100 Adventure] No adventure found for ID: ${getAdventureIdFromUrl()}`
-        );
-
         return;
     }
 
     document.title =
         `${currentAdventure.title} | 100 Adventure`;
 
-    renderAdventureHeader();
-    renderAdventureDetails();
-    renderAdventureOverview();
+    renderHeader();
+    renderOverview();
     renderStops();
-    renderNoticeIdeas();
-    renderEphemeraIdeas();
+    renderTreasureLists();
     renderPlaylist();
-    renderMapLinks();
-    renderOfflineState();
+    updateProgress();
 }
 
-/*
-==================================================
-HEADER
-==================================================
-*/
-
-function renderAdventureHeader() {
-    setText("issueNum", currentAdventure.issueNumber, "001");
+function showAdventureNotFound() {
+    setText("title", "Adventure Not Found");
 
     setText(
-        "adventureTitle",
-        currentAdventure.title,
-        "Official Adventure"
+        "description",
+        "This adventure could not be loaded. Return to Explore and choose another journey."
     );
 
-    setText(
-        "coverTitle",
-        currentAdventure.title,
-        "Official Adventure"
-    );
+    const stopsList = getElement("stopsList");
+
+    if (stopsList) {
+        stopsList.innerHTML = `
+            <article class="issue-paper-card">
+                <h2>Adventure unavailable</h2>
+
+                <p>
+                    The adventure ID may be missing or incorrect.
+                </p>
+
+                <a class="button" href="explore.html">
+                    Return to Explore
+                </a>
+            </article>
+        `;
+    }
+}
+
+/* ==================================================
+   HEADER
+================================================== */
+
+function renderHeader() {
+    const routeStart =
+        currentAdventure.routeStart || "Start";
+
+    const routeEnd =
+        currentAdventure.routeEnd || "Finish";
 
     setText(
-        "adventureSubtitle",
-        currentAdventure.description,
-        ""
-    );
-
-    setText(
-        "coverSubtitle",
-        currentAdventure.description,
-        ""
-    );
-
-    setText(
-        "adventureTheme",
+        "theme",
         currentAdventure.theme,
         "Road Trip"
     );
 
     setText(
-        "adventureLocation",
-        currentAdventure.location,
-        ""
+        "title",
+        currentAdventure.title,
+        "Official Adventure"
     );
+
+    const details = [
+        currentAdventure.distance,
+        currentAdventure.duration,
+        currentAdventure.location
+    ]
+        .filter(Boolean)
+        .join(" · ");
+
+    setText("details", details);
+
+    setText("routeStart", routeStart);
+    setText("routeEnd", routeEnd);
 
     setImage(
         "coverImage",
         currentAdventure.cover,
         `${currentAdventure.title} adventure cover`
     );
+
+    const issueNumber =
+        currentAdventure.issueNumber || "001";
+
+    const mastheadIssue =
+        document.querySelector(
+            ".issue-masthead__top span"
+        );
+
+    if (mastheadIssue) {
+        mastheadIssue.textContent =
+            `Issue No. ${issueNumber}`;
+    }
+
+    const colophon =
+        document.querySelector(
+            ".issue-colophon span"
+        );
+
+    if (colophon) {
+        colophon.textContent =
+            `Issue No. ${issueNumber} · ${currentAdventure.title}`;
+    }
 }
 
-/*
-==================================================
-DETAILS
-==================================================
-*/
+/* ==================================================
+   OVERVIEW
+================================================== */
 
-function renderAdventureDetails() {
-    const route =
-        `${currentAdventure.routeStart || "Start"} → ` +
-        `${currentAdventure.routeEnd || "Finish"}`;
-
+function renderOverview() {
     setText(
-        "adventureDistance",
-        currentAdventure.distance
+        "description",
+        currentAdventure.description
     );
 
     setText(
-        "detailDistance",
-        currentAdventure.distance
+        "distanceFact",
+        currentAdventure.distance,
+        "Distance coming soon"
     );
 
     setText(
-        "footerDistance",
-        currentAdventure.distance
+        "durationFact",
+        currentAdventure.duration,
+        "Travel time coming soon"
     );
 
     setText(
-        "adventureDuration",
-        currentAdventure.duration
-    );
-
-    setText(
-        "detailDuration",
-        currentAdventure.duration
-    );
-
-    setText(
-        "adventureSeason",
+        "seasonFact",
         currentAdventure.bestSeason,
         "Year-round"
-    );
-
-    setText(
-        "detailSeason",
-        currentAdventure.bestSeason,
-        "Year-round"
-    );
-
-    setText(
-        "detailTheme",
-        currentAdventure.theme,
-        "Road Trip"
-    );
-
-    setText(
-        "footerTheme",
-        currentAdventure.theme,
-        "Road Trip"
-    );
-
-    setText("adventureRoute", route);
-    setText("footerRoute", route);
-}
-
-/*
-==================================================
-OVERVIEW
-==================================================
-*/
-
-function renderAdventureOverview() {
-    setText(
-        "adventureDescription",
-        currentAdventure.description,
-        ""
-    );
-
-    setText(
-        "overviewDescription",
-        currentAdventure.description,
-        ""
-    );
-
-    setText(
-        "preparationNotes",
-        currentAdventure.preparationNotes,
-        ""
     );
 
     setText(
         "bestTime",
         currentAdventure.preparationNotes ||
-            currentAdventure.bestSeason,
-        ""
+            currentAdventure.bestSeason ||
+            "Travel when the weather feels comfortable and leave room for unplanned stops."
     );
 }
 
-/*
-==================================================
-STOPS AND ITINERARY
-==================================================
-*/
+/* ==================================================
+   STOPS
+================================================== */
 
 function renderStops() {
+    const container = getElement("stopsList");
+
+    if (!container) {
+        return;
+    }
+
     const stops =
         Array.isArray(currentAdventure.stops)
             ? currentAdventure.stops
             : [];
 
-    const containers = [
-        getElement("stopsContainer"),
-        getElement("itineraryContainer")
-    ].filter(Boolean);
-
-    if (containers.length === 0) {
-        return;
-    }
-
     if (stops.length === 0) {
-        containers.forEach(container => {
-            container.innerHTML = `
-                <div class="empty-state">
-                    <p>No stops have been added yet.</p>
-                </div>
-            `;
-        });
+        container.innerHTML = `
+            <article class="issue-paper-card">
+                <p>No stops have been added yet.</p>
+            </article>
+        `;
 
         return;
     }
 
-    const markup = stops
-        .map((stop, index) => createStopMarkup(stop, index))
+    container.innerHTML = stops
+        .map(
+            (stop, index) =>
+                createStopMarkup(stop, index)
+        )
         .join("");
 
-    containers.forEach(container => {
-        container.innerHTML = markup;
-    });
+    container
+        .querySelectorAll(
+            ".stop-complete-button"
+        )
+        .forEach(button => {
+            button.addEventListener(
+                "click",
+                function () {
+                    toggleStopComplete(
+                        Number(
+                            button.dataset.stopIndex
+                        )
+                    );
+                }
+            );
+        });
+
+    refreshStopButtons();
 }
 
 function createStopMarkup(stop, index) {
     const collectItems =
-        Array.isArray(stop.collect) && stop.collect.length
+        Array.isArray(stop.collect) &&
+        stop.collect.length
             ? `
                 <div class="stop-card__collect">
-                    <h4>Collect Along the Way</h4>
+
+                    <p class="section-marker">
+                        Collect Along the Way
+                    </p>
 
                     <ul>
                         ${stop.collect
                             .map(
                                 item =>
-                                    `<li>${escapeHtml(item)}</li>`
+                                    `<li>${escapeHtml(
+                                        item
+                                    )}</li>`
                             )
                             .join("")}
                     </ul>
+
                 </div>
             `
             : "";
+
+    const visitTime = stop.visitTime
+        ? `
+            <p class="stop-card__time">
+
+                <strong>
+                    Suggested time:
+                </strong>
+
+                ${escapeHtml(stop.visitTime)}
+
+            </p>
+        `
+        : "";
+
+    const slowDown = stop.slowDown
+        ? `
+            <div class="stop-card__prompt">
+
+                <p class="section-marker">
+                    Slow Down
+                </p>
+
+                <p>
+                    ${escapeHtml(stop.slowDown)}
+                </p>
+
+            </div>
+        `
+        : "";
 
     const mapLink = stop.map
         ? `
@@ -406,39 +365,20 @@ function createStopMarkup(stop, index) {
                 href="${escapeHtml(stop.map)}"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Open ${escapeHtml(
-                    stop.name
-                )} in Google Maps"
             >
                 Open in Maps
             </a>
         `
         : "";
 
-    const visitTime = stop.visitTime
-        ? `
-            <p class="stop-card__time">
-                <strong>Suggested time:</strong>
-                ${escapeHtml(stop.visitTime)}
-            </p>
-        `
-        : "";
-
-    const slowDown = stop.slowDown
-        ? `
-            <div class="stop-card__prompt">
-                <span class="detail-label">Slow Down</span>
-
-                <p>
-                    ${escapeHtml(stop.slowDown)}
-                </p>
-            </div>
-        `
-        : "";
-
     return `
-        <article class="stop-card" data-stop-index="${index}">
+        <article
+            class="stop-card"
+            data-stop-index="${index}"
+        >
+
             <header class="stop-card__header">
+
                 <p class="section-marker">
                     Stop ${index + 1}
                 </p>
@@ -455,7 +395,8 @@ function createStopMarkup(stop, index) {
 
                 <h3>
                     ${escapeHtml(
-                        stop.name || `Stop ${index + 1}`
+                        stop.name ||
+                            `Stop ${index + 1}`
                     )}
                 </h3>
 
@@ -463,18 +404,23 @@ function createStopMarkup(stop, index) {
                     stop.chapter
                         ? `
                             <p class="stop-card__chapter">
-                                ${escapeHtml(stop.chapter)}
+                                ${escapeHtml(
+                                    stop.chapter
+                                )}
                             </p>
                         `
                         : ""
                 }
+
             </header>
 
             ${
                 stop.description
                     ? `
                         <p class="stop-card__description">
-                            ${escapeHtml(stop.description)}
+                            ${escapeHtml(
+                                stop.description
+                            )}
                         </p>
                     `
                     : ""
@@ -487,105 +433,99 @@ function createStopMarkup(stop, index) {
             ${collectItems}
 
             <div class="stop-card__actions">
+
                 ${mapLink}
 
                 <button
-                    class="button button--gold stop-complete-button"
+                    class="button button--region stop-complete-button"
                     type="button"
                     data-stop-index="${index}"
                 >
                     Mark Complete
                 </button>
+
             </div>
+
         </article>
     `;
 }
 
-/*
-==================================================
-NOTICE IDEAS
-==================================================
-*/
+/* ==================================================
+   TREASURE LISTS
+================================================== */
 
-function renderNoticeIdeas() {
-    const container =
-        getElement("noticeIdeas") ||
-        getElement("noticeIdeasContainer");
+function renderTreasureLists() {
+    renderTreasureList(
+        "notice",
+        currentAdventure.noticeIdeas
+    );
+
+    renderTreasureList(
+        "ephemera",
+        currentAdventure.ephemeraIdeas
+    );
+}
+
+function renderTreasureList(id, items) {
+    const container = getElement(id);
 
     if (!container) {
         return;
     }
 
-    const ideas =
-        Array.isArray(currentAdventure.noticeIdeas)
-            ? currentAdventure.noticeIdeas
-            : [];
+    const safeItems =
+        Array.isArray(items) ? items : [];
 
-    if (ideas.length === 0) {
-        container.innerHTML = "";
+    if (safeItems.length === 0) {
+        container.innerHTML =
+            "<p>Ideas coming soon.</p>";
+
         return;
     }
 
-    container.innerHTML = ideas
+    container.innerHTML = safeItems
         .map(
-            idea => `
-                <li>
-                    ${escapeHtml(idea)}
-                </li>
+            item => `
+                <div class="treasure-item">
+
+                    <span aria-hidden="true">
+                        ✦
+                    </span>
+
+                    <p>
+                        ${escapeHtml(item)}
+                    </p>
+
+                </div>
             `
         )
         .join("");
 }
 
-/*
-==================================================
-EPHEMERA IDEAS
-==================================================
-*/
-
-function renderEphemeraIdeas() {
-    const container =
-        getElement("ephemeraIdeas") ||
-        getElement("ephemeraIdeasContainer");
-
-    if (!container) {
-        return;
-    }
-
-    const ideas =
-        Array.isArray(currentAdventure.ephemeraIdeas)
-            ? currentAdventure.ephemeraIdeas
-            : [];
-
-    if (ideas.length === 0) {
-        container.innerHTML = "";
-        return;
-    }
-
-    container.innerHTML = ideas
-        .map(
-            idea => `
-                <li>
-                    ${escapeHtml(idea)}
-                </li>
-            `
-        )
-        .join("");
-}
-/*
-==================================================
-SPOTIFY SOUNDTRACK
-==================================================
-*/
+/* ==================================================
+   SPOTIFY
+================================================== */
 
 function renderPlaylist() {
     const spotify =
         currentAdventure.spotify ||
-        currentAdventure.playlist;
+        currentAdventure.playlist ||
+        null;
 
-    const link = getElement("playlistLink");
+    const link =
+        getElement("playlistLink");
 
     if (!spotify) {
+        setText(
+            "playlistTitle",
+            "Adventure Soundtrack"
+        );
+
+        setText(
+            "playlistPlatform",
+            "Playlist coming soon."
+        );
+
         if (link) {
             link.hidden = true;
         }
@@ -601,8 +541,9 @@ function renderPlaylist() {
 
     setText(
         "playlistPlatform",
-        spotify.description || "Listen on Spotify",
-        "Listen on Spotify"
+        spotify.description ||
+            spotify.platform ||
+            "Listen on Spotify"
     );
 
     if (!link) {
@@ -619,16 +560,275 @@ function renderPlaylist() {
         playlistUrl !== "#"
     ) {
         link.href = playlistUrl;
-        link.textContent = "Open in Spotify";
+        link.textContent =
+            "Open in Spotify";
+
         link.hidden = false;
         link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.removeAttribute("aria-disabled");
+        link.rel =
+            "noopener noreferrer";
+
+        link.removeAttribute(
+            "aria-disabled"
+        );
     } else {
         link.removeAttribute("href");
-        link.textContent = "Spotify Playlist Coming Soon";
+
+        link.textContent =
+            "Spotify Playlist Coming Soon";
+
         link.hidden = false;
-        link.setAttribute("aria-disabled", "true");
+
+        link.setAttribute(
+            "aria-disabled",
+            "true"
+        );
     }
 }
-/*
+
+/* ==================================================
+   TABS
+================================================== */
+
+function showTab(tabId, clickedButton) {
+    document
+        .querySelectorAll(".tab-content")
+        .forEach(section => {
+            const isActive =
+                section.id === tabId;
+
+            section.hidden = !isActive;
+
+            section.classList.toggle(
+                "active",
+                isActive
+            );
+        });
+
+    document
+        .querySelectorAll(".issue-tab")
+        .forEach(button => {
+            const isActive =
+                button === clickedButton ||
+                button.dataset.tab === tabId;
+
+            button.classList.toggle(
+                "active",
+                isActive
+            );
+
+            button.setAttribute(
+                "aria-selected",
+                isActive
+                    ? "true"
+                    : "false"
+            );
+        });
+
+    if (tabId === "stops") {
+        updateProgress();
+    }
+}
+
+function openRouteTab() {
+    const routeButton =
+        document.querySelector(
+            '.issue-tab[data-tab="stops"]'
+        );
+
+    showTab(
+        "stops",
+        routeButton
+    );
+
+    const tabs =
+        document.querySelector(
+            ".issue-tabs"
+        );
+
+    if (tabs) {
+        tabs.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+function startAdventure() {
+    openRouteTab();
+}
+
+/* ==================================================
+   PROGRESS
+================================================== */
+
+function getProgressStorageKey() {
+    const adventureId =
+        currentAdventure?.id ||
+        getAdventureIdFromUrl();
+
+    return (
+        `100-adventure-progress-${adventureId}`
+    );
+}
+
+function getCompletedStops() {
+    try {
+        const saved =
+            localStorage.getItem(
+                getProgressStorageKey()
+            );
+
+        const completed =
+            saved
+                ? JSON.parse(saved)
+                : [];
+
+        return Array.isArray(completed)
+            ? completed.filter(
+                Number.isInteger
+            )
+            : [];
+    } catch (error) {
+        console.warn(
+            "[100 Adventure] Progress could not be read.",
+            error
+        );
+
+        return [];
+    }
+}
+
+function saveCompletedStops(
+    completedStops
+) {
+    try {
+        localStorage.setItem(
+            getProgressStorageKey(),
+            JSON.stringify(
+                completedStops
+            )
+        );
+    } catch (error) {
+        console.warn(
+            "[100 Adventure] Progress could not be saved.",
+            error
+        );
+    }
+}
+
+function toggleStopComplete(index) {
+    const completed =
+        new Set(
+            getCompletedStops()
+        );
+
+    if (completed.has(index)) {
+        completed.delete(index);
+    } else {
+        completed.add(index);
+    }
+
+    saveCompletedStops(
+        [...completed].sort(
+            (a, b) => a - b
+        )
+    );
+
+    refreshStopButtons();
+    updateProgress();
+}
+
+function refreshStopButtons() {
+    const completed =
+        new Set(
+            getCompletedStops()
+        );
+
+    document
+        .querySelectorAll(
+            ".stop-complete-button"
+        )
+        .forEach(button => {
+            const index =
+                Number(
+                    button.dataset.stopIndex
+                );
+
+            const isComplete =
+                completed.has(index);
+
+            const card =
+                button.closest(
+                    ".stop-card"
+                );
+
+            button.textContent =
+                isComplete
+                    ? "Visited ✓"
+                    : "Mark Complete";
+
+            button.setAttribute(
+                "aria-pressed",
+                isComplete
+                    ? "true"
+                    : "false"
+            );
+
+            if (card) {
+                card.classList.toggle(
+                    "stop-card--complete",
+                    isComplete
+                );
+            }
+        });
+}
+
+function updateProgress() {
+    if (!currentAdventure) {
+        currentAdventure =
+            getCurrentAdventure();
+    }
+
+    const totalStops =
+        Array.isArray(
+            currentAdventure?.stops
+        )
+            ? currentAdventure.stops.length
+            : 0;
+
+    const completedCount =
+        getCompletedStops()
+            .filter(
+                index =>
+                    index >= 0 &&
+                    index < totalStops
+            )
+            .length;
+
+    const stopWord =
+        totalStops === 1
+            ? "Stop"
+            : "Stops";
+
+    setText(
+        "progress",
+        `${completedCount} / ${totalStops} ${stopWord} Visited`
+    );
+
+    const progressBar =
+        getElement("progressBar");
+
+    if (progressBar) {
+        const percentage =
+            totalStops > 0
+                ? (
+                    completedCount /
+                    totalStops
+                ) * 100
+                : 0;
+
+        progressBar.style.width =
+            `${percentage}%`;
+    }
+}
