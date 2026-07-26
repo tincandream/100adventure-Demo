@@ -574,6 +574,68 @@ function renderLocalFind() {
     section.hidden = false;
 }
 
+/* --------------------------------------------------
+   AUDIO
+-------------------------------------------------- */
+
+const playlistTitle =
+    document.getElementById("playlistTitle");
+
+const playlistPlatform =
+    document.getElementById("playlistPlatform");
+
+const playlistLink =
+    document.getElementById("playlistLink");
+
+const soundscapeTitle =
+    document.getElementById("soundscapeTitle");
+
+const soundscapeDescription =
+    document.getElementById("soundscapeDescription");
+
+const soundscapePlayer =
+    document.getElementById("soundscapePlayer");
+
+const soundscapeDuration =
+    document.getElementById("soundscapeDuration");
+
+const soundscapeCredit =
+    document.getElementById("soundscapeCredit");
+
+
+if (adventure.playlist) {
+
+    playlistTitle.textContent =
+        adventure.playlist.title;
+
+    playlistPlatform.textContent =
+        adventure.playlist.platform;
+
+    playlistLink.href =
+        adventure.playlist.url;
+
+}
+
+
+if (adventure.soundscape) {
+
+    soundscapeTitle.textContent =
+        adventure.soundscape.title;
+
+    soundscapeDescription.textContent =
+        adventure.soundscape.description;
+
+    soundscapePlayer.src =
+        adventure.soundscape.audio;
+
+    soundscapeDuration.textContent =
+        adventure.soundscape.duration;
+
+    soundscapeCredit.textContent =
+        adventure.soundscape.credit;
+
+}
+
 /* ==================================================
    SPOTIFY
 ================================================== */
