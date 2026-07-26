@@ -4027,3 +4027,82 @@ textarea:focus,
     }
 
 }
+/* =========================================================
+   TABS — issue vocabulary
+   Append to the end of style.css
+   ========================================================= */
+
+/* THE CRITICAL FIX
+   .tab-content is display:none with nothing to re-show it,
+   so every panel on adventure.html is permanently hidden. */
+.tab-content.active {
+    display: block;
+}
+
+
+/* Tab strip container — mirrors the legacy .tabs rule */
+.issue-tabs {
+
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+
+    padding-bottom: 5px;
+    margin-bottom: 22px;
+}
+
+
+/* Tab buttons — mirrors the legacy .tabs button rule */
+.issue-tab {
+
+    padding: 10px 15px;
+
+    white-space: nowrap;
+
+    background: var(--antique-paper);
+
+    color: var(--printers-black);
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    cursor: pointer;
+}
+
+
+.issue-tab:hover,
+.issue-tab.active {
+
+    background: var(--lipstick-pink);
+
+    color: var(--paper-white);
+}
+
+
+/* Keyboard focus — the legacy rules never covered this */
+.issue-tab:focus-visible {
+
+    outline: 2px solid var(--printers-black);
+    outline-offset: 2px;
+}
+
+
+/* Missing from create.html's markup vocabulary */
+.coming-soon {
+
+    margin-top: 8px;
+
+    font-size: 0.85rem;
+
+    opacity: 0.6;
+}
+
+
+.button:disabled {
+
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
