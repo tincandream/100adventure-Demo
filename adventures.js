@@ -126,6 +126,17 @@ const adventures = [
             "Written notes about natural objects rather than removing them"
         ],
 
+        localFind: {
+            name: "Talladega Pine & Cedar Soap",
+
+            maker: "Handcrafted in Alabama",
+
+            caption:
+                "The scent of pine and cedar recalls winding roads, mountain overlooks and quiet mornings in Talladega National Forest.",
+
+            link: "#"
+        },
+
         spotify: {
             title: "Alabama Scenic Byway",
 
