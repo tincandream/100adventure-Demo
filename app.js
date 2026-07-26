@@ -116,7 +116,6 @@ function renderAdventure() {
     renderOverview();
     renderStops();
     renderTreasureLists();
-    renderLocalFind();
     renderPlaylist();
     updateProgress();
 }
@@ -186,8 +185,7 @@ function renderHeader() {
 
     setImage(
         "coverImage",
-        currentAdventure.cover ||
-            currentAdventure.coverImage,
+        currentAdventure.cover,
         `${currentAdventure.title} adventure cover`
     );
 
@@ -245,8 +243,7 @@ function renderOverview() {
 
     setText(
         "bestTime",
-        currentAdventure.bestTime ||
-            currentAdventure.preparationNotes ||
+        currentAdventure.preparationNotes ||
             currentAdventure.bestSeason ||
             "Travel when the weather feels comfortable and leave room for unplanned stops."
     );
@@ -363,7 +360,7 @@ function createStopMarkup(stop, index) {
 
     const mapLink = stop.map
         ? `
-            
+            <a
                 class="button button--outline"
                 href="${escapeHtml(stop.map)}"
                 target="_blank"
@@ -460,14 +457,12 @@ function createStopMarkup(stop, index) {
 function renderTreasureLists() {
     renderTreasureList(
         "notice",
-        currentAdventure.noticeIdeas ||
-            currentAdventure.notice
+        currentAdventure.noticeIdeas
     );
 
     renderTreasureList(
         "ephemera",
-        currentAdventure.ephemeraIdeas ||
-            currentAdventure.ephemera
+        currentAdventure.ephemeraIdeas
     );
 }
 
@@ -505,135 +500,6 @@ function renderTreasureList(id, items) {
             `
         )
         .join("");
-}
-
-/* ==================================================
-   LOCAL FIND
-================================================== */
-
-function renderLocalFind() {
-    const section =
-        document.querySelector(".local-find");
-
-    if (!section) {
-        return;
-    }
-
-    const localFind =
-        currentAdventure &&
-        currentAdventure.localFind;
-
-    if (!localFind) {
-        section.hidden = true;
-        return;
-    }
-
-    const name =
-        getElement("localFindName");
-
-    const maker =
-        getElement("localFindMaker");
-
-    const caption =
-        getElement("localFindCaption");
-
-    const link =
-        getElement("localFindLink");
-
-    if (name) {
-        name.textContent =
-            localFind.name || "";
-    }
-
-    if (maker) {
-        maker.textContent =
-            localFind.maker || "";
-    }
-
-    if (caption) {
-        caption.textContent =
-            localFind.caption || "";
-    }
-
-    if (link) {
-        const url = localFind.link || "";
-
-        if (url && url !== "#") {
-            link.href = url;
-            link.hidden = false;
-
-            link.removeAttribute(
-                "aria-disabled"
-            );
-        } else {
-            link.removeAttribute("href");
-            link.hidden = true;
-        }
-    }
-
-    section.hidden = false;
-}
-
-/* --------------------------------------------------
-   AUDIO
--------------------------------------------------- */
-
-const playlistTitle =
-    document.getElementById("playlistTitle");
-
-const playlistPlatform =
-    document.getElementById("playlistPlatform");
-
-const playlistLink =
-    document.getElementById("playlistLink");
-
-const soundscapeTitle =
-    document.getElementById("soundscapeTitle");
-
-const soundscapeDescription =
-    document.getElementById("soundscapeDescription");
-
-const soundscapePlayer =
-    document.getElementById("soundscapePlayer");
-
-const soundscapeDuration =
-    document.getElementById("soundscapeDuration");
-
-const soundscapeCredit =
-    document.getElementById("soundscapeCredit");
-
-
-if (adventure.playlist) {
-
-    playlistTitle.textContent =
-        adventure.playlist.title;
-
-    playlistPlatform.textContent =
-        adventure.playlist.platform;
-
-    playlistLink.href =
-        adventure.playlist.url;
-
-}
-
-
-if (adventure.soundscape) {
-
-    soundscapeTitle.textContent =
-        adventure.soundscape.title;
-
-    soundscapeDescription.textContent =
-        adventure.soundscape.description;
-
-    soundscapePlayer.src =
-        adventure.soundscape.audio;
-
-    soundscapeDuration.textContent =
-        adventure.soundscape.duration;
-
-    soundscapeCredit.textContent =
-        adventure.soundscape.credit;
-
 }
 
 /* ==================================================
@@ -695,7 +561,7 @@ function renderPlaylist() {
     ) {
         link.href = playlistUrl;
         link.textContent =
-            "🎵 Listen on Spotify";
+            "Open in Spotify";
 
         link.hidden = false;
         link.target = "_blank";
