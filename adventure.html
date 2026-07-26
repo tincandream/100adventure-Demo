@@ -227,46 +227,6 @@
                 Things to Treasure
             </button>
 
-<section class="local-find">
-    <p class="section-kicker">Local Find</p>
-
-    <h2>Scent of the Journey</h2>
-
-    <div class="local-find-card">
-
-        <div class="local-find-icon">
-            🌿
-        </div>
-
-        <div class="local-find-content">
-
-            <p class="local-find-label">
-                Featured Local Maker
-            </p>
-
-            <h3 id="localFindName"></h3>
-
-            <p id="localFindMaker"></p>
-
-            <blockquote id="localFindCaption"></blockquote>
-
-            <a
-                id="localFindLink"
-                href="#"
-                target="_blank"
-                rel="noopener"
-            >
-                Visit Maker →
-            </a>
-
-        </div>
-
-    </div>
-</section>
-
-            <button class="spotify-button">
-    🎵 Listen on Spotify
-</button>
             <button
                 class="issue-tab"
                 type="button"
@@ -368,8 +328,8 @@
                 </p>
 
                 <blockquote>
-                    “The best part of the road may be the place
-                    you had not planned to stop.”
+                    "The best part of the road may be the place
+                    you had not planned to stop."
                 </blockquote>
 
             </aside>
@@ -540,7 +500,7 @@
                 </div>
 
 
-                <a
+                
                     class="button button--region"
                     href="memory-card.html"
                 >
@@ -549,235 +509,41 @@
 
             </aside>
 
-        </section>
 
+            <!-- LOCAL FIND -->
 
+            <section class="local-find">
 
-        <!-- PLAYLIST -->
+                <p class="section-kicker">
+                    Local Find
+                </p>
 
-        <section
-            id="playlist"
-            class="tab-content issue-chapter"
-        >
+                <h2>
+                    Scent of the Journey
+                </h2>
 
-            <div class="playlist-feature">
+                <div class="local-find-card">
 
-                <div class="playlist-disc" aria-hidden="true">
-
-                    <span>
-                        100
-                    </span>
-
-                </div>
-
-
-                <div class="playlist-copy">
-
-                    <p class="section-marker">
-                        Chapter Four
-                    </p>
-
-                    <h2>
-                        Roadside Soundtrack
-                    </h2>
-
-                    <p>
-                        Music chosen for long forest roads, distant
-                        mountain views and the quiet stretch before sunset.
-                    </p>
-
-                    <h3 id="playlistTitle"></h3>
-
-                    <p id="playlistPlatform"></p>
-
-
-                    <a
-                        class="button"
-                        id="playlistLink"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <div
+                        class="local-find-icon"
+                        aria-hidden="true"
                     >
-                        Open Playlist
-                    </a>
+                        &#127807;
+                    </div>
 
-                </div>
+                    <div class="local-find-content">
 
-            </div>
+                        <p class="local-find-label">
+                            Featured Local Maker
+                        </p>
 
-        </section>
+                        <h3 id="localFindName"></h3>
 
+                        <p id="localFindMaker"></p>
 
+                        <blockquote id="localFindCaption"></blockquote>
 
-        <!-- ISSUE CLOSING -->
-
-        <section class="issue-closing">
-
-            <p class="section-marker">
-                Carry It Forward
-            </p>
-
-            <h2>
-                Let the journey become part of your story.
-            </h2>
-
-            <p>
-                Travel thoughtfully. Support local places.
-                Save the details. Leave the road a little better
-                than you found it.
-            </p>
-
-
-            <div class="issue-closing__actions">
-
-                <a class="button" href="memories.html">
-                    View My Memories
-                </a>
-
-                <a
-                    class="button button--outline"
-                    href="passport.html"
-                >
-                    Open My Passport
-                </a>
-
-            </div>
-
-        </section>
-
-
-
-        <footer class="issue-colophon">
-
-            <a href="index.html">
-                100 Adventure
-            </a>
-
-            <span>
-                Issue No. 001 · Alabama Scenic Byway
-            </span>
-
-        </footer>
-
-
-    </main>
-
-
-
-    <!-- MAIN NAVIGATION -->
-
-    <nav class="nav" aria-label="Main navigation">
-
-        <a href="index.html">
-
-            <span aria-hidden="true">
-                ⌂
-            </span>
-
-            Home
-
-        </a>
-
-
-        <a
-            class="nav__active"
-            href="explore.html"
-        >
-
-            <span aria-hidden="true">
-                ◇
-            </span>
-
-            Explore
-
-        </a>
-
-
-        <a href="memories.html">
-
-            <span aria-hidden="true">
-                ◉
-            </span>
-
-            Memories
-
-        </a>
-
-
-        <a href="passport.html">
-
-            <span aria-hidden="true">
-                ✦
-            </span>
-
-            Passport
-
-        </a>
-
-
-        <a href="create.html">
-
-            <span aria-hidden="true">
-                ✂
-            </span>
-
-            Create
-
-        </a>
-
-    </nav>
-
-
-
-    <script src="adventures.js"></script>
-
-    <script src="app.js"></script>
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-
-            const run = (label, fn) => {
-
-                try {
-                    fn();
-                }
-
-                catch (err) {
-                    console.error(
-                        `[100 Adventure] ${label} failed:`,
-                        err
-                    );
-                }
-
-            };
-
-
-            run(
-                "renderAdventure",
-                () => renderAdventure()
-            );
-
-
-            run(
-                "showTab",
-                () => showTab(
-                    "overview",
-                    document.querySelector(
-                        '.issue-tab[data-tab="overview"]'
-                    )
-                )
-            );
-
-
-            run(
-                "updateProgress",
-                () => updateProgress()
-            );
-
-        });
-    </script>
-
-
-</body>
-
-</html>
+                        
+                            id="localFindLink"
+                            class="button"
+                            href="#"
