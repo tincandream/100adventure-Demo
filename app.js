@@ -116,6 +116,7 @@ function renderAdventure() {
     renderOverview();
     renderStops();
     renderTreasureLists();
+    renderLocalFind();
     renderPlaylist();
     updateProgress();
 }
@@ -185,7 +186,8 @@ function renderHeader() {
 
     setImage(
         "coverImage",
-        currentAdventure.cover,
+        currentAdventure.cover ||
+            currentAdventure.coverImage,
         `${currentAdventure.title} adventure cover`
     );
 
@@ -243,7 +245,8 @@ function renderOverview() {
 
     setText(
         "bestTime",
-        currentAdventure.preparationNotes ||
+        currentAdventure.bestTime ||
+            currentAdventure.preparationNotes ||
             currentAdventure.bestSeason ||
             "Travel when the weather feels comfortable and leave room for unplanned stops."
     );
@@ -360,7 +363,7 @@ function createStopMarkup(stop, index) {
 
     const mapLink = stop.map
         ? `
-            <a
+            
                 class="button button--outline"
                 href="${escapeHtml(stop.map)}"
                 target="_blank"
@@ -457,12 +460,14 @@ function createStopMarkup(stop, index) {
 function renderTreasureLists() {
     renderTreasureList(
         "notice",
-        currentAdventure.noticeIdeas
+        currentAdventure.noticeIdeas ||
+            currentAdventure.notice
     );
 
     renderTreasureList(
         "ephemera",
-        currentAdventure.ephemeraIdeas
+        currentAdventure.ephemeraIdeas ||
+            currentAdventure.ephemera
     );
 }
 
@@ -500,6 +505,73 @@ function renderTreasureList(id, items) {
             `
         )
         .join("");
+}
+
+/* ==================================================
+   LOCAL FIND
+================================================== */
+
+function renderLocalFind() {
+    const section =
+        document.querySelector(".local-find");
+
+    if (!section) {
+        return;
+    }
+
+    const localFind =
+        currentAdventure &&
+        currentAdventure.localFind;
+
+    if (!localFind) {
+        section.hidden = true;
+        return;
+    }
+
+    const name =
+        getElement("localFindName");
+
+    const maker =
+        getElement("localFindMaker");
+
+    const caption =
+        getElement("localFindCaption");
+
+    const link =
+        getElement("localFindLink");
+
+    if (name) {
+        name.textContent =
+            localFind.name || "";
+    }
+
+    if (maker) {
+        maker.textContent =
+            localFind.maker || "";
+    }
+
+    if (caption) {
+        caption.textContent =
+            localFind.caption || "";
+    }
+
+    if (link) {
+        const url = localFind.link || "";
+
+        if (url && url !== "#") {
+            link.href = url;
+            link.hidden = false;
+
+            link.removeAttribute(
+                "aria-disabled"
+            );
+        } else {
+            link.removeAttribute("href");
+            link.hidden = true;
+        }
+    }
+
+    section.hidden = false;
 }
 
 /* ==================================================
@@ -561,7 +633,7 @@ function renderPlaylist() {
     ) {
         link.href = playlistUrl;
         link.textContent =
-            "Open in Spotify";
+            "🎵 Listen on Spotify";
 
         link.hidden = false;
         link.target = "_blank";
