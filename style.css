@@ -7442,3 +7442,185 @@ p:not(.zine-audio-card__type) {
     border-top: 1px solid #ddd;
     z-index: 1000;
 }
+/* =========================================
+   SEVEN-BUTTON BOTTOM NAVIGATION
+   ========================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding-bottom: 86px;
+}
+
+
+/* Main navigation bar */
+
+.bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 76px;
+
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    align-items: stretch;
+
+    padding: 0 6px;
+
+    background-color: #f8f3e8;
+    border-top: 1px solid rgba(61, 52, 40, 0.18);
+    box-shadow: 0 -4px 16px rgba(40, 34, 27, 0.08);
+
+    z-index: 1000;
+}
+
+
+/* Individual navigation buttons */
+
+.bottom-nav .nav-item {
+    min-width: 0;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+    padding: 8px 2px;
+
+    color: #554c40;
+    text-decoration: none;
+    text-align: center;
+
+    border: 0;
+    background: transparent;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+/* Navigation icons */
+
+.bottom-nav .nav-icon {
+    display: block;
+
+    font-size: 1.18rem;
+    line-height: 1;
+    font-weight: 400;
+}
+
+
+/* Navigation labels */
+
+.bottom-nav .nav-label {
+    display: block;
+    width: 100%;
+
+    font-size: 0.62rem;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+
+/* Hover and keyboard focus */
+
+.bottom-nav .nav-item:hover,
+.bottom-nav .nav-item:focus-visible {
+    color: #29231d;
+    background-color: rgba(92, 78, 57, 0.07);
+}
+
+
+/* Current-page button */
+
+.bottom-nav .nav-item.active,
+.bottom-nav .nav-item[aria-current="page"] {
+    color: #29231d;
+    background-color: rgba(92, 78, 57, 0.09);
+}
+
+
+/* Small active-page marker */
+
+.bottom-nav .nav-item.active::before,
+.bottom-nav .nav-item[aria-current="page"]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+
+    width: 26px;
+    height: 2px;
+
+    background-color: currentColor;
+}
+
+
+/* Required for the active marker */
+
+.bottom-nav .nav-item {
+    position: relative;
+}
+
+
+/* Slightly larger screens */
+
+@media (min-width: 600px) {
+    body {
+        padding-bottom: 92px;
+    }
+
+    .bottom-nav {
+        height: 82px;
+        padding: 0 18px;
+    }
+
+    .bottom-nav .nav-icon {
+        font-size: 1.28rem;
+    }
+
+    .bottom-nav .nav-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.04em;
+    }
+}
+
+
+/* Very small phones */
+
+@media (max-width: 390px) {
+    .bottom-nav {
+        height: 72px;
+        padding: 0 2px;
+    }
+
+    .bottom-nav .nav-item {
+        gap: 4px;
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+
+    .bottom-nav .nav-icon {
+        font-size: 1.05rem;
+    }
+
+    .bottom-nav .nav-label {
+        font-size: 0.54rem;
+        letter-spacing: 0;
+    }
+}
