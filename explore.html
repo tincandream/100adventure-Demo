@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
 
@@ -9,245 +8,238 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <meta
-        name="description"
-        content="Explore a growing collection of curated 100-mile adventures."
-    >
+    <title>Explore | 100 Adventure</title>
 
-    <title>
-        Explore | 100 Adventure
-    </title>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="explore-page">
+<body class="explore-body">
 
-    <main class="explore-shell">
-
-        <!-- EXPLORE HEADER -->
+    <main class="explore-page">
 
         <header class="explore-header">
-
-            <div class="explore-header__top">
-
-                <a class="explore-wordmark" href="index.html">
+            <div>
+                <p class="explore-eyebrow">
                     100 Adventure
-                </a>
-
-                <span>
-                    Curated 100-Mile Journeys
-                </span>
-
-            </div>
-
-
-            <div class="explore-header__content">
-
-                <p class="section-marker">
-                    The Adventure Library
                 </p>
 
-                <h1>
-                    Find Your Next Adventure
-                </h1>
+                <h1>Explore by region</h1>
 
                 <p class="explore-introduction">
-                    A growing collection of cute, thoughtfully curated
-                    100-mile journeys. Every adventure has its own character,
-                    so the route details, recommendations, keepsakes and
-                    experiences may vary from one trip to the next.
+                    Discover thoughtfully created road trips across America.
                 </p>
-
             </div>
 
+            <p
+                id="routeCount"
+                class="route-count"
+                aria-live="polite"
+            >
+                6 suggested adventures
+            </p>
         </header>
 
 
-        <!-- SEARCH -->
-
-        <section class="explore-controls">
-
-            <label class="explore-search">
-
-                <span class="explore-search__label">
-                    Search the Collection
-                </span>
-
-                <input
-                    id="adventureSearch"
-                    type="search"
-                    placeholder="Search by adventure, place or detail..."
-                    autocomplete="off"
-                >
-
-            </label>
-
-            <p
-                id="adventureCount"
-                class="explore-count"
-                aria-live="polite"
-            ></p>
-
-        </section>
-
-
-        <!-- FEATURED ADVENTURE -->
+        <!-- Regional filters -->
 
         <section
-            id="featuredSection"
-            class="featured-adventure"
-            hidden
+            class="region-filters"
+            aria-label="Filter adventures by region"
         >
-
-            <div class="explore-section-heading">
-
-                <div>
-
-                    <p class="section-marker">
-                        Featured Adventure
-                    </p>
-
-                    <h2>
-                        Begin with a favorite.
-                    </h2>
-
-                </div>
-
-                <p>
-                    A handpicked journey from the growing
-                    100 Adventure collection.
-                </p>
-
-            </div>
-
-
-            <div id="featuredAdventure"></div>
-
-        </section>
-
-
-        <!-- ADVENTURE COLLECTION -->
-
-        <section class="explore-library">
-
-            <div class="explore-section-heading">
-
-                <div>
-
-                    <p class="section-marker">
-                        The Collection
-                    </p>
-
-                    <h2>
-                        Every journey tells a different story.
-                    </h2>
-
-                </div>
-
-                <p>
-                    Open an available adventure or discover
-                    what is coming next.
-                </p>
-
-            </div>
-
-
-            <div
-                id="adventureGrid"
-                class="explore-grid"
-                aria-live="polite"
-            ></div>
-
-
-            <div
-                id="emptyState"
-                class="explore-empty"
-                hidden
+            <button
+                class="region-filter is-active"
+                type="button"
+                data-region="all"
             >
+                All
+            </button>
 
-                <p class="section-marker">
-                    No Matches
-                </p>
+            <button
+                class="region-filter"
+                type="button"
+                data-region="northeast"
+            >
+                Northeast
+            </button>
 
-                <h2>
-                    That adventure is not in the collection yet.
-                </h2>
+            <button
+                class="region-filter"
+                type="button"
+                data-region="southeast"
+            >
+                Southeast
+            </button>
 
-                <p>
-                    Try another title, place or detail.
-                </p>
+            <button
+                class="region-filter"
+                type="button"
+                data-region="midwest"
+            >
+                Midwest
+            </button>
 
+            <button
+                class="region-filter"
+                type="button"
+                data-region="southwest"
+            >
+                Southwest
+            </button>
+
+            <button
+                class="region-filter"
+                type="button"
+                data-region="west"
+            >
+                West
+            </button>
+        </section>
+
+
+        <!-- Map and route preview -->
+
+        <section class="explore-map-layout">
+
+            <div class="map-column">
+                <div
+                    id="exploreMap"
+                    class="explore-map"
+                    aria-label="Interactive map of suggested adventures"
+                ></div>
+
+                <div class="map-key" aria-label="Map region key">
+                    <span data-key-region="northeast">
+                        <i></i>
+                        Northeast
+                    </span>
+
+                    <span data-key-region="southeast">
+                        <i></i>
+                        Southeast
+                    </span>
+
+                    <span data-key-region="midwest">
+                        <i></i>
+                        Midwest
+                    </span>
+
+                    <span data-key-region="southwest">
+                        <i></i>
+                        Southwest
+                    </span>
+
+                    <span data-key-region="west">
+                        <i></i>
+                        West
+                    </span>
+                </div>
             </div>
+
+
+            <aside
+                id="adventurePreview"
+                class="adventure-preview"
+                aria-live="polite"
+            >
+                <div class="preview-empty">
+                    <span class="preview-empty-symbol" aria-hidden="true">
+                        ◇
+                    </span>
+
+                    <p class="preview-label">
+                        Suggested routes
+                    </p>
+
+                    <h2>Choose a marker</h2>
+
+                    <p>
+                        Select an adventure on the map to view its route,
+                        region, distance and travel details.
+                    </p>
+                </div>
+            </aside>
 
         </section>
 
 
-        <!-- FOOTER -->
+        <!-- Route directory -->
 
-        <footer class="explore-colophon">
+        <section class="route-directory">
+            <div class="section-heading">
+                <div>
+                    <p class="explore-eyebrow">
+                        Route directory
+                    </p>
 
-            <strong>
-                100 Adventure
-            </strong>
+                    <h2>Suggested adventures</h2>
+                </div>
+            </div>
 
-            <p>
-                Thoughtful travel, local discoveries and collectible
-                memories for the open road.
-            </p>
-
-        </footer>
+            <div
+                id="routeGrid"
+                class="route-grid"
+            ></div>
+        </section>
 
     </main>
 
 
-    <!-- MAIN NAVIGATION -->
+    <!-- Bottom navigation -->
 
-    <nav class="nav" aria-label="Main navigation">
+    <nav class="bottom-nav" aria-label="Main navigation">
 
-        <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <span class="nav-icon" aria-hidden="true">⌂</span>
+            <span class="nav-label">Home</span>
+        </a>
 
-    <a href="index.html" class="nav-item">
-        <span class="nav-icon">⌂</span>
-        <span class="nav-label">Home</span>
-    </a>
+        <a
+            href="explore.html"
+            class="nav-item"
+            aria-current="page"
+        >
+            <span class="nav-icon" aria-hidden="true">◇</span>
+            <span class="nav-label">Explore</span>
+        </a>
 
-    <a href="explore.html" class="nav-item">
-        <span class="nav-icon">◇</span>
-        <span class="nav-label">Explore</span>
-    </a>
+        <a href="adventure.html" class="nav-item">
+            <span class="nav-icon" aria-hidden="true">▤</span>
+            <span class="nav-label">Adventure</span>
+        </a>
 
-    <a href="adventure.html" class="nav-item">
-        <span class="nav-icon">▤</span>
-        <span class="nav-label">Adventure</span>
-    </a>
+        <a href="memories.html" class="nav-item">
+            <span class="nav-icon" aria-hidden="true">◉</span>
+            <span class="nav-label">Memories</span>
+        </a>
 
-    <a href="memories.html" class="nav-item">
-        <span class="nav-icon">◉</span>
-        <span class="nav-label">Memories</span>
-    </a>
+        <a href="passport.html" class="nav-item">
+            <span class="nav-icon" aria-hidden="true">✦</span>
+            <span class="nav-label">Passport</span>
+        </a>
 
-    <a href="passport.html" class="nav-item">
-        <span class="nav-icon">✦</span>
-        <span class="nav-label">Passport</span>
-    </a>
+        <a href="create.html" class="nav-item">
+            <span class="nav-icon" aria-hidden="true">✂</span>
+            <span class="nav-label">Create</span>
+        </a>
 
-    <a href="create.html" class="nav-item">
-        <span class="nav-icon">✂</span>
-        <span class="nav-label">Create</span>
-    </a>
-
-    <a href="community.html" class="nav-item">
-        <span class="nav-icon">✧</span>
-        <span class="nav-label">Community</span>
-    </a>
+        <a href="community.html" class="nav-item">
+            <span class="nav-icon" aria-hidden="true">✧</span>
+            <span class="nav-label">Community</span>
+        </a>
 
     </nav>
 
 
-    <script src="adventures.js"></script>
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+
     <script src="explore.js"></script>
 
 </body>
-
 </html>
