@@ -5503,3 +5503,810 @@ textarea:focus,
         transition: none;
     }
 }
+
+
+/* =========================================================
+   COMMUNITY ZINE LIBRARY
+   ========================================================= */
+
+.community-page {
+
+    max-width: none !important;
+    margin: 0;
+    padding: 24px;
+
+    background:
+        linear-gradient(
+            rgba(255, 253, 248, 0.96),
+            rgba(255, 253, 248, 0.96)
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 31px,
+            rgba(88, 76, 60, 0.04) 32px
+        );
+}
+
+
+.community-shell {
+
+    width: min(100%, var(--page-width));
+    margin: 0 auto;
+    padding-bottom: 120px;
+}
+
+
+/* COMMUNITY HEADER */
+
+.community-header {
+
+    overflow: hidden;
+    margin-bottom: 90px;
+
+    background: var(--heritage-blue);
+    color: var(--paper-white);
+
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-medium);
+}
+
+
+.community-header__top {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 30px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.18);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+
+.community-wordmark {
+
+    color: var(--paper-white);
+
+    font-family: var(--serif-display);
+    font-size: 1.45rem;
+    letter-spacing: normal;
+    text-decoration: none;
+    text-transform: none;
+}
+
+
+.community-header__content {
+
+    max-width: 850px;
+    padding: 80px 55px 90px;
+}
+
+
+.community-header__content .section-marker {
+
+    color: var(--goldenrod);
+}
+
+
+.community-header__content h1 {
+
+    max-width: 760px;
+    margin: 14px 0 22px;
+
+    color: var(--paper-white);
+
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    line-height: 0.88;
+}
+
+
+.community-header__intro {
+
+    max-width: 650px;
+    margin-bottom: 26px;
+
+    color: rgba(255, 255, 255, 0.84);
+
+    font-family: var(--serif-text);
+    font-size: 1.16rem;
+    line-height: 1.7;
+}
+
+
+.button--light-outline {
+
+    background: transparent;
+    color: var(--paper-white);
+
+    border-color: rgba(255, 255, 255, 0.72);
+}
+
+
+.button--light-outline:hover {
+
+    background: var(--paper-white);
+    color: var(--heritage-blue);
+}
+
+
+/* SHARED COMMUNITY SECTIONS */
+
+.community-section {
+
+    margin: 100px 0;
+}
+
+
+.community-section__heading {
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+    gap: 50px;
+    align-items: end;
+
+    margin-bottom: 38px;
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.community-section__heading h2 {
+
+    max-width: 700px;
+    margin: 8px 0 0;
+
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 0.98;
+}
+
+
+.community-section__heading > p {
+
+    margin: 0;
+    color: var(--walnut);
+
+    font-family: var(--serif-text);
+    font-size: 1.02rem;
+    line-height: 1.65;
+}
+
+
+/* ZINE CREATION PATHS */
+
+.zine-path-grid {
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+
+.zine-path-card {
+
+    position: relative;
+    overflow: hidden;
+
+    min-height: 560px;
+    padding: 38px;
+
+    background: var(--paper-white);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-small);
+}
+
+
+.zine-path-card--featured {
+
+    background: var(--forest-dark);
+    color: var(--paper-white);
+}
+
+
+.zine-path-card__number {
+
+    margin: 0 0 50px;
+
+    color: var(--goldenrod);
+
+    font-family: var(--serif-display);
+    font-size: 5rem;
+    line-height: 1;
+}
+
+
+.zine-path-card__label,
+.zine-type {
+
+    margin-bottom: 10px;
+
+    color: var(--barn-red);
+
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+
+.zine-path-card--featured .zine-path-card__label {
+
+    color: var(--goldenrod);
+}
+
+
+.zine-path-card h3 {
+
+    max-width: 520px;
+    margin: 0 0 18px;
+
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1;
+}
+
+
+.zine-path-card > p:not(
+    .zine-path-card__number,
+    .zine-path-card__label
+) {
+
+    max-width: 560px;
+    color: var(--walnut);
+
+    font-family: var(--serif-text);
+    font-size: 1.03rem;
+    line-height: 1.65;
+}
+
+
+.zine-path-card--featured >
+p:not(
+    .zine-path-card__number,
+    .zine-path-card__label
+) {
+
+    color: rgba(255, 255, 255, 0.78);
+}
+
+
+.zine-path-list {
+
+    margin: 28px 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.zine-path-list li {
+
+    padding: 11px 0;
+
+    border-bottom:
+        1px solid rgba(68, 59, 48, 0.14);
+
+    font-size: 0.93rem;
+}
+
+
+.zine-path-card--featured .zine-path-list li {
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.14);
+}
+
+
+/* FEATURED COMMUNITY ZINE */
+
+.featured-zine-section {
+
+    display: grid;
+    grid-template-columns:
+        minmax(300px, 0.8fr)
+        minmax(0, 1.2fr);
+
+    overflow: hidden;
+    margin: 110px 0;
+
+    background: var(--antique-paper);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-medium);
+}
+
+
+.featured-zine-cover {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 650px;
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            rgba(68, 42, 66, 0.12),
+            rgba(68, 42, 66, 0.42)
+        ),
+        linear-gradient(
+            135deg,
+            #cf9db7,
+            #825368 60%,
+            #3c3342
+        );
+
+    color: var(--paper-white);
+}
+
+
+.featured-zine-cover__edition {
+
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+
+.featured-zine-cover__content h2 {
+
+    margin: 14px 0;
+
+    color: var(--paper-white);
+
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 0.82;
+}
+
+
+.featured-zine-cover__content > p:first-child,
+.featured-zine-cover__content > span {
+
+    font-size: 0.67rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+
+.featured-zine-cover__subtitle {
+
+    max-width: 350px;
+
+    font-family: var(--serif-text);
+    font-size: 1.08rem;
+}
+
+
+.featured-zine-story {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 60px;
+}
+
+
+.featured-zine-story h2 {
+
+    margin: 10px 0 24px;
+
+    font-size: clamp(2.6rem, 5vw, 4.7rem);
+    line-height: 1;
+}
+
+
+.featured-zine-story blockquote {
+
+    margin: 0 0 28px;
+    padding-left: 24px;
+
+    border-left: 3px solid var(--goldenrod);
+
+    color: var(--walnut);
+
+    font-family: var(--serif-text);
+    font-size: 1.22rem;
+    font-style: italic;
+    line-height: 1.65;
+}
+
+
+.featured-zine-details {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    margin-bottom: 24px;
+}
+
+
+.featured-zine-details span {
+
+    padding: 8px 13px;
+
+    background: rgba(255, 253, 248, 0.8);
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+
+/* ZINE FILTERS */
+
+.zine-filters {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    margin-bottom: 28px;
+}
+
+
+.zine-filter {
+
+    min-height: 42px;
+    padding: 8px 15px;
+
+    background: transparent;
+    color: var(--walnut);
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.zine-filter:hover,
+.zine-filter.is-active {
+
+    background: var(--forest-dark);
+    color: var(--paper-white);
+    border-color: var(--forest-dark);
+}
+
+
+/* COMMUNITY ZINE GRID */
+
+.community-zine-grid {
+
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 26px;
+}
+
+
+.community-zine-card {
+
+    overflow: hidden;
+
+    background: var(--paper-white);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-small);
+
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease;
+}
+
+
+.community-zine-card:hover {
+
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+
+.community-zine-card__cover {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    min-height: 420px;
+    padding: 28px;
+
+    color: var(--paper-white);
+}
+
+
+.community-zine-card__cover span,
+.community-zine-card__cover p {
+
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+
+.community-zine-card__cover h3 {
+
+    margin: 12px 0;
+
+    color: var(--paper-white);
+
+    font-size: clamp(3rem, 6vw, 5.2rem);
+    line-height: 0.87;
+}
+
+
+.cover--alabama {
+
+    background:
+        linear-gradient(
+            rgba(24, 51, 39, 0.12),
+            rgba(24, 51, 39, 0.78)
+        ),
+        linear-gradient(
+            145deg,
+            #96ad7e,
+            #466449 55%,
+            #21372e
+        );
+}
+
+
+.cover--dolly {
+
+    background:
+        linear-gradient(
+            rgba(88, 40, 65, 0.08),
+            rgba(88, 40, 65, 0.72)
+        ),
+        linear-gradient(
+            145deg,
+            #edb6c9,
+            #a46681 55%,
+            #563144
+        );
+}
+
+
+.cover--ozarks {
+
+    background:
+        linear-gradient(
+            rgba(37, 58, 73, 0.06),
+            rgba(37, 58, 73, 0.76)
+        ),
+        linear-gradient(
+            145deg,
+            #8fb8ba,
+            #436b70 55%,
+            #273f48
+        );
+}
+
+
+.cover--camper {
+
+    background:
+        linear-gradient(
+            rgba(104, 63, 37, 0.06),
+            rgba(104, 63, 37, 0.72)
+        ),
+        linear-gradient(
+            145deg,
+            #d5b180,
+            #9c704a 55%,
+            #5f402d
+        );
+}
+
+
+.community-zine-card__details {
+
+    padding: 26px;
+}
+
+
+.community-zine-card__details h3 {
+
+    margin: 8px 0 12px;
+
+    font-size: 1.55rem;
+    line-height: 1.15;
+}
+
+
+.community-zine-card__details > p:not(.zine-type) {
+
+    color: var(--walnut);
+    font-size: 0.86rem;
+}
+
+
+.community-zine-card__details a {
+
+    display: inline-block;
+    margin-top: 12px;
+
+    color: var(--forest-dark);
+
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+
+/* FINAL INVITATION */
+
+.community-invitation {
+
+    max-width: 850px;
+    margin: 125px auto 90px;
+
+    text-align: center;
+}
+
+
+.community-invitation h2 {
+
+    margin: 10px 0 18px;
+
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.95;
+}
+
+
+.community-invitation > p:not(.section-marker) {
+
+    max-width: 630px;
+    margin: 0 auto 24px;
+
+    color: var(--walnut);
+
+    font-family: var(--serif-text);
+    font-size: 1.08rem;
+    line-height: 1.65;
+}
+
+
+.community-footer {
+
+    margin: 0 !important;
+    padding: 38px 10px 12px;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+}
+
+
+.community-footer strong {
+
+    font-family: var(--serif-display);
+    font-size: 1.45rem;
+}
+
+
+.community-footer p {
+
+    color: var(--walnut);
+    font-size: 0.8rem;
+}
+
+
+/* COMMUNITY TABLET */
+
+@media (max-width: 900px) {
+
+    .community-section__heading,
+    .featured-zine-section {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .featured-zine-cover {
+
+        min-height: 540px;
+    }
+
+
+    .community-section__heading {
+
+        gap: 15px;
+    }
+
+}
+
+
+/* COMMUNITY MOBILE */
+
+@media (max-width: 650px) {
+
+    .community-page {
+
+        padding: 13px;
+    }
+
+
+    .community-header__top {
+
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+
+        padding: 18px 20px;
+    }
+
+
+    .community-header__content {
+
+        padding: 55px 25px 65px;
+    }
+
+
+    .community-header__content h1 {
+
+        font-size: clamp(3.4rem, 17vw, 5.1rem);
+    }
+
+
+    .community-section {
+
+        margin: 75px 0;
+    }
+
+
+    .zine-path-grid,
+    .community-zine-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .zine-path-card {
+
+        min-height: auto;
+        padding: 28px 24px;
+    }
+
+
+    .zine-path-card__number {
+
+        margin-bottom: 30px;
+    }
+
+
+    .featured-zine-story {
+
+        padding: 38px 25px;
+    }
+
+
+    .community-zine-card__cover {
+
+        min-height: 370px;
+    }
+
+}
