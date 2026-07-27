@@ -1,7 +1,4 @@
-{
-    id: "alabama",
 
-    title: "Alabama Scenic Byway",
 {
     id: "alabama",
 
