@@ -1,6 +1,6 @@
 const adventures = [
     {
-        id: "alabama",
+        id: "alabama-scenic-byway",
 
         title: "Alabama Scenic Byway",
 
