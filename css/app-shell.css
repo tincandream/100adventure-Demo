@@ -264,18 +264,6 @@ body.app-page {
     box-shadow: var(--focus-ring);
 }
 
-.toolbar-button:hover {
-    background: var(--forest-dark);
-    color: var(--paper-white);
-    border-color: var(--forest-dark);
-    transform: translateY(-1px);
-}
-
-.toolbar-button:focus-visible {
-    outline: none;
-    box-shadow: var(--focus-ring);
-}
-
 
 .toolbar-button svg,
 .toolbar-button i {
