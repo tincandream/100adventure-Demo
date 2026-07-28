@@ -32,3 +32,32 @@ Makes the adventure data available to app.js.
 */
 window.adventures = adventures;
 window.ADVENTURES = adventures;
+
+const ADVENTURES = {
+    AL: [
+        {
+            id: "talladega-scenic-byway",
+            title: "Talladega Scenic Byway",
+            region: "southeast",
+            status: "featured"
+        }
+    ],
+
+    TN: [
+        {
+            id: "dolly-country-road-trip",
+            title: "Dolly Country Road Trip",
+            region: "southeast",
+            status: "featured"
+        }
+    ],
+
+    AR: [
+        {
+            id: "ozark-americana",
+            title: "Ozark Americana",
+            region: "southeast",
+            status: "coming-soon"
+        }
+    ]
+};
