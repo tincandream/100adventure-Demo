@@ -12,7 +12,7 @@
 
     --toolbar-height: 72px;
     --bottom-nav-height: 78px;
-    --shell-width: 1180px;
+   --content-width: 1180px;
     --shell-gutter: clamp(14px, 3vw, 28px);
 
     --shell-background: rgba(247, 247, 242, 0.95);
