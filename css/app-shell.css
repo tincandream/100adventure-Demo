@@ -275,3 +275,17 @@ body.app-page {
     outline: none;
     box-shadow: var(--focus-ring);
 }
+
+
+.toolbar-button svg,
+.toolbar-button i {
+    width: 18px;
+    height: 18px;
+
+    flex-shrink: 0;
+}
+
+.toolbar-button--icon {
+    width: 42px;
+    padding: 0;
+}
