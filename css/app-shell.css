@@ -289,3 +289,131 @@ body.app-page {
     width: 42px;
     padding: 0;
 }
+
+
+/* =========================================================
+   BOTTOM NAVIGATION
+   ========================================================= */
+
+.app-nav {
+    position: fixed;
+    z-index: 1200;
+
+    left: 50%;
+    bottom: max(14px, env(safe-area-inset-bottom));
+
+    transform: translateX(-50%);
+
+    width: min(calc(100% - 24px), 760px);
+
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    padding: 8px;
+
+    background: var(--nav-background);
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    box-shadow:
+        0 18px 45px rgba(45, 51, 64, 0.14);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.app-nav__link {
+    position: relative;
+
+    min-height: 60px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 4px;
+
+    color: var(--walnut);
+
+    border-radius: 16px;
+
+    text-decoration: none;
+
+    transition:
+        background .18s ease,
+        color .18s ease,
+        transform .18s ease;
+}
+
+.app-nav__icon{
+    font-size:1.2rem;
+    line-height:1;
+}
+
+.app-nav__label{
+    font-size:.68rem;
+    font-weight:700;
+    letter-spacing:.04em;
+}
+
+.app-nav__link:hover{
+    background:var(--antique-paper);
+    color:var(--forest-dark);
+    transform:translateY(-2px);
+}
+
+.app-nav__link--active{
+    background:var(--forest-dark);
+    color:var(--paper-white);
+}
+
+.app-nav__link--active::before{
+    content:"";
+
+    position:absolute;
+
+    top:8px;
+    left:50%;
+
+    width:6px;
+    height:6px;
+
+    transform:translateX(-50%);
+
+    background:var(--goldenrod);
+
+    border-radius:50%;
+}
+
+.app-nav__link:focus-visible{
+    outline:none;
+    box-shadow:var(--focus-ring);
+}
+
+@media (max-width:700px){
+
+    .app-nav{
+
+        width:calc(100% - 12px);
+
+        bottom:max(8px, env(safe-area-inset-bottom));
+
+        padding:6px;
+
+        border-radius:18px;
+    }
+
+    .app-nav__label{
+
+        font-size:.56rem;
+    }
+
+    .app-nav__icon{
+
+        font-size:1rem;
+    }
+
+}
