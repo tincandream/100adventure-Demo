@@ -1,0 +1,226 @@
+/* =========================================================
+   100 ADVENTURE
+   UNIFIED APPLICATION SHELL
+   ========================================================= */
+
+:root {
+    --region-southeast: #7e664a;
+    --region-southwest: #c17b43;
+    --region-midwest: #b99e5c;
+    --region-northeast: #4f7c8d;
+    --region-west: #7e8f7e;
+
+    --toolbar-height: 72px;
+    --bottom-nav-height: 78px;
+    --shell-width: 1180px;
+    --shell-gutter: clamp(14px, 3vw, 28px);
+
+    --shell-background: rgba(247, 247, 242, 0.95);
+    --nav-background: rgba(248, 243, 232, 0.97);
+    --focus-ring: 0 0 0 3px rgba(79, 124, 141, 0.25);
+}
+
+
+/* =========================================================
+   REGIONAL ACCENTS
+   ========================================================= */
+
+.region-southeast {
+    --region-accent: var(--region-southeast);
+}
+
+.region-southwest {
+    --region-accent: var(--region-southwest);
+}
+
+.region-midwest {
+    --region-accent: var(--region-midwest);
+}
+
+.region-northeast {
+    --region-accent: var(--region-northeast);
+}
+
+.region-west {
+    --region-accent: var(--region-west);
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.skip-link {
+    position: fixed;
+    z-index: 2000;
+    top: 10px;
+    left: 10px;
+
+    padding: 10px 15px;
+
+    background: var(--forest-dark);
+    color: var(--paper-white);
+
+    border-radius: var(--radius-small);
+
+    text-decoration: none;
+
+    transform: translateY(-160%);
+    transition: transform 150ms ease;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   PAGE SHELL
+   ========================================================= */
+
+body.app-page {
+    min-height: 100dvh;
+    max-width: none;
+    margin: 0;
+
+    padding:
+        calc(var(--toolbar-height) + 28px)
+        var(--shell-gutter)
+        calc(
+            var(--bottom-nav-height)
+            + env(safe-area-inset-bottom)
+            + 36px
+        );
+}
+
+.app-shell,
+.app-main {
+    width: min(100%, var(--shell-width));
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   TOP TOOLBAR
+   ========================================================= */
+
+.app-toolbar {
+    position: fixed;
+    z-index: 1100;
+
+    top: 0;
+    right: 0;
+    left: 0;
+
+    min-height: var(--toolbar-height);
+
+    padding:
+        env(safe-area-inset-top)
+        var(--shell-gutter)
+        0;
+
+    background: var(--shell-background);
+
+    border-bottom: 1px solid var(--border);
+
+    box-shadow:
+        0 7px 25px rgba(45, 51, 64, 0.07);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.app-toolbar__inner {
+    width: min(100%, var(--shell-width));
+    min-height: var(--toolbar-height);
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-inline: auto;
+}
+
+.app-toolbar__brand {
+    min-width: 0;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 11px;
+
+    color: var(--printers-black);
+
+    text-decoration: none;
+}
+
+.app-toolbar__mark {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 auto;
+
+    border: 1px solid var(--forest-dark);
+    border-radius: 50%;
+
+    font-family: var(--serif-display);
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.app-toolbar__wordmark {
+    display: block;
+
+    overflow: hidden;
+
+    font-family: var(--serif-display);
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+
+    letter-spacing: -0.04em;
+    line-height: 1;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.app-toolbar__edition {
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--walnut);
+
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+    line-height: 1;
+
+    text-transform: uppercase;
+}
+
+.app-toolbar__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 8px;
+}
+
+.toolbar-button {
+    min-width: 42px;
+    min-height: 42px;
+
+    display: inline-grid;
+    place-items: center;
+
+    padding: 8px 13px;
+
+    background: ​:contentReference[oaicite:1]{index=1}​
