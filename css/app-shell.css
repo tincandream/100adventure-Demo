@@ -252,38 +252,16 @@ body.app-page {
         transform 150ms ease;
 }
 
-.toolbar-button {
-    min-width: 42px;
-    min-height: 42px;
+.toolbar-button:hover {
+    background: var(--forest-dark);
+    color: var(--paper-white);
+    border-color: var(--forest-dark);
+    transform: translateY(-1px);
+}
 
-    display: inline-grid;
-    place-items: center;
-
-    padding: 8px 13px;
-
-    background: transparent;
-    color: var(--printers-black);
-
-    border: 1px solid var(--border);
-    border-radius: 999px;
-
-    font-family: var(--sans);
-    font-size: 0.72rem;
-    font-weight: 700;
-
-    letter-spacing: 0.06em;
-    line-height: 1;
-
-    text-decoration: none;
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    transition:
-        background 150ms ease,
-        color 150ms ease,
-        border-color 150ms ease,
-        transform 150ms ease;
+.toolbar-button:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
 }
 
 .toolbar-button:hover {
