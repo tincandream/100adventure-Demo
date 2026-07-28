@@ -28,3 +28,12 @@ const REGIONS = {
         "AK", "HI"
     ]
 };
+
+
+const REGION_COLORS = {
+    southeast: "#7E664A",
+    southwest: "#C17B43",
+    midwest: "#B99E5C",
+    northeast: "#4F7C8D",
+    west: "#7E8F7E"
+};
